@@ -1,0 +1,397 @@
+/*** FANCYBOX.COM
+     Created: Oct. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+
+                | RESET
+                | FONT FACE (not minified, to prevent some issues)
+                | BASE
+    FRAMEWORK   | GRID
+                > WIDGETS <
+                | HELPERS
+
+    THEME       | PAGES
+                | SPRITES
+                | THEMES
+
+    RESPONSIVE  | MEDIA QUERIES (Load the last!)
+
+*************************************************************************/
+
+/* WIDGETS
+-------------------------------------------------------------------------
+ * Widgets: Reusable widgets across projects (menus, tabs, buttons,
+   forms...).
+------------------------------------------------------------------------*/
+
+/*** The Media Object ***/
+/* http://www.stubbornella.org/content/2010/06/25/the-media-object-saves-hundreds-of-lines-of-code/ */
+/*.media, .mediaBd {
+    overflow:hidden;
+}
+
+.media .mediaImgL {
+    float:left;
+    margin-right:10px;
+}
+
+.media .mediaImgR {
+    float:right;
+    margin-left:10px;
+}
+
+.media .mediaImg {
+    display:block;
+}*/
+
+/* CSS3 Dropdown Menu.
+ * http://webdesignerwall.com/tutorials/css3-dropdown-menu
+ * Basic structure only (available skins in '006_pages.css')
+ */
+/*.dropdownNav {}*/
+.dropdownNav li {
+    float:left;
+    position:relative;
+    list-style:none;
+}
+/*main level link*/
+.dropdownNav a {
+    display:block;
+}
+/*level 2 list*/
+.dropdownNav ul {
+    display:none;
+    position:absolute;
+    z-index:100;
+}
+/*dropdown*/
+.dropdownNav li:hover > ul {
+    display:block;
+}
+.dropdownNav ul li {
+    float:none;
+}
+/*clearfix*/
+.dropdownNav:after {
+    content:".";
+    display:block;
+    clear:both;
+    visibility:hidden;
+    line-height:0;
+    height:0;
+}
+.dropdownNav {
+    display:inline-block;
+}
+/*html[xmlns] .dropdownNav {
+    display:block;
+}
+* html .dropdownNav {
+    height:1%;
+}*/
+
+/*** CSS3 Transitions, Transforms & Animations ***/
+/*.animRotate360 {
+    -webkit-animation-name:spin;
+    -webkit-animation-iteration-count:infinite;
+    -webkit-animation-timing-function:linear;
+    -webkit-animation-duration:1.5s;
+       -moz-animation-name:spin;
+       -moz-animation-iteration-count:infinite;
+       -moz-animation-timing-function:linear;
+       -moz-animation-duration:1.5s;
+        -ms-animation-name:spin;
+        -ms-animation-iteration-count:infinite;
+        -ms-animation-timing-function:linear;
+        -ms-animation-duration:1.5s;
+         -o-animation-name:spin;
+         -o-animation-iteration-count:infinite;
+         -o-animation-timing-function:linear;
+         -o-animation-duration:1.5s;
+            animation-name:spin;
+            animation-iteration-count:infinite;
+            animation-timing-function:linear;
+            animation-duration:1.5s;
+}
+
+@-webkit-keyframes spin {
+    from    {-webkit-transform:rotate(0deg);}
+    to      {-webkit-transform:rotate(360deg);}
+}
+@-moz-keyframes spin {
+    from    {-moz-transform:rotate(0deg);}
+    to      {-moz-transform:rotate(360deg);}
+}
+@-ms-keyframes spin {
+    from    {-ms-transform:rotate(0deg);}
+    to      {-ms-transform:rotate(360deg);}
+}
+@-o-keyframes spin {
+    from    {-o-transform:rotate(0deg);}
+    to      {-o-transform:rotate(360deg);}
+}
+@keyframes spin {
+    from    {transform:rotate(0deg);}
+    to      {transform:rotate(360deg);}
+}*/
+
+/*** AddThis Button ***/
+/* Removing annoying padding from "Send to email" button */
+.addthis_default_style .at300b {
+    padding:0!important;
+}
+/* Stylizing H3 inside AddThis modal box (hiding HR background image) */
+h3#at3winheadermsg {
+    font:inherit;
+    background:none;
+}
+/* Can't stylize blue button because it's inside an iframe :( */
+/*.btn-blue {}
+.btn-blue:hover {}*/
+
+/*** FlexSlider (overwriten styles from 'flexslider.css') ***/
+/* Theme */
+body .flexslider {margin:0; background:#000; border:none; position:relative; -webkit-border-radius:0; -moz-border-radius:0; -o-border-radius:0; border-radius:0; box-shadow:none; -webkit-box-shadow:none; -moz-box-shadow:none; -o-box-shadow:none; zoom:1;}
+body .flex-viewport {max-height:2000px; -webkit-transition:all 1s ease; -moz-transition:all 1s ease; transition:all 1s ease;}
+body .loading .flex-viewport {max-height:300px;}
+body .flexslider .slides {zoom:1;}
+body .carousel li {margin-right:0;}
+
+/* Control Nav */
+body .flex-control-paging li a {background:#a08a8f; box-shadow:none;}
+body .flex-control-paging li a:hover {background:#9e5c7f;}
+body .flex-control-paging li a.flex-active {background:#c11d7f;}
+
+/* Disable opacity image effect */
+body .flexslider .slides a:hover img {
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+/* Prevent initial reflow */
+body .flexslider {
+    max-height:80px;
+    overflow:hidden;
+}
+
+/*** Item Amount Handler (increments/decrements item's amount) ***/
+.itemAmountHandler {
+    float:right;
+    overflow:hidden; /* clear of floats */
+}
+.lt-ie8 .itemAmountHandler {
+    float:none;
+}
+.itemAmountHandler span,
+.itemAmountHandler input.amount {
+    display:block;
+    float:left;
+}
+.itemAmountHandler input.amount {
+    width:25px;
+    padding:2px 0;
+    margin-top:0;
+    text-align:right;
+    border:none;
+    background:none;
+}
+.itemAmountHandler span.handler {
+    width:9px;
+    margin-left:8px;
+    line-height:0;
+}
+
+/*** Navigation List Types ***/
+/* Navigation List (Normal) */
+/*.navList li {
+    display:inline;
+}*/
+/* Navigation List (Dots) */
+.navListDots li {
+    display:inline;
+    padding-left:4px;
+    padding-top:0!important;
+}
+.navListDots li:before {
+    content:'• ';
+    color:#c11d7f;
+}
+.navListDots li:first-child {
+    padding-left:0;
+}
+.navListDots li:first-child:before {
+    content:'';
+    content:none;
+}
+.skinNavListDots1 {
+    font-size:12px;
+    color:#595959;
+}
+
+/*** Dynamic Centering ***/
+.js-dynamic-centering {
+    position:absolute;
+    left:50%;
+    top:50%;
+}
+
+/* Styling an input type="file"
+ * From: http://www.quirksmode.org/dom/inputfile.html
+ */
+form div.fileInputs {
+    position:relative;
+    width:0;
+}
+form div.fileInputs input {
+    border:none;
+    cursor:pointer;
+}
+form div.fileInputs input:focus {
+    background-color:transparent;
+}
+form div.fileInputs input.file {
+    margin:0;
+}
+form div.fileInputs input.file.hide {
+    position:relative;
+    text-align:right;
+    opacity:0;
+    filter:alpha(opacity:0);
+    z-index:2;
+}
+form div.fileInputs div.fakeFile {
+    position:absolute;
+    top:0px;
+    left:0px;
+    padding:0;
+    margin:0;
+    line-height:90%;
+    z-index:1;
+}
+/*Skin 1*/
+form div.skinFileInputs1 {
+    height:42px;
+    margin-top:54px;
+}
+form div.skinFileInputs1 input {
+    width:400px;
+    height:42px;
+    padding-left:10px;
+    /*Background image setted in "007_sprites.css"*/
+}
+form div.skinFileInputs1 input.file,
+form div.skinFileInputs1 div.fakeFile {
+    width:570px;
+}
+
+/* Float input checkbox and radio button */
+.floatedInput {
+    overflow:hidden; /* clear of floats */
+}
+.floatedInput input[type="checkbox"],
+.floatedInput input[type="radio"] {
+    display:block;
+    float:left;
+    margin:3px 3% 0 0;
+}
+.floatedInput label {
+    display:block!important;
+    float:left!important;
+    padding-right: 0!important;
+    width:90%!important;
+}
+
+/*** Custom Dialog (modal window) ***/
+#modal-back-layer {
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    z-index:9999;
+    overflow:auto;
+    background:rgb(0,0,0); /* fallback */
+    background:rgba(0,0,0,.7);
+}
+#modal-back-layer .layer {
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:1085px;
+    height:548px;
+    margin-left:-542px;
+    margin-top:-274px;
+    background:url(../img/themes/woman/popup_bg_01.jpg) no-repeat 423px top #fff;
+    z-index:100;
+}
+#modal-back-layer .wrapper {
+    padding:30px;
+    height:488px; /* dialog-container(height)-content(padding) -> 548-60=488px */
+    overflow:hidden;
+}
+#js-popup-close-trigger {
+    float:right;
+}
+#js-popup-close-trigger,
+#js-popup-close-trigger img {
+    display:block;
+}
+/* Content */
+#modal-back-layer .content {
+    clear:both;
+    padding-left:5%;
+}
+#modal-back-layer .content.thanks .headingComposed {
+    padding:175px 0 30px;
+}
+#modal-back-layer .content.thanks .headingComposed .secondary {
+    font-size:21px;
+    line-height:21px;
+    padding-top:5px;
+}
+#modal-back-layer .content.thanks .description {
+    width:45%;
+}
+#modal-back-layer .content.thanks .outstanding {
+    font:normal 22px/25px 'Walbaum W01 Bold Italic';
+    color:#c11d7f;
+    padding-bottom:35px;
+}
+#modal-back-layer .content.callToAction .headingComposed {
+    padding:7px 0 40px;
+}
+#modal-back-layer .content.callToAction .description {
+    width:38%;
+}
+#modal-back-layer .content.callToAction .outstanding {
+    font:normal 20px/23px 'Walbaum W01 Bold Italic';
+    color:#362e33;
+    padding-bottom:35px;
+}
+
+/*** Banners ***/
+.banner {
+    margin-bottom:20px;
+    overflow:hidden;
+}
+/*Skin Banner Get Points*/
+.skinBannerGetPoints {
+    height:234px;
+    background:url(../img/themes/woman/fancybox_get_points.jpg) no-repeat right center;
+}
+.skinBannerGetPoints p {
+    width:68%;
+    text-align:center;
+    padding-bottom:0;
+    background:rgb(255,255,255); /* fallback */
+    background:rgba(255,255,255,.9);
+}
+.skinBannerGetPoints .caption {
+    font:normal 32px/32px 'Walbaum W02 Bold';
+    color:#000;
+    text-transform:uppercase;
+    padding-top:75px;
+}
+.skinBannerGetPoints .action {
+    padding-top:15px;
+}

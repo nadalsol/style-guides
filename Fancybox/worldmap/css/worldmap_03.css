@@ -1,0 +1,233 @@
+/*** FANCYBOX.COM
+     Created: Nov. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+    
+    Country Selection Page Styles.
+    All classes with "mp-" (world map) prefix.
+
+*************************************************************************/
+
+/* BASE
+------------------------------------------------------------------------*/
+/*** Html ***/
+html {
+    background: #fff url(../img/bg_worldmap_01.png) no-repeat center 154px;
+}
+body {
+    padding: 45px 0;
+}
+
+/*** Header ***/
+.wm-header img {
+    display: block;
+    margin: 0 auto;
+}
+.wm-header h1 {
+    font: normal 16px/16px 'Walbaum W01 Bold Italic';
+    color: #000;
+    text-align: center;
+    margin: 0;
+    padding: 25px 0 0;
+}
+
+
+/* HELPERS
+------------------------------------------------------------------------*/
+/*** Micro clearfix ***/
+/*.clearfix:before, .clearfix:after {content:""; display:table;}
+.clearfix:after {clear:both;}
+.clearfix {zoom:1;} *For IE 6/7 (trigger hasLayout)*/
+
+
+/* SPRITES
+------------------------------------------------------------------------*/
+/*** Worldmap Sprite ***/
+.sWorldmap {background:url(../img/sprite_worldmap_03.png) no-repeat;}
+
+/*
+.flagAr            {background-position:0 0;}      *60x75*
+.flagCo            {background-position:-100px 0;} *60x75*
+.flagMx            {background-position:-200px 0;} *60x75*
+.flagCl            {background-position:-300px 0;} *60x75*
+.flagPe            {background-position:-400px 0;} *60x75*
+.flagUy            {background-position:-500px 0;} *60x75*
+*/
+.productMan        {background-position:0 0;}      /*160x41*/
+.productBaby       {background-position:-195px 0;} /*160x41*/
+.productWoman      {background-position:-390px 0;} /*160x41*/
+.productGourmet    {background-position:-585px 0;} /*160x41*/
+.productWedding    {background-position:-780px 0;} /*160x41*/
+
+
+/* PAGES
+------------------------------------------------------------------------*/
+/*** Country Selector ***/
+.wm-country-selector {
+    width: 100%;
+    padding-top: 104px;
+}
+.wm-country-selector p {
+    font:normal 24px/24px 'Century Gothic W01';
+    color: #000;
+    text-align: center;
+    text-transform: uppercase;
+    padding-bottom: 0;
+}
+.wm-country-selector ul {
+    font:normal 14px/65px 'Century Gothic W01';
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    height: 65px;
+    margin-top: 20px;
+    background: #000;
+}
+.wm-country-selector li {
+    display: inline-block;
+    padding: 0 25px;
+}
+.wm-country-selector li a {
+    display: block;
+    color: #fff;
+    -webkit-transition:.25s ease-in;
+       -moz-transition:.25s ease-in;
+            transition:.25s ease-in;
+}
+.wm-country-selector li a:hover {
+    color: #c11d7f;
+}
+
+/*** Sample Box ***/
+.wm-sample-box {
+    padding-top: 40px;
+}
+.wm-sample-box img {
+    margin: 0 auto;
+}
+
+/*** Product Line Selector ***/
+.wm-product-line-selector {
+    padding-top: 30px;
+}
+.wm-product-line-selector li:first-child {
+    margin-left: 0;
+}
+.wm-product-line-selector li {
+    float: left;
+    width: 17.02127659574468%; /*160px*/
+    margin-left: 3.72340425531915%; /*35px*/
+}
+/* IE6/7 width hack added to fix Sub-pixel Rounding */
+.lt-ie8 .wm-product-line-selector li {
+    width: 160px;
+    margin-left: 35px;
+}
+.wm-product-line-selector li img {
+    display: block;
+}
+
+
+/* MEDIA QUERIES
+------------------------------------------------------------------------*/
+/*** Mobile *************************************************************
+*************************************************************************/
+@media screen and (max-device-width:480px), screen and (max-width:600px) {
+    /*** Base *******************************************************/
+    /*** Disable iOS/WinMobile font size changes ***/
+    html {
+        -ms-text-size-adjust: none;
+        -webkit-text-size-adjust: none;
+        background: #fff;
+    }
+    body {
+        padding: 30px 0 0;
+    }
+
+    /*** Header ***/
+    .wm-header h1 {
+        padding: 15px 0 0;
+    }
+
+    /*** Grid Fluid *************************************************/
+    .container_16 .grid_1,
+    .container_16 .grid_2,
+    .container_16 .grid_3,
+    .container_16 .grid_4,
+    .container_16 .grid_5,
+    .container_16 .grid_6,
+    .container_16 .grid_7,
+    .container_16 .grid_8,
+    .container_16 .grid_9,
+    .container_16 .grid_10,
+    .container_16 .grid_11,
+    .container_16 .grid_12,
+    .container_16 .grid_13,
+    .container_16 .grid_14,
+    .container_16 .grid_15,
+    .container_16 .grid_16,
+    .container_16 .grid_full {
+        display: block;
+        float: none;
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+    }
+
+    /*** Helpers*****************************************************/
+    /*** Hide element (Media Query only class) ***/
+    .mqHide {
+        display:none!important;
+    }
+
+    /*** Pages ******************************************************/
+    /*** Country Selector ***/
+    .wm-country-selector {
+        width: 90%;
+        margin-left: 5%;
+        margin-right: 5%;
+        padding-top: 30px;
+    }
+    .wm-country-selector p {
+        font-size: 18px;
+        line-height: 18px;
+    }
+    .wm-country-selector ul {
+        line-height: 45px;
+        height: auto;
+        margin-top: 10px;
+    }
+    .wm-country-selector li {
+        display: block;
+        padding: 0;
+        border-bottom: 2px solid #fff;
+    }
+    .wm-country-selector li a:hover {
+        color: #fff;
+        background-color: #c11d7f;
+    }
+
+    /*** Sample Box ***/
+    .wm-sample-box {
+        display: none!important;
+    }
+
+    /*** Product Line Selector ***/
+    .wm-product-line-selector {
+        display: none!important;
+    }
+    /*.wm-product-line-selector {
+        padding-top: 25px;
+    }
+    .wm-product-line-selector li:first-child,
+    .wm-product-line-selector li,
+    .lt-ie8 .wm-product-line-selector li {
+        float: none;
+        width: 100%;
+        margin: 0 0 20px;
+    }
+    .wm-product-line-selector li img {
+        margin: 0 auto;
+    }*/
+}

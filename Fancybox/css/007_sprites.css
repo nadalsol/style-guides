@@ -1,0 +1,130 @@
+/*** FANCYBOX.COM
+     Created: Oct. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+
+                | RESET
+                | FONT FACE (not minified, to prevent some issues)
+                | BASE
+    FRAMEWORK   | GRID
+                | WIDGETS
+                | HELPERS
+
+    THEME       | PAGES
+                > SPRITES <
+                | THEMES
+
+    RESPONSIVE  | MEDIA QUERIES (Load the last!)
+
+*************************************************************************/
+
+/* SPRITES
+-------------------------------------------------------------------------
+ * Sprites: CSS sprites.
+ * Always change te file name number on every sprite update, to force
+   the CDN to serve a new image.
+ * Changes in the general sprite, usually implies changes in
+   themes sprites!
+------------------------------------------------------------------------*/
+/*** General Sprite ***/
+.s,
+form div.skinFileInputs1 input {
+    background:url(../img/themes/woman/sprite_fancybox_13.png) no-repeat;
+}
+
+/* row1 */
+.socFacebook                    {background-position:    0        0;  }     /*15x15*/
+a:hover .socFacebook,
+.socFacebookOver                {background-position:  -50px      0;  }     /*15x15*/
+.socTwitter                     {background-position: -100px      0;  }     /*15x15*/
+a:hover .socTwitter,
+.socTwitterOver                 {background-position: -150px      0;  }     /*15x15*/
+.socPinterest                   {background-position: -200px      0;  }     /*15x15*/
+a:hover .socPinterest,
+.socPinterestOver               {background-position: -250px      0;  }     /*15x15*/
+.socEmail                       {background-position: -300px      0;  }     /*15x15*/
+a:hover .socEmail,
+.socEmailOver                   {background-position: -350px      0;  }     /*15x15*/
+.countrySwitch {
+                                background-position:  -400px      0;
+                                vertical-align:middle;
+                                margin-right:5px;
+}                                                                           /*15x15*/
+.arrowGray                      {background-position: -450px      0;  }     /*16x44*/
+.shareProduct {
+                                background-position:  -500px      0;
+                                vertical-align:text-bottom;
+}                                                                           /*10x9*/
+.valueProduct                   {background-position: -550px      0;  }     /*9x7*/
+.arrowDownBlack                 {background-position: -600px      0;  }     /*34x12*/
+.arrowDownPink,
+.active .arrowDownBlack         {background-position: -650px      0;  }     /*34x12*/
+.incrementItem                  {background-position: -700px      0;  }     /*9x9*/
+.decrementItem                  {background-position: -750px      0;  }     /*9x9*/
+.removeItem                     {background-position: -800px      0;  }     /*17x20*/
+.closeWindow                    {background-position: -850px      0;  }     /*22x33*/
+.new-category-woman             {background-position: -900px      0;  }     /*56x20*/
+.new-category-man               {background-position:-1000px      0;  }     /*56x20*/
+.new-category-baby              {background-position:-1100px      0;  }     /*56x20*/
+
+/* row2 (Partners) */
+form div.skinFileInputs1 input  {background-position: -850px    -50px;}     /*400x42*/
+
+/* row3 (Partners) */
+.brandWaymag                    {background-position:    0     -100px;}     /*118x62*/
+.brandCosmopolitan              {background-position: -150px   -100px;}     /*150x62*/
+.brandPramer                    {background-position: -350px   -100px;}     /*66x62*/
+
+/* row4 (Argentina) */
+.brandTotalMedios               {background-position:    0     -200px;}     /*150x45*/
+.brandWaymagGrey                {background-position: -200px   -200px;}     /*145x45*/
+.brandNeutronico                {background-position: -400px   -200px;}     /*150x45*/
+.brandPulsoSocial               {background-position: -600px   -200px;}     /*150x45*/
+.brandEntreMujeres              {background-position: -800px   -200px;}     /*150x45*/
+
+/* row5 (Chile) */
+.brandEmol                      {background-position:    0     -300px;}     /*92x45*/
+.brandLaTercera                 {background-position: -150px   -300px;}     /*157x45*/
+.brandMujer                     {background-position: -350px   -300px;}     /*100x45*/
+.brandTheNextWeb                {background-position: -500px   -300px;}     /*84x45*/
+
+/*** Compromise Sprite ***/
+.sCompromise {
+    background:url(../img/themes/woman/sprite_fancybox_compromise_01.png) no-repeat;
+}
+
+.compromiseLeadership           {background-position:    0        0;  }     /*58x52*/
+.compromiseExperience           {background-position:    0     -100px;}     /*76x58*/
+.compromiseQuality              {background-position:    0     -200px;}     /*72x62*/
+.compromiseService              {background-position:    0     -300px;}     /*65x55*/
+
+/*** Checkout Sprite ***/
+.sCheckout {
+    background:url(../img/themes/woman/sprite_fancybox_checkout_00.png) no-repeat;
+}
+
+/* row1 */
+.paymentBrand01                 {background-position:    0        0;  }     /*46x27*/
+.paymentBrand02                 {background-position:  -50px      0;  }     /*47x27*/
+.paymentBrand03                 {background-position: -100px      0;  }     /*29x27*/
+.paymentBrand04                 {background-position: -150px      0;  }     /*47x27*/
+.paymentBrand05                 {background-position: -200px      0;  }     /*27x27*/
+.paymentBrand06                 {background-position: -250px      0;  }     /*35x27*/
+
+/* row2 */
+.paymentBrand10                 {background-position:    0      -50px;}     /*60x16*/
+
+/* row3 */
+.paymentBrand20                 {background-position:    0     -100px;}     /*29x23*/
+.paymentBrand21                 {background-position:  -50px   -100px;}     /*37x23*/
+.paymentBrand22                 {background-position: -100px   -100px;}     /*37x23*/
+.paymentBrand23                 {background-position: -150px   -100px;}     /*37x23*/
+.paymentBrand24                 {background-position: -200px   -100px;}     /*43x23*/
+
+/* row4 */
+.paymentBrand30                 {background-position:    0     -150px;}     /*59x23*/
+
+/* row5 */
+.secureBrandThawte              {background-position:    0     -200px;}     /*127x28*/
+.secureBrandEConfianza          {background-position: -150px   -200px;}     /*99x28*/

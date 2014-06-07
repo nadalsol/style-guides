@@ -1,0 +1,164 @@
+/*** FANCYBOX.COM
+     Created: Nov. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+    
+    Country Selection Page Styles (Worldmap)
+
+*************************************************************************/
+
+/* BASE
+------------------------------------------------------------------------*/
+/*** Html ***/
+html {
+    padding-top:78px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAZACAYAAAC4wSh6AAAAN0lEQVRYw+3WsQ0AIBADsey/dGAJkHjcWOnTXJI0h2n3wFc4HgAADKybF1P3Ru4DAAAAAAAAU1i488fFdJlfEQAAAABJRU5ErkJggg==) repeat-x center top; /* data uri */
+}
+html.lt-ie8 {
+    background-image:url(../img/bg_one_stripe_1x1600.png); /* ie7 doesn't support data uri */
+}
+
+/*** Headings ***/
+h1.countryTitle {
+    font:normal 24px/28px 'Walbaum W01 Bold Italic';
+    font-size:2.4rem;
+    line-height:2.8rem;
+    color:#362e33;
+    padding:53px 0 0 0;
+}
+
+
+/* HELPERS
+------------------------------------------------------------------------*/
+/*** Micro clearfix ***/
+/*.clearfix:before, .clearfix:after {content:""; display:table;}
+.clearfix:after {clear:both;}
+.clearfix {zoom:1;} *For IE 6/7 (trigger hasLayout)*/
+
+
+/* SPRITES
+------------------------------------------------------------------------*/
+/*** Worldmap Sprite ***/
+.sWorldmap {background:url(../img/sprite_worldmap_02.png) no-repeat;}
+
+.flagAr            {background-position:0 0;}      /*60x75*/
+.flagCo            {background-position:-100px 0;} /*60x75*/
+.flagMx            {background-position:-200px 0;} /*60x75*/
+.flagCl            {background-position:-300px 0;} /*60x75*/
+.flagPe            {background-position:-400px 0;} /*60x75*/
+.flagUy            {background-position:-500px 0;} /*60x75*/
+
+
+/* PAGES
+------------------------------------------------------------------------*/
+.countryChoose {
+    font:normal 18px/28px 'Century Gothic W01';
+    font-size:1.8rem;
+    line-height:2.8rem;
+    text-transform:uppercase;
+    padding:65px 0 0 0;
+}
+.countryFlags {
+    font:normal 11px/21px 'Century Gothic W01';
+    font-size:1.1rem;
+    line-height:2.1rem;
+    text-transform:uppercase;
+    overflow:hidden; /* clear of floats */
+}
+.countryFlags li {
+    float:left;
+    margin-right:2%;
+}
+.countryFlags li a {
+    display:block;
+    color:#363636;
+    -webkit-transition:.1s linear 0s;
+       -moz-transition:.1s linear 0s;
+            transition:.1s linear 0s;
+}
+.countryFlags li a:hover {
+    color:#c11d7f;
+    margin-top:3px;
+}
+.countryFlags li a span {
+    display:block;
+    padding-bottom:8px;
+}
+
+
+/* MEDIA QUERIES
+------------------------------------------------------------------------*/
+/*** Mobile *************************************************************
+*************************************************************************/
+@media screen and (max-device-width:480px), screen and (max-width:600px) {
+    /*** Base *******************************************************/
+    /*** Disable iOS/WinMobile font size changes ***/
+    html {
+        -ms-text-size-adjust:none;
+        -webkit-text-size-adjust:none;
+    }
+    html,
+    html.lt-ie8 {
+        padding-top:30px;
+        background:none;
+    }
+    h1.countryTitle {
+        padding-top:30px;
+        text-align:center;
+    }
+
+    /*** Grid Fluid *************************************************/
+    .container_16 .grid_1,
+    .container_16 .grid_2,
+    .container_16 .grid_3,
+    .container_16 .grid_4,
+    .container_16 .grid_5,
+    .container_16 .grid_6,
+    .container_16 .grid_7,
+    .container_16 .grid_8,
+    .container_16 .grid_9,
+    .container_16 .grid_10,
+    .container_16 .grid_11,
+    .container_16 .grid_12,
+    .container_16 .grid_13,
+    .container_16 .grid_14,
+    .container_16 .grid_15,
+    .container_16 .grid_16,
+    .container_16 .grid_full {
+        display:block;
+        float:none;
+        width:98%;
+        margin-left:1%;
+        margin-right:1%;
+    }
+
+    /*** Pages ******************************************************/
+    .mqCtrLogo { /* Media Query only class: center logo */
+        margin:0 auto;
+    }
+    .mqHide { /* Media Query only class: hide element */
+        display:none!important;
+    }
+    .countryChoose {
+        padding-top:30px;
+        text-align:center;
+    }
+    .countryFlags {
+        text-align:center;
+    }
+    .countryFlags li {
+        float:none;
+        margin-right:0;
+    }
+    .countryFlags li a img {
+        display:block;
+        margin:0 auto;
+    }
+    .countryFlags li a:hover {
+        margin-top:0;
+    }
+    .countryFlags li a span {
+        padding:10px 0 0 0;
+    }
+}

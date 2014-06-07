@@ -1,0 +1,549 @@
+/*** FANCYBOX.COM
+     Created: Oct. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+
+                | RESET
+                | FONT FACE (not minified, to prevent some issues)
+                | BASE
+    FRAMEWORK   | GRID
+                | WIDGETS
+                | HELPERS
+
+    THEME       | PAGES
+                | SPRITES
+                | THEMES
+
+    RESPONSIVE  > MEDIA QUERIES (Load the last!) <
+
+*************************************************************************/
+
+/* MEDIA QUERIES
+-------------------------------------------------------------------------
+ * The Media Queries needed to achive a Responsive Web Design.
+   Important: Load the last!
+------------------------------------------------------------------------*/
+
+/* Important!
+ * Horizontal Space (margins, paddings and widths) should be
+   converted from "px" to "%".
+ * Not using a "Mobile First" approach, due to project constrains :(
+ */
+
+/* Extra Large desktop ********************************************************
+*************************************************************************/
+@media (min-width: 1366px) {
+    /*body:before {
+        content:'Extra Large desktop';
+        position:fixed;
+        top:10px;
+        right:10px;
+        padding:3px 5px;
+        border:1px solid orange;
+        color:#000;
+        background-color:gold;
+        z-index:50;
+        -webkit-border-radius:3px;
+           -moz-border-radius:3px;
+                border-radius:3px;
+    }*/
+
+    /*** 006_pages.css ******************************************************/
+    /*** Stage Home ***/
+    .theme-man .stage {
+        background-position: left top;
+    }    
+}
+
+/* Large desktop ********************************************************
+*************************************************************************/
+@media (min-width: 1200px) and (max-width: 1365px) {
+    /*body:before {
+        content:'Large desktop';
+        position:fixed;
+        top:10px;
+        right:10px;
+        padding:3px 5px;
+        border:1px solid orange;
+        color:#000;
+        background-color:gold;
+        z-index:50;
+        -webkit-border-radius:3px;
+           -moz-border-radius:3px;
+                border-radius:3px;
+    }*/
+
+    /*** 006_pages.css ******************************************************/
+    /*** Stage Home ***/
+    .theme-man .stage {
+        background-position: -100px top;
+    }    
+}
+
+/* Small desktop *****************************
+*************************************************************************/
+@media (min-width: 980px) and (max-width: 1199px) {
+    /*body:before {
+        content:'Small desktop';
+        position:fixed;
+        top:10px;
+        right:10px;
+        padding:3px 5px;
+        border:1px solid orange;
+        color:#000;
+        background-color:gold;
+        z-index:50;
+        -webkit-border-radius:3px;
+           -moz-border-radius:3px;
+                border-radius:3px;
+    }*/
+
+    /*** 006_pages.css ******************************************************/
+    /*** Stage Home ***/
+    .theme-man .stage {
+        background-position: -200px top;
+    }
+}
+ 
+/* Portrait tablet to landscape and desktop *****************************
+*************************************************************************/
+@media (min-width: 768px) and (max-width: 979px) {
+    /*body:before {
+        content:'Portrait tablet to landscape and desktop';
+        position:fixed;
+        top:10px;
+        right:10px;
+        padding:3px 5px;
+        border:1px solid orange;
+        color:#000;
+        background-color:gold;
+        z-index:50;
+        -webkit-border-radius:3px;
+           -moz-border-radius:3px;
+                border-radius:3px;
+    }*/
+
+    /*** 006_pages.css ******************************************************/
+    /*** Stage Home ***/
+    .theme-man .stage {
+        background-position: -240px top;
+    }
+}
+ 
+/* Landscape phone to portrait tablet ***********************************
+*************************************************************************/
+@media (max-width: 767px) {
+    /*body:before {
+        content:'Landscape phone to portrait tablet';
+        position:fixed;
+        top:10px;
+        right:10px;
+        padding:3px 5px;
+        border:1px solid orange;
+        color:#000;
+        background-color:gold;
+        z-index:50;
+        -webkit-border-radius:3px;
+           -moz-border-radius:3px;
+                border-radius:3px;
+    }*/
+
+    /*** 006_pages.css ******************************************************/
+    /*** Stage Home ***/
+    .theme-man .stage {
+        background-position: -350px top;
+    }
+}
+ 
+/*** Landscape phones and down ******************************************
+*************************************************************************/
+@media (max-width: 480px) {
+    /*body:before {
+        content:'Landscape phones and down';
+        position:fixed;
+        top:10px;
+        right:10px;
+        padding:3px 5px;
+        border:1px solid orange;
+        color:#000;
+        background-color:gold;
+        z-index:50;
+        -webkit-border-radius:3px;
+           -moz-border-radius:3px;
+                border-radius:3px;
+    }*/
+
+    /*** 002_base.css *******************************************************/
+    /*** Disable iOS/WinMobile font size changes ***/
+    html {
+        -ms-text-size-adjust:none;
+        -webkit-text-size-adjust:none;
+    }
+
+    /*** Buttons ***/
+    .btn {
+        display:block;
+        margin:0 auto;
+        text-align:center;
+    }
+
+    /*** 003_grid_fluid.css *************************************************/
+    body .container_16 .grid_1,
+    body .container_16 .grid_2,
+    body .container_16 .grid_3,
+    body .container_16 .grid_4,
+    body .container_16 .grid_5,
+    body .container_16 .grid_6,
+    body .container_16 .grid_7,
+    body .container_16 .grid_8,
+    body .container_16 .grid_9,
+    body .container_16 .grid_10,
+    body .container_16 .grid_11,
+    body .container_16 .grid_12,
+    body .container_16 .grid_13,
+    body .container_16 .grid_14,
+    body .container_16 .grid_15,
+    body .container_16 .grid_16,
+    body .container_16 .grid_full {
+        display:block;
+        float:none;
+        width:90%;
+        margin-left:5%;
+        margin-right:5%;
+    }
+
+    /*** 004_widgets.css *************************************************/
+    body .flexslider {
+        display:none;
+    }
+
+    /*** 006_pages.css ******************************************************/
+    /*** Header ***/
+    #header,
+    .theme-man #header,
+    .theme-baby #header,
+    .lt-ie8 #header,
+    .lt-ie8 .theme-man #header,
+    .lt-ie8 .theme-baby #header {
+        background:none;
+    }
+    /* Top Bar Nav */
+    .topBarNav {
+        display:none!important;
+    }
+    /* Social Buttons Nav */
+    .socialBtnsNav {
+        display:none;
+    }
+    /* Categories Nav */
+    .categoriesNav {
+        float:none;
+        font:normal 14px/20px 'Century Gothic W01 Bold';
+        margin:60px 0 10px;
+    }
+    .categoriesNav,
+    .theme-man .categoriesNav,
+    .theme-baby .categoriesNav {
+        height:auto;
+    }
+    .categoriesNav li {
+        display:none;
+    }
+    .categoriesNav li.logIn {
+        display:block;
+        text-align:center;
+        padding:5px 0;
+        margin:0;
+        font:normal 14px/20px 'Century Gothic W01 Bold';
+        border:1px solid #000;
+        -webkit-border-radius:2px;
+           -moz-border-radius:2px;
+                border-radius:2px;
+    }
+    .categoriesNav li.logIn a {
+        display:block;
+        padding:0;
+        border:none;
+    }
+    /* Logo Header */
+    .logo {
+        margin-top:-85px;
+        margin-bottom:40px;
+    }
+    .logo .flxImg img {
+        margin:0 auto;
+    }
+    /* Main Nav */
+    .skinDropdownNavMain {
+        float:none;
+        text-align:center;
+        width:100%;
+    }
+    .skinDropdownNavMain li {
+        margin:0;
+    }
+    .dropdownNav ul {
+        position:static;
+    }
+    .dropdownNav li {
+        float:none;
+    }
+    .skinDropdownNavMain ul {
+        text-align:center;
+        border:1px solid #000;
+        -webkit-border-radius:2px;
+           -moz-border-radius:2px;
+                border-radius:2px;
+    }
+
+    /*** Footer ***/
+    #footer {
+        padding-bottom:10px;
+    }
+    /* Brands Sub-Footer */
+    .brandsSubFooter .row1,
+    .brandsSubFooter .row2 {
+        padding:0;
+    }
+    .brandsSubFooter ul {
+        padding:10px 0;
+    }
+    .brandsSubFooter li {
+        display:block;
+        margin:5px 0;
+    }
+    .brandsSubFooter li a {
+        display:block;
+    }
+    .brandsSubFooter li img {
+        display:block;
+        margin:0 auto;
+    }
+    .brandsSubFooter .row1 li:first-child, .brandsSubFooter .row2 li:first-child {
+        line-height:normal;
+    }
+    /* Terms and Conditions Sub-Footer */
+    .termsSubFooter {
+        padding-top:10px;
+    }
+    .termsSubFooter .dropdownNav li {
+        float:none;
+        display:block;
+        padding:0;
+    }
+    .termsSubFooter .dropdownNav ul {
+        display:block;
+        position:relative;
+    }
+    .termsSubFooter .skinDropdownNavTerms ul {
+        padding:5px;
+        bottom:-5px;
+        text-align:center;
+        border:1px solid #000;
+        -webkit-border-radius:2px;
+           -moz-border-radius:2px;
+                border-radius:2px;
+    }
+    .termsSubFooter .skinDropdownNavTerms ul li {
+        padding:0;
+    }
+
+    /*** Stage Home ***/
+    .stage {
+        height:auto;
+        padding-top:0;
+    }
+    .theme-man .stage {
+        padding:20px 0;
+        background:#5f747d;
+    }
+    .theme-baby .stage {
+        padding:20px 0;
+        border-top:1px solid #c1bed9;
+        border-bottom:1px solid #c1bed9;
+        background:#f1effb;
+    }
+    /* Wrap Box (stage box) */
+    .wrapBox {
+       height:auto;
+    }
+    .wrapBox .theBox {
+        position:static;
+        /*bottom:15px;
+        right:30px;*/
+        max-width:100%;
+    }
+
+    /*** Wrap Full (full width containers with background images) ***/
+    /* Wrap Full Top */
+    .wrapFullTop,
+    .theme-man .wrapFullTop,
+    .theme-baby .wrapFullTop {
+        padding-top:0;
+        background:none;
+    }
+
+    /*** Headings ***/
+    h2, .h2,
+    h3, .h3 {
+        padding-bottom:15px;
+        margin-bottom:5px;
+    }
+
+    /*** H1 Composed (Home) ***/
+    h1.headingComposed,
+    .h1.headingComposed,
+    h1.headingComposed2 {
+        padding:15px 0 10px;
+    }
+    h1.headingComposed .main,
+    .h1.headingComposed .main,
+    h1.headingComposed .secondary,
+    .h1.headingComposed .secondary,
+    h1.headingComposed2 .main,
+    h1.headingComposed2 .secondary {
+        letter-spacing:normal;
+        text-align:center;
+    }
+
+    /*** 3 Columns Layouts ***/
+    .threeCols {
+        width:100%;
+        height:auto;
+        overflow:visible;
+    }
+    .threeCols li,
+    .threeCols li.central {
+        display:block;
+        float:none;
+        width:100%;
+        padding-top:20px;
+    }
+    .threeCols li .flxImg {
+        border:none;
+        margin-bottom:0;
+    }
+    .threeCols li .flxImg img {
+        width:100%;
+    }
+    .threeCols li .desc {
+        padding:10px;
+    }
+
+    /*** Start Steps (Cómo funciona) ***/
+    .threeStartSteps {
+        height:auto;
+        overflow:visible;
+    }
+    .threeStartSteps li {
+        display:block;
+        float:none;
+        width:100%;
+        padding:20px 0 0 0;
+    }
+    .threeStartSteps li:first-child {
+        padding-top:0;
+    }
+    .threeStartSteps li .flxImg img {
+        width:100%;
+    }
+    .threeStartSteps li .arrowGray {
+        display:none;
+    }
+    
+    /*** Notes ***/
+    .note {
+        text-align:center;
+        padding-top:5px;
+    }
+    .skinNote1 {
+        padding:0;
+    }
+
+    /*** HR (Horizontal Rule) below texts ***/
+    .hrTxt {
+        text-align:center;
+        padding-bottom:15px;
+        margin-bottom:15px;
+    }
+
+    /*** Subscription Plans (Pedir)  ***/
+    .subscriptionPlans .priceAndTerms,
+    .subscriptionPlans .getFancy {
+        float:none;
+        width:100%;
+    }
+    .subscriptionPlans .getFancy li {
+        float:left;
+    }
+}
+
+/*** Print **************************************************************
+*************************************************************************/
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow:none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

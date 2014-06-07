@@ -1,0 +1,131 @@
+/*** FANCYBOX.COM
+     Created: Oct. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+
+                | RESET
+                | FONT FACE (not minified, to prevent some issues)
+                | BASE
+    FRAMEWORK   | GRID
+                | WIDGETS
+                | HELPERS
+
+    THEME       | PAGES
+                | SPRITES
+                > THEMES <
+
+    RESPONSIVE  | MEDIA QUERIES (Load the last!)
+
+*************************************************************************/
+
+/* "DOMAIN" THEME
+-------------------------------------------------------------------------
+ * Domain Theme: Alternate skin that provides some cosmetic
+   alterations, by domain.
+ * How to change a domain theme? Apply the class "domain_lang-country"
+   in the <body> tag, to override default theme styles.
+------------------------------------------------------------------------*/
+
+/*** Stage Home *********************************************************/
+/* Shrinking price font size for...
+ * Argentina    (.ar) / Baby theme.
+ * Chile        (.cl) / Baby theme.
+ * Colombia     (.co) / Baby theme.
+ * Mexico       (.mx) / Baby theme.
+ * Peru         (.pe) / Baby theme.
+ */
+/*.domain_es-ar.theme-baby .wrapBox .from,
+.domain_es-cl.theme-baby .wrapBox .from,
+.domain_es-co.theme-baby .wrapBox .from,
+.domain_es-mx.theme-baby .wrapBox .from,
+.domain_es-pe.theme-baby .wrapBox .from {
+    padding:20px 0 10px;
+}
+.domain_es-ar.theme-baby .wrapBox .price,
+.domain_es-cl.theme-baby .wrapBox .price,
+.domain_es-co.theme-baby .wrapBox .price,
+.domain_es-mx.theme-baby .wrapBox .price,
+.domain_es-pe.theme-baby .wrapBox .price {
+    font-size:30px;
+    line-height:30px;
+}*/
+.domain_es-pe.theme-baby .wrapBox .currency {
+    font-family: Arial,Helvetica,sans-serif; /* Changing font-family, because "/" character, used in Peru currency "S./", doesn't exist in "halohandletterregular" font */
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+/*.domain_es-ar.theme-baby .wrapBox .frequency,
+.domain_es-cl.theme-baby .wrapBox .frequency,
+.domain_es-co.theme-baby .wrapBox .frequency,
+.domain_es-mx.theme-baby .wrapBox .frequency,
+.domain_es-pe.theme-baby .wrapBox .frequency {
+    margin-top:0;
+}*/
+
+/*** Stage Home L'Oreal *************************************************/
+/* Provisional campaign...
+ * Argentina (.ar) / Woman theme.
+ */
+/* Hiding price */
+/*.domain_es-ar.theme-woman .wrapBox .priceInfo {
+    display:none;
+}*/
+/* Repositioning image */
+.domain_es-ar.theme-woman .wrapBox .theBox {
+    bottom:22px;
+    right:0;
+}
+.domain_es-ar.theme-woman .wrapBox .specialOffer2 {
+    top: 135px;
+    right: 534px;
+}
+
+/*** Subscription Plans (Pedir) *****************************************/
+/* Shrinking price font size for...
+ * Argentina    (.ar) / Baby theme.
+ * Chile        (.cl) / Baby theme.
+ * Colombia     (.co) / Baby theme.
+ * Mexico       (.mx) / Baby theme.
+ * Peru         (.pe) / Baby theme.
+ */
+/*.domain_es-ar .subscriptionPlans .priceAndTerms .price,
+.domain_es-cl .subscriptionPlans .priceAndTerms .price,
+.domain_es-co .subscriptionPlans .priceAndTerms .price,
+.domain_es-mx .subscriptionPlans .priceAndTerms .price,
+.domain_es-pe .subscriptionPlans .priceAndTerms .price {
+    font-size:36px;
+    line-height:36px;
+    padding-right:0;
+    background:none;
+}
+.domain_es-ar .subscriptionPlans .priceAndTerms .priceMonth,
+.domain_es-cl .subscriptionPlans .priceAndTerms .priceMonth,
+.domain_es-co .subscriptionPlans .priceAndTerms .priceMonth,
+.domain_es-mx .subscriptionPlans .priceAndTerms .priceMonth,
+.domain_es-pe .subscriptionPlans .priceAndTerms .priceMonth {
+    padding-top:0;
+}
+.domain_es-ar .subscriptionPlans .priceAndTerms .priceMonth span,
+.domain_es-cl .subscriptionPlans .priceAndTerms .priceMonth span,
+.domain_es-co .subscriptionPlans .priceAndTerms .priceMonth span,
+.domain_es-mx .subscriptionPlans .priceAndTerms .priceMonth span,
+.domain_es-pe .subscriptionPlans .priceAndTerms .priceMonth span {
+    display:inline;
+}*/
+/* Shrinking currency font size and changing font-family for...
+ * Peru         (.pe) / Baby theme.
+ */
+.domain_es-pe.theme-baby .subscriptionPlans .priceAndTerms .price .currency {
+    font-family: Arial,Helvetica,sans-serif; /* Changing font-family (because "/" character doesn't exist in "halohandletterregular" font) */
+    font-size: 20px;
+    font-weight: 400;
+    text-transform: uppercase;
+}
+/* Adding some padding to render currency correctly for...
+ * Colombia     (.co) / Man theme.
+ */
+.domain_es-co.theme-man .subscriptionPlans .priceAndTerms .price .currency {
+    padding-left: 2px;
+}

@@ -1,0 +1,723 @@
+/*** FANCYBOX.COM
+     Created: Oct. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+
+                | RESET
+                | FONT FACE (not minified, to prevent some issues)
+                | BASE
+    FRAMEWORK   | GRID
+                | WIDGETS
+                | HELPERS
+
+    THEME       | PAGES
+                | SPRITES
+                > THEMES <
+
+    RESPONSIVE  | MEDIA QUERIES (Load the last!)
+
+*************************************************************************/
+
+/* "MAN" THEME
+-------------------------------------------------------------------------
+ * Themes: Alternate skins that provides some cosmetic alterations.
+ * How to change a theme? Apply the class "theme-name" in the
+   <body> tag, to override default theme styles.
+------------------------------------------------------------------------*/
+
+/*** 002_base.css *******************************************************/
+/*** Links ***/
+.theme-man a {
+    color:#a5001f;
+}
+/* Este código es el bueno. Provisionalmente comentado para
+   no romper los buttons del "checkout" del theme de Presta.
+.theme-man a,
+.theme-man a:active,
+.theme-man a:visited {
+    color:#a5001f;
+}*/
+
+/*** Flexible Images ***/
+/* Flexible image (optional) skins */
+.theme-man .skinFlxImg3 {
+    border:1px solid #a5001f;
+}
+
+/*** Headings ***/
+.theme-man h1, .theme-man .h1 {
+    font:normal 26px/26px 'ITC Blair W01 Medium';
+    text-transform:lowercase;
+}
+/*.theme-man h2, .theme-man .h2 {
+    font:normal 20px/20px 'ITC Blair W01 Medium';
+}*/
+.theme-man h2, .theme-man .h2,
+.theme-man h3, .theme-man .h3 {
+    font:normal 18px/23px 'ITC Blair W01 Medium';
+    color:#a5001f;
+}
+.theme-man h2, .theme-man .h2,
+.theme-man h3, .theme-man .h3,
+.lt-ie8 .theme-man h2, .lt-ie8 .theme-man .h2,
+.lt-ie8 .theme-man h3, .lt-ie8 .theme-man .h3 {
+    background:url(../img/themes/man/hr_bullet.png) repeat-x center bottom;
+}
+.theme-man h4, .theme-man .h4 {
+    font:normal 18px/18px 'ITC Blair W01 Medium';
+    background:none; /* Removes background image when class is applied to different level heading */
+}
+/* Links inside Headings */
+.theme-man h1 a, .theme-man .h1 a,
+.theme-man h2 a, .theme-man .h2 a,
+.theme-man h3 a, .theme-man .h3 a,
+.theme-man h4 a, .theme-man .h4 a {
+    color:#a5001f;
+}
+.theme-man h1 a:hover, .theme-man .h1 a:hover,
+.theme-man h2 a:hover, .theme-man .h2 a:hover,
+.theme-man h3 a:hover, .theme-man .h3 a:hover,
+.theme-man h4 a:hover, .theme-man .h4 a:hover {
+    color:#535353;
+}
+
+/*** Lists ***/
+.theme-man .bullets li {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAARUlEQVQY02NYyiDPAMQKQFwNxMeA+AeUroaKM8AULAXi/1gwSFyBAarjPx5czQA1Gp+iYwxQN+BT9INok4hyE1G+IxhOAM3qfFSESPl7AAAAAElFTkSuQmCC) no-repeat 0 5px; /* data uri */
+}
+.lt-ie8 .theme-man .bullets li {
+    background-image:url(../img/themes/man/bullet.png); /* ie7 doesn't support data uri */
+}
+
+/*** Buttons ***/
+/* Skins Buttons (arrow icon) */
+.theme-man .skinBtnL1,
+.theme-man .skinBtnR1,
+.theme-man .skinBtnL2,
+.theme-man .skinBtnR2,
+.theme-man .skinBtnL4,
+.theme-man .skinBtnR4,
+.theme-man .skinBtnL5,
+.theme-man .skinBtnR5,
+.theme-man .skinBtnL6,
+.theme-man .skinBtnR6 {
+    background-image:url(../img/themes/man/sprite_fancybox_arrows_00.png); /* Overriding default sprite, with the theme specific one */
+    background-repeat:no-repeat;
+}
+
+/* Skin Button 1 */
+.theme-man .skinBtnL1,
+.theme-man .skinBtnR1 {
+    color:#a5001f;
+}
+
+/* Skin Button 2 */
+.theme-man .skinBtnL2,
+.theme-man .skinBtnR2 {
+    color:#fff;
+}
+/*Arrow Left*/
+.theme-man .skinBtnL2.sizeBtnL {
+    background-position: left -1200px;
+}
+.theme-man .skinBtnL2.sizeBtnM {
+    background-position: left -1300px;
+}
+.theme-man .skinBtnL2.sizeBtnS {
+    background-position: left -1400px;
+}
+/*Arrow Right*/
+.theme-man .skinBtnR2.sizeBtnL {
+    background-position: right -1200px;
+}
+.theme-man .skinBtnR2.sizeBtnM {
+    background-position: right -1300px;
+}
+.theme-man .skinBtnR2.sizeBtnS {
+    background-position: right -1400px;
+}
+
+/* Skin Button 3 */
+.theme-man .skinBtnL3,
+.theme-man .skinBtnR3 {
+    color:#9f9f9f;
+}
+
+/* Skin Button 4 & Skin Button 1 (Stage Home) */
+.theme-man .skinBtnL4,
+.theme-man .skinBtnR4,
+.theme-man .stage .skinBtnL1,
+.theme-man .stage .skinBtnR1 {
+    color:#fff;
+}
+/*Arrow Left*/
+.theme-man .skinBtnL4.sizeBtnL,
+.theme-man .stage .skinBtnL1.sizeBtnL {
+    background-position: left -900px;
+}
+.theme-man .skinBtnL4.sizeBtnM,
+.theme-man .stage .skinBtnL1.sizeBtnM {
+    background-position: left -1000px;
+}
+.theme-man .skinBtnL4.sizeBtnS,
+.theme-man .stage .skinBtnL1.sizeBtnS {
+    background-position: left -1100px;
+}
+/*Arrow Right*/
+.theme-man .skinBtnR4.sizeBtnL,
+.theme-man .stage .skinBtnR1.sizeBtnL {
+    background-position: right -900px;
+}
+.theme-man .skinBtnR4.sizeBtnM,
+.theme-man .stage .skinBtnR1.sizeBtnM {
+    background-position: right -1000px;
+}
+.theme-man .skinBtnR4.sizeBtnS,
+.theme-man .stage .skinBtnR1.sizeBtnS {
+    background-position: right -1100px;
+}
+
+/* Skin Button 5 */
+/*.theme-man .skinBtnL5,
+.theme-man .skinBtnR5 {
+    color:#fff;
+}*/
+
+/* Skin Button 6 */
+.theme-man .skinBtnL6,
+.theme-man .skinBtnR6 {
+    color:#000;
+}
+/*Arrow Left*/
+.theme-man .skinBtnL6.sizeBtnL {
+    background-position: left -900px;
+}
+.theme-man .skinBtnL6.sizeBtnM {
+    background-position: left -1000px;
+}
+.theme-man .skinBtnL6.sizeBtnS {
+    background-position: left -1100px;
+}
+/*Arrow Right*/
+.theme-man .skinBtnR6.sizeBtnL {
+    background-position: right -900px;
+}
+.theme-man .skinBtnR6.sizeBtnM {
+    background-position: right -1000px;
+}
+.theme-man .skinBtnR6.sizeBtnS {
+    background-position: right -1100px;
+}
+
+/* Skin Button Facebook */
+.theme-man .skinBtnFacebook {
+    color:#fff;
+    background-color:#a5001f;
+    /*border:1px solid #ac989d;*/
+}
+
+/* Skin Button Tag */
+.theme-man .skinBtnTag {
+    color:#fff;
+    background:#736c6c;
+}
+.theme-man .skinBtnTag:hover {
+    color:#fff;
+    background-color:#a5001f;
+}
+
+/*** 003_grid_fluid.css *****************************************************/
+/* */
+
+/*** 004_widgets.css *******************************************************/
+/*** FlexSlider (overwriten styles from 'flexslider.css') ***/
+/* Theme */
+.theme-man .flex-control-paging li a.flex-active {
+    background:#a5001f;
+}
+
+/*** Navigation List Types ***/
+/* Navigation List (Dots) */
+.theme-man .navListDots li:before {
+    color:#a5001f;
+}
+
+/*** Custom Dialog (modal window) ***/
+.theme-man #modal-back-layer .content.thanks .outstanding {
+    font:normal 22px/25px 'ITC Blair W01 Medium';
+    /*color:#c11d7f;
+    padding-bottom:35px;*/
+}
+.theme-man #modal-back-layer .content.callToAction .outstanding {
+    font:normal 20px/23px 'ITC Blair W01 Medium';
+    /*color:#362e33;
+    padding-bottom:35px;*/
+}
+
+/*** Banners ***/
+.theme-man .skinBannerGetPoints .caption {
+    font:normal 32px/32px 'ITC Blair W01 Medium';
+    /*color:#000;*/
+    text-transform:none;
+    /*padding-top:75px;*/
+}
+
+/*** 005_helpers.css *******************************************************/
+/*** Common Helpers ***/
+.theme-man .highlighted {
+    color:#a5001f;
+}
+
+/*** 006_pages.css *******************************************************/
+/*** Header ***/
+.theme-man #header {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAIAAADDbMD2AAAADElEQVQI12NgoC4AAABQAAEiE+h1AAAAAElFTkSuQmCC) repeat-x center top; /* data uri */
+}
+.lt-ie8 .theme-man #header {
+    background-image:url(../img/themes/man/bg_header.png); /* ie7 doesn't support data uri */
+}
+.theme-man .page_index #header {
+    border-bottom:none;
+}
+
+/* Top Bar Nav */
+.theme-man .topBarNav li.networks {
+    color: #666;
+}
+.theme-man .topBarNav a {
+    color:#a9a9a9;
+}
+.theme-man .topBarNav a:hover {
+    color:#fff;
+}
+/* Start Steps (Cómo funciona) */
+/*.theme-man .threeStartSteps li h2 {
+    min-height: 45px; * Accomodating 2 lines of text *
+}*/
+
+.theme-man .threeStartSteps li h2 {
+    min-height: 47px; /* Accomodating 2 lines of text */
+}
+
+.theme-man .threeStartSteps li .text a:hover {
+    color:#a5001f;
+}
+/*.theme-man .threeStartSteps li .arrowGray {
+    top:140px;
+}*/
+/* Categories Nav */
+/*.theme-man .categoriesNav li a {
+    color:#535353;
+}*/
+.theme-man .categoriesNav li a:hover {
+    color:#a5001f;
+}
+.theme-man .categoriesNav li .s.new-category-man {
+    display: none;
+}
+/*.theme-man .categoriesNav li.logIn,
+.theme-man .categoriesNav li.points {
+    border-left:1px solid #535353;
+}
+.theme-man .categoriesNav li.logIn a,
+.theme-man .categoriesNav li.points a {
+    color:#a5001f;
+}
+.theme-man .categoriesNav li.logIn a:hover,
+.theme-man .categoriesNav li.points a:hover {
+    color:#a5001f;
+}
+.theme-man .categoriesNav li.active > a {
+    color:#a5001f;
+}*/
+/* Main Nav */
+/*main level link*/
+.theme-man .skinDropdownNavMain a {
+    color:#211915;
+}
+/*main level link hover*/
+.theme-man .skinDropdownNavMain li:hover > a {
+    color:#a5001f;
+}
+/*sub levels link hover*/
+.theme-man .skinDropdownNavMain ul a:hover {
+    color:#a5001f!important;
+}
+/*dropdown*/
+.theme-man .skinDropdownNavMain li.shop a,
+.lt-ie8 .theme-man .skinDropdownNavMain li.shop a {
+    background:url(../img/themes/man/bullet_s.png) no-repeat left 10px;
+}
+.theme-man .skinDropdownNavMain li.active > a {
+    color:#a5001f;
+}
+/* Terms and Conditions Sub-Footer */
+.theme-man .skinDropdownNavTerms ul a:hover {
+    color:#a5001f!important;
+}
+.theme-man .skinDropdownNavTerms {
+    /*color:#fff; * dark footer */
+}
+.theme-man .skinDropdownNavTerms a {
+    color:#000;
+    /*color:#fff; * dark footer */
+}
+
+/*** Footer ***/
+.theme-man #footer {
+    border-top:5px solid #a5001f;
+    /*background:#252222; * dark footer */
+}
+
+/* Brands Sub-Footer */
+.theme-man .brandsSubFooter .row1 {
+    /*background:#000; * dark footer */
+}
+.theme-man .brandsSubFooter .row2 {
+    border-top:1px solid #a5001f;
+}
+.theme-man .brandsSubFooter ul {
+    /*color:#fff; * dark footer */
+}
+
+/*** Page speciﬁc styles ************************************************
+*************************************************************************/
+/*** Anotate ***/
+/*.theme-man .page_module-muestras-buy #columns,
+.theme-man .page_module-muestras-productsamples #columns,
+.theme-man .page_module-brand-show #columns {
+    padding-top:0;
+}*/
+
+/*** Stage Home ***/
+.theme-man .stage {
+    border-bottom:2px solid #fff;
+    background:#5f747d url(../img/themes/man/bg_stage.jpg) no-repeat left top;
+}
+/*.theme-man .stage .skinNote1 {
+    color:#636363;
+    padding:10px 0;
+}*/
+.theme-man .skinNote7 {
+    font-size: 13px;
+    color: #dbdada;
+}
+/* Wrap Box (stage box) */
+.theme-man .wrapBox .specialOffer,
+.theme-man .wrapBox .specialOffer2 {
+    display:none;
+}
+/*.wrapBox .specialOffer {
+    top:0px;
+    left:0px;
+}*/
+.theme-man .wrapBox .theBox {
+    bottom:5px;
+    right:15px;
+}
+.theme-man .wrapBox .priceInfo {
+    top:35px;
+    right:20px;
+    text-align:right;
+}
+.theme-man .wrapBox .from {
+    font:bold 16px/16px Arial,Helvetica,sans-serif;
+    color:#000;
+    padding:0 4px 2px 0;
+}
+.theme-man .wrapBox .price {
+    font:normal 36px/36px 'ITC Blair W01 Medium';
+}
+.theme-man .wrapBox .currency {
+    font-size:24px;
+    color:#000;
+    padding-right:4px;
+}
+.theme-man .wrapBox .amount {
+    color:#a5001f;
+}
+.theme-man .wrapBox .frequency {
+    font:bold 21px/21px Arial,Helvetica,sans-serif;
+    color:#000;
+    padding-right:4px;
+    margin-top:-7px;
+}
+
+/*** Wrap Full (full width containers with background images) ***/
+/* Wrap Full Top */
+.theme-man .wrapFullTop {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAACMCAIAAAAyWVTYAAAAEklEQVQoz2MwNjBgGMWjmEgMAPZNUGXxAtBBAAAAAElFTkSuQmCC) repeat-x center top; /* data uri */
+}
+.lt-ie8 .theme-man .wrapFullTop {
+    background-image:url(../img/themes/man/bg_one_stripe_gray_1x140.png); /* ie7 doesn't support data uri */
+}
+/* Wrap Full */
+.theme-man .wrapFull {
+    padding:0;
+    background:#fff;
+}
+/* Wrap Full 1 Stripe */
+.theme-man .wrapFull1Stripe {
+    padding:0 0 45px 0;
+    background:#fff url(../img/themes/man/bg_wrap_full_1stripe.png) left bottom repeat-x;
+}
+/* Wrap Full 1 Stripe Large */
+.theme-man .wrapFull1StripeLarge {
+    padding:0 0 20px 0;
+    background:#fff url(../img/themes/man/bg_wrap_full_1stripe_large.png) left bottom repeat-x;
+}
+/* Wrap Full 1 Stripe XLarge */
+.theme-man .wrapFull1StripeXLarge {
+    padding:0 0 40px 0;
+    background:#fff url(../img/themes/man/bg_wrap_full_1stripe_xlarge.png) left bottom repeat-x;
+}
+/* Wrap Full 2 Stripes */
+.theme-man .wrapFull2Stripes {
+    padding:0;
+    background:#fff url(../img/themes/man/bg_wrap_full_2stripes.png) left center repeat-x;
+}
+
+/*** Beauty Test ***/
+/*.theme-man .page_module-surveysamples-customer .beautyTest { }*/
+
+/*** H1 Composed (Home) ***/
+.theme-man h1.headingComposed,
+.theme-man .h1.headingComposed {
+    padding:17px 0 15px;
+}
+.theme-man h1.headingComposed .secondary {
+    font:normal 18px/23px 'ITC Blair W01 Medium';
+    color:#fff;   
+}
+.theme-man h1.headingComposed .main,
+.theme-man .h1.headingComposed .main {
+    font:normal 40px/40px 'ITC Blair W01 Bold';
+    color:#a5001f;
+    text-transform:lowercase;
+}
+
+/*** H2 Composed (Product Items) ***/
+.theme-man h2.headingComposed {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAALCAYAAACwEeRxAAAAtklEQVR42u3cQQpFUBiG4TO2CVN7tQ4rMTCzpaOTlBATid/z1TMxvEm9TlfKOae1LtV5ew0AAAC+bhe/Cz8OAAAAIQN4Hb8iGAAAgJABfBS/IhgAAIBQAXwWv0VbNSIY+PeD0uymud/sDfcYgAA+id9i7AcAAAD4tHQVv/PLRG8KACfAZk+ezpk5AQZ46D/A4hdAiJgANgEMEP4r0OIXAACA0AG8RLD4BQAAIHwAF776DAAAQEQTI14ouUi6DggAAAAASUVORK5CYII=) repeat-x left bottom; /* data uri */
+}
+.theme-man h2.headingComposedFull {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAALCAYAAACtWacbAAAARklEQVQY04XQMQ4AIAwCQGY/4epffYfvxLg0SrAdupAboFjokKNmDlDhDzwwAwErwNkGUYEUBQBoO93ArlNg/6TAIRyk2QagMYM185/TPgAAAABJRU5ErkJggg==) no-repeat left bottom; /* data uri */
+}
+.lt-ie8 .theme-man h2.headingComposed {
+    background-image:url(../img/themes/man/hr_bullet_left.png); /* ie7 doesn't support data uri */
+}
+.lt-ie8 .theme-man h2.headingComposedFull {
+    background-image:url(../img/themes/man/bg_pink_box.png); /* ie7 doesn't support data uri */
+}
+.theme-man h2.headingComposed .secondary,
+.theme-man h2.headingComposedFull .secondary {
+    padding-bottom: 5px;
+    font:normal 13px/15px 'ITC Blair W01 Medium';
+    color: #000;
+    text-transform: capitalize;
+}
+.theme-man h2.headingComposed .main,
+.theme-man h2.headingComposedFull .main {
+    font: normal 13px/18px 'ITC Blair W01 Bold';
+    color: #000;
+    text-transform: uppercase;
+}
+
+/*** HR (Horizontal Rules) below texts ***/
+.theme-man .hrTxt,
+.theme-man .hrTxt2,
+.lt-ie8 .theme-man .hrTxt,
+.lt-ie8 .theme-man .hrTxt2 {
+    background:url(../img/themes/man/hr_bullet.png) repeat-x center bottom;
+}
+.theme-man .page_index .hrTxt {
+    color:#dbdada;
+}
+
+/* 3 Columns Layouts
+ * Breaking the grid to acomplish a 3 cols. centered layouts
+ */
+/* Skin Welcome Steps (Home) */
+.theme-man .skinThreeColsWelcome li .desc h2 {
+    min-height: 45px; /* Accomodating 2 lines of text */
+}
+.theme-man .skinThreeColsWelcome li .desc .text a:hover {
+    color:#a5001f;
+}
+/* Skin Choose (Regala) */
+.theme-man .skinThreeColsChoose li .desc .text a:hover {
+    color:#a5001f;
+}
+
+/* Stage "How It Works (Cómo funciona)" */
+/*.theme-man .howItWorks {
+    ...
+}*/
+
+/*** Subscription Plans (Pedir)  ***/
+.theme-man .subscriptionPlans > li {
+    border-left:1px solid #000;
+}
+.theme-man .subscriptionPlans .name {
+    font:normal 13px/13px 'ITC Blair W01 Medium';
+    color:#d3d3d3;
+    text-transform:uppercase;
+    /*padding: 8px 4% 0;*/
+    background:#000;
+}
+.theme-man .subscriptionPlans .priceAndTerms .price {
+    font:bold 28px/36px 'ITC Blair W01 Medium';
+    /*background:url(../img/themes/man/slash_pink_price_l.png) no-repeat right 3px;*/
+}
+.theme-man .subscriptionPlans .priceAndTerms .price .amount {
+    color:#a5001f;
+}
+.theme-man .subscriptionPlans .priceAndTerms .price .currency {
+    font-size:30px;
+    color:#000;
+}
+/*.theme-man .subscriptionPlans .priceAndTerms .priceMonth {
+    padding-top:7px;
+}*/
+.theme-man .subscriptionPlans .priceAndTerms .priceMonth .amountMonth {
+    color:#000;
+}
+
+/*** Forms (Beauty Test, Survey, Contact, Checkout...) ***/
+.theme-man .fancyForm label b {
+    color:#a5001f; /* required fields asterisk */
+}
+.theme-man .skinFancyFormLabelBeside > fieldset > legend {
+    font:normal 18px/18px 'ITC Blair W01 Medium';
+    /*color:#000;
+    text-align:left;
+    padding:10px 0 20px;
+    margin-bottom:30px;
+    background:none;
+    border-bottom:1px solid #000;
+    width:100%;*/
+}
+
+/*** Product Items ***/
+.theme-man .productItems .products > li {
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12NYyiAPAAISAMUSpmjIAAAAAElFTkSuQmCC); /* data uri */
+}
+.lt-ie8 .theme-man .productItems .products > li {
+    background-image: url(../img/themes/man/px_theme_1x1.png); /* ie7 doesn't support data uri */
+}
+.theme-man .productItems .products .priceAndBuy .price {
+    font:normal 30px/30px 'ITC Blair W01 Medium';
+    background:url(../img/themes/man/slash_pink_price_m.png) no-repeat right 5px;
+}
+.theme-man .productItems .products .priceAndBuy .price .amount {
+    color:#a5001f;
+}
+.theme-man .productItems .products .priceAndBuy .price .currency {
+    font-size:18px;
+    color:#000;
+}
+.theme-man .productItems .products .priceAndBuy .quantityAndUnits .quantity {
+    color:#640013;
+}
+.theme-man .productItems .products .priceAndBuy .terms {
+    color:#60565c;
+}
+.theme-man .productItems .products .features dt {
+    color:#736c6c;
+}
+
+/* Sharing Buttons Nav */
+.theme-man .sharingBtnsNav li.share a,
+.theme-man .sharingBtnsNav li.value a {
+    color:#fff;
+    background:#736c6c;
+}
+.theme-man .sharingBtnsNav li.share a:hover,
+.theme-man .sharingBtnsNav li.value a:hover {
+    color:#fff;
+    background-color:#a5001f;
+}
+
+/*** Brands FancyBox ***/
+.theme-man a.fancyBrand,
+.theme-man span.fancyBrand {
+    background:none;
+}
+.theme-man a.skinFlxImg.fancyBrand,
+.theme-man span.skinFlxImg.fancyBrand {
+    border-color: transparent;
+}
+.theme-man a.fancyBrand:hover img {
+    opacity:.6;
+    filter:alpha(opacity=60);
+}
+
+/*** Checkout (Shopping Cart) Steps / Survey Steps ***/
+.theme-man #js-checkout-steps .title h2,
+.theme-man #js-survey-steps .title h2 {
+    line-height:20px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAALCAYAAACtWacbAAAARklEQVQY04XQMQ4AIAwCQGY/4epffYfvxLg0SrAdupAboFjokKNmDlDhDzwwAwErwNkGUYEUBQBoO93ArlNg/6TAIRyk2QagMYM185/TPgAAAABJRU5ErkJggg==) no-repeat left bottom; /* data uri */
+}
+.theme-man .lt-ie8 #js-checkout-steps .title h2,
+.theme-man .lt-ie8 #js-survey-steps .title h2 {
+    background-image:url(../img/themes/man/bg_pink_box.png); /* ie7 doesn't support data uri */
+}
+
+/*** Regala ***/
+.theme-man .titleLarge {
+    font:bold 20px/20px 'ITC Blair W01 Medium';
+    color:#a5001f;
+}
+.theme-man .titleLargeLight {
+    font:normal 20px/20px 'ITC Blair W01 Medium';
+    /*color:#989898;*/
+}
+.theme-man .titleSmall {
+    font:bold 18px/18px 'ITC Blair W01 Medium';
+    color:#a5001f;
+    margin-bottom:25px;
+    background:none;
+}
+
+/*** 007_sprites.css **************************************************
+   * Overriding default sprite, with the theme specific one.
+ */
+/*** General Sprite ***/
+.theme-man .s {
+    background-image:url(../img/themes/man/sprite_fancybox_13.png);
+    background-repeat:no-repeat;
+}
+
+/*** Compromise Sprite ***/
+.theme-man .sCompromise {
+    background-image:url(../img/themes/man/sprite_fancybox_compromise_01.png);
+    background-repeat:no-repeat;
+}
+
+/*** Compromise ***/
+/*.theme-man .compromise .compromiseClaim p .highlighted {
+    color: #000;
+}*/
+.theme-man .compromise .compromiseHighlights h2 {
+    font-size: 18px;
+    line-height: 18px;
+    text-transform: lowercase;
+}
+
+/*** global.css *******************************************************
+   * Overriding PrestaShop global styles.
+ */
+/*** Buttons ***/
+.theme-man input.button_mini, .theme-man input.button_small, .theme-man input.button, .theme-man input.button_large,
+.theme-man input.button_mini_disabled, .theme-man input.button_small_disabled, .theme-man input.button_disabled, .theme-man input.button_large_disabled,
+.theme-man input.exclusive_mini, .theme-man input.exclusive_small, .theme-man input.exclusive, .theme-man input.exclusive_large,
+.theme-man input.exclusive_mini_disabled, .theme-man input.exclusive_small_disabled, .theme-man input.exclusive_disabled, .theme-man input.exclusive_large_disabled,
+.theme-man a.button_mini, .theme-man a.button_small, .theme-man a.button, .theme-man a.button_large,
+.theme-man a.exclusive_mini, .theme-man a.exclusive_small, .theme-man a.exclusive, .theme-man a.exclusive_large,
+.theme-man span.button_mini, .theme-man span.button_small, .theme-man span.button, .theme-man span.button_large,
+.theme-man span.exclusive_mini, .theme-man span.exclusive_small, .theme-man span.exclusive, .theme-man span.exclusive_large, .theme-man span.exclusive_large_disabled {
+    border:1px solid #730015;
+    color:#fff;
+    background-color:#a5001f;
+}

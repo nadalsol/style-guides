@@ -1,0 +1,1195 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="es" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="es" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="es" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="es" class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+        <title>FancyBox - Style Guide / UI Pattern Library</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="/favicon.ico" />
+        <link href="css/001_reset.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/002.1_font_face.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/002_base.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/003_grid_fluid.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/004_widgets.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/005_helpers.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/006_pages.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/007_sprites.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/050_theme_man.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/051_theme_baby.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/060_domain.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css/100_media_queries.css" type="text/css" rel="stylesheet" media="screen, projection" />
+        <link href="css_style_guide/style_guide.css" type="text/css" rel="stylesheet" media="screen, projection" />        
+        <style type="text/css">
+            /*Structure*/
+            body {background:#f6f4f5;}
+            code {font-family:"Courier New",Courier,monospace;}
+            #header {
+                background-image:none;
+                background-color:#fff;
+            }
+            #header .flxImg {padding-top:34px;}
+            #header .flxImg img {margin:0 auto;}
+            #header h1 {
+                font-size:24px;
+                text-align:center;
+                padding:20px 0 10px;
+            }
+            #columns {
+                padding-left:1%;
+                padding-right:1%;
+            }
+            #footer {background-color:#fff;}
+            /*Headings*/
+            .sg-h2,
+            .sg-h3 {
+                font-family:Arial,Helvetica,sans-serif;
+                font-weight:700;
+                padding:6px 1%;
+                background-image:none;
+                -webkit-border-radius:6px;
+                   -moz-border-radius:6px;
+                        border-radius:6px;
+            }
+            .sg-h2 {
+                color:#fff;
+                background-color:#444;
+            }
+            .sg-h3 {
+                color:#333;
+                background-color:#bbb;
+            }
+            /*Helpers*/
+            .normal {font-weight:400;}
+            .padT10 {padding-top:10px;}
+            .padT20 {padding-top:20px;}
+            .padB10 {padding-bottom:10px;}
+            .padB20 {padding-bottom:20px;}
+            .marR10 {margin-right:10px;}
+            /*World Map Sprites*/
+            .sWorldmap {background:url(worldmap/img/sprite_worldmap_02.png) no-repeat;}
+            .flagAr {background-position:0 0;}      /*60x75*/
+            .flagCo {background-position:-100px 0;} /*60x75*/
+            .flagMx {background-position:-200px 0;} /*60x75*/
+            .flagCl {background-position:-300px 0;} /*60x75*/
+            .flagPe {background-position:-400px 0;} /*60x75*/
+            .flagUy {background-position:-500px 0;} /*60x75*/
+            /*Style Guide stylesheet overriden*/
+            .sg-box pre {font-size:12px;}
+        </style>
+        <script type="text/javascript" src="js/jquery-1.8.2.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function(){
+                //Code viewer
+                $('.js-sg-code-viewer .js-sg-trigger').click(function (event) {
+                    event.preventDefault();
+                    var code_switcher = $(this).parents('.js-sg-code-viewer');
+                    var code_switcher_code = code_switcher.find('.js-sg-code-block');
+                    var code_switcher_arrows = $(this).prev('.js-sg-arrow');
+                    var code_switcher_anchor_text = $(this);
+                    if (code_switcher_code.hasClass('hidden')) {
+                        code_switcher_code.fadeIn().removeClass('hidden');
+                        code_switcher_arrows.html('&uarr;');
+                        code_switcher_anchor_text.text('Ocultar código');
+                    } else {
+                        code_switcher_code.fadeOut().addClass('hidden');
+                        code_switcher_arrows.html('&rarr;');
+                        code_switcher_anchor_text.text('Mostrar código');
+                    }
+                });
+            });
+        </script>
+        <!-- TODO: Media Queries IE support (Respond.js) -->
+    </head>
+    <body class="domain_es-ar theme-woman">
+        <div id="page">
+            <!-- * Header * -->
+            <div id="header">
+                <div class="wrap">
+                    <div class="container_16">
+                        <!-- Main Nav -->
+                        <div class="grid_8 prefix_4 suffix_4">
+                            <a class="flxImg" href="#" title="FancyBox » Home">
+                                <img src="img/fancybox_logo.png" alt="FancyBox" />
+                            </a>
+                        </div>
+                        <!-- /Main Nav -->
+                        <div class="grid_16">
+                            <h1>Style Guide / UI Pattern Library</h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- * /Header * -->
+            
+            <!-- * Content * -->
+            <div id="columns">
+            
+                <!-- SHOW ME SOME -->
+                <div class="sg-box">
+                    <ul class="sg-nav">
+                        <li>Show me some:</li>
+                        <li><a href="#styles-grid-units" class="sg-link" title="Grid units">Grid units</a></li>
+                        <li><a href="#styles-forms" class="sg-link" title="Forms">Forms</a></li>
+                        <li><a href="#styles-buttons" class="sg-link" title="Buttons">Buttons</a></li>
+                        <li><a href="#styles-notification-messages" class="sg-link" title="Notification messages">Notification messages</a></li>
+                        <li><a href="#styles-flexible-images" class="sg-link" title="Flexible images">Flexible images</a></li>
+                        <li><a href="#styles-sprites" class="sg-link" title="Sprites">Sprites</a></li>
+                        <li><a href="#styles-headings" class="sg-link" title="Headings">Headings</a></li>                        
+                        <li><a href="http://redmine.pinroom.com/projects/pinroom-planning/wiki/Frontend" class="sg-link" title="More info on Redmine's Wiki" target="_blank">Wiki on Redmine</a></li>
+                    </ul>
+                </div>
+                
+                <!-- GRID -->                
+                <div class="sg-box">
+                    <h2 id="styles-grid-units" class="sg-h2">Grid units <span class="normal">(based on <a href="http://960.gs/" title="960 Grid System" class="sg-link" target="_blank">960.gs</a>)</span></h2>
+                    <p class="textC">Páginas con <span class="bold"><em>grid</em> flexible/elástico de 16 columnas.</span></p>
+                    <div class="wrap sg-grid">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <p>98.0%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="grid_15">
+                                <p>91.75%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_2">
+                                <p>10.5%</p>
+                            </div>
+                            <div class="grid_14">
+                                <p>85.5%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_3">
+                                <p>16.75%</p>
+                            </div>
+                            <div class="grid_13">
+                                <p>79.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_4">
+                                <p>23.0%</p>
+                            </div>
+                            <div class="grid_12">
+                                <p>73.0%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_5">
+                                <p>29.25%</p>
+                            </div>
+                            <div class="grid_11">
+                                <p>66.75%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_6">
+                                <p>35.5%</p>
+                            </div>
+                            <div class="grid_10">
+                                <p>60.5%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_7">
+                                <p>41.75%</p>
+                            </div>
+                            <div class="grid_9">
+                                <p>54.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_8">
+                                <p>48.0%</p>
+                            </div>
+                            <div class="grid_8">
+                                <p>48.0%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 suffix_15">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_1 suffix_14">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_2 suffix_13">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_3 suffix_12">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_4 suffix_11">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_5 suffix_10">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_6 suffix_9">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_7 suffix_8">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_8 suffix_7">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_9 suffix_6">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_10 suffix_5">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_11 suffix_4">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_12 suffix_3">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_13 suffix_2">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_14 suffix_1">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 prefix_15">
+                                <p>4.25%</p>
+                            </div>
+                            <div class="clear"></div>
+                            <!--<div class="grid_8 push_8">
+                                <div class="grid_1 alpha">
+                                    <p>4.25%</p>
+                                </div>
+                                <div class="grid_7 omega">
+                                    <p>41.75%</p>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="grid_4 alpha">
+                                    <p>23.0%</p>
+                                </div>
+                                <div class="grid_4 omega">
+                                    <p>23.0%</p>
+                                </div>
+                            </div>
+                            <div class="grid_8 pull_8">
+                                <div class="grid_4 alpha">
+                                    <p>23.0%</p>
+                                </div>
+                                <div class="grid_4 omega">
+                                    <p>23.0%</p>
+                                </div>
+                                <div class="clear"></div>
+                                <div class="grid_1 alpha">
+                                    <p>4.25%</p>
+                                </div>
+                                <div class="grid_7 omega">
+                                    <p>41.75%</p>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FORMS -->
+                <div class="sg-box">
+                    <h2 id="styles-forms" class="sg-h2">Forms</h2>                    
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <p class="textC">Posibles configuraciones, en función de los <span class="bold">distintos layouts de formulario.</span></p>
+                                <h3 class="sg-h3"><span class="normal">Form Type 1 -</span> Label Above</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_7 suffix_1">
+                                <form class="fancyForm skinFancyFormLabelAbove" action="#" method="get">
+                                    <fieldset>
+                                        <h2>Crea tu cuenta</h2>
+                                        <ol>
+                                            <li>
+                                                <label for="login_email">Correo electrónico</label>
+                                                <input type="text" id="login_email" name="login_email" />
+                                            </li>
+                                            <li>
+                                                <p class="floatL">
+                                                    <a href="#" class="btn skinBtnFacebook" title="Iniciar con Facebook">Iniciar con Facebook</a>
+                                                </p>
+                                                <p class="floatR">
+                                                    <input type="submit" title="Crea tu cuenta" class="btn sizeBtnM skinBtnR1" value="Crea tu cuenta" />
+                                                </p>
+                                            </li>
+                                        </ol>
+                                    </fieldset>
+                                </form>
+                            </div>                        
+                            <div class="grid_7 prefix_1">
+                                <form class="fancyForm skinFancyFormLabelAbove" action="#" method="get">
+                                    <fieldset>
+                                        <h2>¿Ya estás registrada?</h2>
+                                        <ol>
+                                            <li>
+                                                <label for="login_email_2">Correo electrónico</label>
+                                                <input type="text" id="login_email_2" name="login_email_2" />
+                                            </li>
+                                            <li>
+                                                <div class="labelComposed">
+                                                    <label for="login_pwd">Contraseña</label>
+                                                    <p>
+                                                        <a href="#">¿Olvidaste tu contraseña?</a>
+                                                    </p>
+                                                </div>
+                                                <input type="password" id="login_pwd" name="login_pwd" />
+                                            </li>
+                                            <li class="textR">
+                                                <input type="submit" title="Identificación" class="btn sizeBtnM skinBtnR1" value="Identificación" />
+                                            </li>
+                                        </ol>
+                                    </fieldset>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <h3 class="sg-h3"><span class="normal">Form Type 2 -</span> Label Beside</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <div class="container_16">
+                            <form class="fancyForm skinFancyFormLabelBeside" action="#" method="get">                                
+                                <fieldset>
+                                    <legend class="grid_16">
+                                        Nuevo cliente
+                                        <a href="#" class="btn skinBtnTag">¿Ya estás inscrita? Click aquí &rsaquo;</a>
+                                    </legend>
+                                    <div class="grid_8 colL">
+                                        <ol>
+                                            <li>
+                                                <label for="email">Correo electrónico <b>*</b></label>
+                                                <input type="text" id="email" name="email" />
+                                            </li>
+                                            <li>
+                                                <label for="pwd">Contraseña <b>*</b></label>
+                                                <input type="password" id="pwd" name="pwd" />
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div class="grid_8 colR">
+                                        <ol>
+                                            <li>
+                                                <fieldset>
+                                                    <legend>Título</legend>
+                                                    <ol class="inline">
+                                                        <li>
+                                                            <input type="radio" id="rad_titulo_srta" name="titulo" value="0" checked />
+                                                            <label for="rad_titulo_srta">Srta.</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="radio" id="rad_titulo_sra" name="titulo" value="1" />
+                                                            <label for="rad_titulo_sra">Sra.</label>
+                                                        </li>
+                                                    </ol>
+                                                </fieldset>
+                                            </li>
+                                            <li>
+                                                <label for="nombre">Nombre <b>*</b></label>
+                                                <input type="text" id="nombre" name="nombre" />
+                                            </li>
+                                            <li>
+                                                <label for="dir_estado">Estado <b>*</b></label>
+                                                <select id="dir_estado" name="dir_estado">
+                                                    <option value="0">---</option>
+                                                </select>
+                                                <p class="note skinNote3">El campo "provincia" combina provincias y localidades del Tercer Cordón y Centro Este de la Provincia de Buenos Aires. Si tu dirección se encuentra en estas zonas, por favor, indicanos cuál es la localidad. Si no, bastará con que indiques la provincia e incluyas la localidad en el campo "ciudad".</p>
+                                            </li>
+                                            <li>
+                                                <label for="fecha_dia">Fecha de nacimiento</label>
+                                                <div class="composedDate">
+                                                    <select id="fecha_dia" name="fecha_dia">
+                                                        <option value="0">día</option>
+                                                    </select>
+                                                    <select id="fecha_mes" name="fecha_mes" class="central">
+                                                        <option value="0">mes</option>
+                                                    </select>
+                                                    <select id="fecha_anio" name="fecha_anio">
+                                                        <option value="0">año</option>
+                                                    </select>
+                                                </div>
+                                            </li>
+                                            <li>
+                                                <label for="dir_otros">Otros <span class="note skinNote4">(Cualquier información que ayude a identificar)</span></label>
+                                                <textarea id="dir_otros" name="dir_otros"></textarea>
+                                            </li>
+                                            <li>
+                                                <fieldset>
+                                                    <legend class="invisible">Ofertas</legend>
+                                                    <ol class="block">
+                                                        <li>
+                                                            <input type="checkbox" id="check_lorem" name="loremipsum" value="0" checked />
+                                                            <label for="check_lorem">Inscribirse a la newsletter.</label>
+                                                        </li>
+                                                        <li>
+                                                            <input type="checkbox" id="check_ipsum" name="loremipsum" value="1" />
+                                                            <label for="check_ipsum">Recibir ofertas.</label>
+                                                        </li>
+                                                    </ol>
+                                                </fieldset>
+                                            </li>
+                                        </ol>
+                                    </div>
+                                    <div class="clear"></div>
+                                </fieldset>                                                                   
+                            </form>
+                        </div>
+                    </div>
+                </div>                
+                
+                <!-- BUTTONS -->                
+                <div class="sg-box">
+                    <h2 id="styles-buttons" class="sg-h2">Buttons</h2>                    
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <p class="textC">Para crear <span class="bold">botones</span> lo haremos con cualquiera de los <em>tags</em> habituales para ello.</p>
+                                <h3 class="sg-h3">Button Types</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <div class="container_16" style="background:#ddd; margin-bottom:20px;">
+                            <div class="grid_3">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Input type Submit</legend>
+                                        <ol>
+                                            <li>
+                                                <input type="submit" class="btn sizeBtnM skinBtnR1" value="Hello" />
+                                            </li>
+                                        </ol>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_3">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Input type Button</legend>
+                                        <ol>
+                                            <li>
+                                                <input type="button" class="btn sizeBtnM skinBtnR1" value="Hello" />
+                                            </li>
+                                        </ol>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_3">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Link a href</legend>
+                                        <ol>
+                                            <li>
+                                                <a href="#" class="btn sizeBtnM skinBtnR1">Hello</a>
+                                            </li>
+                                        </ol>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_3">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Button type Submit</legend>
+                                        <ol>
+                                            <li>
+                                                <button type="submit" class="btn sizeBtnM skinBtnR1">Hello</button>
+                                            </li>
+                                        </ol>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_3 suffix_1">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Button type Button</legend>
+                                        <ol>
+                                            <li>
+                                                <button type="button" class="btn sizeBtnM skinBtnR1">Hello</button>
+                                            </li>
+                                        </ol>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_16">
+                                <p class="padT20 textC">Hay que especificar siempre la class <span class="bold">btn</span>, seguida de la class de <span class="bold">tamaño</span> [sizeBtnL, sizeBtnM, sizeBtnS] y <span class="bold">skin</span> [skinBtnL1, skinBtnL2, skinBtnL3, skinBtnR1, skinBtnR2, skinBtnR3] que queramos aplicar en cada caso.</p>
+                                <div class="padB20 js-sg-code-viewer">
+                                    <p class="textC">
+                                        <span class="js-sg-arrow">→</span>
+                                        <a href="#" class="js-sg-trigger sg-link">Mostrar código</a>
+                                    </p>
+                                    <ul class="js-sg-code-block hidden">
+                                        <li class="padB10">
+                                            <pre><code>&lt;input type=&quot;submit&quot; class=&quot;btn sizeBtnL skinBtnR1&quot; value=&quot;Hello&quot; /&gt;</code></pre>
+                                        </li>
+                                        <li class="padB10">
+                                            <pre><code>&lt;input type=&quot;button&quot; class=&quot;btn sizeBtnL skinBtnR1&quot; value=&quot;Hello&quot; /&gt;</code></pre>
+                                        </li>
+                                        <li class="padB10">
+                                            <pre><code>&lt;a href=&quot;#&quot; class=&quot;btn sizeBtnL skinBtnR1&quot; title=&quot;Hello&quot;&gt;Hello&lt;/a&gt;</code></pre>
+                                        </li>
+                                        <li class="padB10">
+                                            <pre><code>&lt;button type=&quot;submit&quot; class=&quot;btn sizeBtnL skinBtnR1&quot;&gt;Hello&lt;/button&gt;</code></pre>
+                                        </li>
+                                        <li class="padB10">
+                                            <pre><code>&lt;button type=&quot;button&quot; class=&quot;btn sizeBtnL skinBtnR1&quot;&gt;Hello&lt;/button&gt;</code></pre>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <h3 class="sg-h3">Button Sizes <em>(class name)</em></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <div class="container_16" style="background:#ddd; margin-bottom:20px;">
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Large <em>(sizeBtnL)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnL skinBtnR1" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Medium <em>(sizeBtnM)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnR1" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4 suffix_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10"><em>Small (sizeBtnS)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnS skinBtnR1" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <h3 class="sg-h3">Button Skins <em>(class name)</em></h3>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <div class="container_16" style="background:#ddd; margin-bottom:20px;">
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Right 1 <em>(skinBtnR1)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnR1" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Left 1 <em>(skinBtnL1)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnL1" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Right 2 <em>(skinBtnR2)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnR2" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Left 2 <em>(skinBtnL2)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnL2" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Right 3 <em>(skinBtnR3)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnR3" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Left 3 <em>(skinBtnL3)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnL3" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Right 4 <em>(skinBtnR4)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnR4" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Left 4 <em>(skinBtnL4)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnL4" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Right 6 <em>(skinBtnR6)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnR6" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Left 6 <em>(skinBtnL6)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnL6" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Right 7 <em>(skinBtnR7)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnR7" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="grid_4">
+                                <form action="#" method="post">
+                                    <fieldset>
+                                        <legend class="padB10">Arrow Left 7 <em>(skinBtnL7)</em></legend>
+                                        <p>
+                                            <a href="#" class="btn sizeBtnM skinBtnL7" title="Submit form">Hello</a>
+                                        </p>
+                                    </fieldset>
+                                </form>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- NOTIFICATION MESSAGES -->
+                <div class="sg-box">
+                    <h2 id="styles-notification-messages" class="sg-h2">Notification messages</h2>                                       
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">                                
+                                <div class="warning">
+                                    <p>Esto es un <strong>warning</strong> message. Lorem ipsum dolor sit amet consecteur.</p>
+                                </div>
+                                <div class="success">
+                                    <p>Esto es un <strong>success</strong> message. Lorem ipsum dolor sit amet consecteur.</p>
+                                </div>
+                                <div class="error">
+                                    <p>Hay <strong>1 error</strong></p>
+                                    <ol>
+                                        <li>Dirección email no válida</li>
+                                    </ol>
+                                    <p class="lnk">
+                                        <a href="#" title="atrás">&laquo; atrás</a>
+                                    </p>
+                                </div>
+                                <div class="warning_inline">
+                                    <p>Esto es un <strong>warning_inline</strong> message. Lorem ipsum dolor sit amet consecteur.</p>
+                                </div>
+                                <div class="success_inline">
+                                    <p>Esto es un <strong>success_inline</strong> message. Lorem ipsum dolor sit amet consecteur.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FLEXIBLE IMAGES -->
+                <div class="sg-box">
+                    <h2 id="styles-flexible-images" class="sg-h2">Flexible images</h2>                                       
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <h3 class="sg-h3">Images</h3>
+                                <p class="textC">
+                                    <span class="bold">Muy importante!</span> Dejar los atributos <span class="bold">width</span> y <span class="bold">height</span> del <em>tag</em> <span class="bold">img</span> vacíos.
+                                </p>
+                            </div>
+                            <div class="grid_8">
+                                <div class="sg-box-grey">
+                                    <span class="flxImg">
+                                        <img src="img/themes/woman/bg_stage.jpg" alt="Flexible image sample" />
+                                    </span>
+                                    <p class="padT10"><span class="bold">1.</span> Para hacer que la imagen sea flexible (que se adapte al tamaño de su contenedor), hay que encapsular-la dentro de un contenedor de bloque (p.e. un <span class="bold">&lt;span&gt;</span> con <em>display:block</em>).</p>
+                                    <div class="js-sg-code-viewer">
+                                        <p class="textC">
+                                            <span class="js-sg-arrow">→</span>
+                                            <a href="#" class="js-sg-trigger sg-link">Mostrar código</a>
+                                        </p>
+                                        <ul class="js-sg-code-block hidden">
+                                            <li>
+                                                <pre><code>&lt;span class=&quot;flxImg&quot;&gt;
+    &lt;img src=&quot;img/themes/woman/bg_stage.jpg&quot; alt=&quot; &quot; /&gt;
+&lt;/span&gt;</code></pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid_8">
+                                <div class="sg-box-grey">
+                                    <a href="#" class="flxImg">
+                                        <img src="img/themes/woman/bg_stage.jpg" alt="Flexible image sample" />
+                                    </a>
+                                    <p class="padT10"><span class="bold">2.</span> Si necesitamos que la imagen sea un enlace podemos sustituir el <em>tag</em> <span class="bold">&lt;span&gt;</span> por un <em>tag</em> <span class="bold">&lt;a&gt;</span>, para que la imagen se comporte como un enlace sin dejar de ser felxible.</p>
+                                    <div class="js-sg-code-viewer">
+                                        <p class="textC">
+                                            <span class="js-sg-arrow">→</span>
+                                            <a href="#" class="js-sg-trigger sg-link">Mostrar código</a>
+                                        </p>
+                                        <ul class="js-sg-code-block hidden">
+                                            <li>
+                                                <pre><code>&lt;a href=&quot;#&quot; class=&quot;flxImg&quot;&gt;
+    &lt;img src=&quot;img/themes/woman/bg_stage.jpg&quot; alt=&quot; &quot; /&gt;
+&lt;/a&gt;</code></pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_8">
+                                <div class="sg-box-grey">
+                                    <span class="flxImg wp50">
+                                        <img src="img/themes/woman/bg_stage.jpg" alt="Flexible image sample" />
+                                    </span>
+                                    <p class="padT10"><span class="bold">3.</span> Opcionalmente se puede redefinir el ancho del contenedor en porcentaje (%), mediante una class (p.e. <span class="bold">wp50</span>). El valor del porcentaje determinará su ancho en función de su padre.</p>
+                                    <div class="js-sg-code-viewer">
+                                        <p class="textC">
+                                            <span class="js-sg-arrow">→</span>
+                                            <a href="#" class="js-sg-trigger sg-link">Mostrar código</a>
+                                        </p>
+                                        <ul class="js-sg-code-block hidden">
+                                            <li>
+                                                <pre><code>&lt;span class=&quot;flxImg wp50&quot;&gt;
+    &lt;img src=&quot;img/themes/woman/bg_stage.jpg&quot; alt=&quot; &quot; /&gt;
+&lt;/span&gt;</code></pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="grid_8">
+                                <div class="sg-box-grey clearfix">
+                                    <span class="flxImg wp50 floatL marR10">
+                                        <img src="img/themes/woman/bg_stage.jpg" alt="Flexible image sample" />
+                                    </span>
+                                    <p><span class="bold">4.</span> Opcionalmente el contenedor puede ir flotado, mediante class <span class="bold">floatL</span>/<span class="bold">floatR</span>.</p>
+                                    <div class="js-sg-code-viewer">
+                                        <p class="textC">
+                                            <span class="js-sg-arrow">→</span>
+                                            <a href="#" class="js-sg-trigger sg-link">Mostrar código</a>
+                                        </p>
+                                        <ul class="js-sg-code-block hidden">
+                                            <li>
+                                                <pre><code>&lt;span class=&quot;flxImg wp50 floatL&quot;&gt;
+    &lt;img src=&quot;img/themes/woman/bg_stage.jpg&quot; alt=&quot; &quot; /&gt;
+&lt;/span&gt;</code></pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_8">
+                                <div class="sg-box-grey">
+                                    <span class="flxImg skinFlxImg">
+                                        <img src="img/themes/woman/bg_stage.jpg" alt="Flexible image sample" />
+                                    </span>
+                                    <p class="padT10"><span class="bold">5.</span> Opcionalmente se puede definir un <em>skin</em> a la imagen, mediante una class <span class="bold">skinFlxImg</span>.</p>
+                                    <div class="js-sg-code-viewer">
+                                        <p class="textC">
+                                            <span class="js-sg-arrow">→</span>
+                                            <a href="#" class="js-sg-trigger sg-link">Mostrar código</a>
+                                        </p>
+                                        <ul class="js-sg-code-block hidden">
+                                            <li>
+                                                <pre><code>&lt;span class=&quot;flxImg skinFlxImg&quot;&gt;
+    &lt;img src=&quot;img/themes/woman/bg_stage.jpg&quot; alt=&quot; &quot; /&gt;
+&lt;/span&gt;</code></pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_16">
+                                <h3 class="sg-h3">Videos</h3>
+                                <div class="sg-box-grey">
+                                    <div class="flxVideo">
+                                        <iframe frameborder="0" width="560" height="315" src="http://www.youtube.com/embed/2JI6h66NjcU?enablejsapi=0&amp;autohide=1&amp;theme=light&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;showsearch=0&amp;wmode=transparent"></iframe>
+                                    </div>
+                                    <p class="padT10">Aplicar las mismas reglas para los <span class="bold">videos</span>.</p>
+                                    <div class="js-sg-code-viewer">
+                                        <p class="textC">
+                                            <span class="js-sg-arrow">→</span>
+                                            <a href="#" class="js-sg-trigger sg-link">Mostrar código</a>
+                                        </p>
+                                        <ul class="js-sg-code-block hidden">
+                                            <li>
+                                                <pre><code>&lt;div class=&quot;flxVideo&quot;&gt;
+    &lt;iframe frameborder=&quot;0&quot; width=&quot;560&quot; height=&quot;315&quot; src=&quot;http://www.youtube.com/embed/2JI6h66NjcU?enablejsapi=0&amp;autohide=1&amp;theme=light&amp;hd=1&amp;modestbranding=1&amp;rel=0&amp;showinfo=0&amp;showsearch=0&amp;wmode=transparent&quot;&gt;&lt;/iframe&gt;
+&lt;/div&gt;</code></pre>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- SPRITES -->
+                <div class="sg-box">
+                    <h2 id="styles-sprites" class="sg-h2">Sprites</h2>                                       
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <p class="textC">Los <span class="bold">ficheros editables de los sprites (en formato PSD de Photoshop)</span> están en <span class="bold">Dropbox</span> (<a href="https://www.dropbox.com/sh/oxhtomxdy03x72l/s4C6gxn6eB" class="sg-link" title="Dropbox &gt; Fancybox &gt; Sprites_PSD">Dropbox &gt; Fancybox &gt; Sprites_PSD</a>), por si hay que hacer cambios o crear versiones nuevas de los mismos. Disponemos de <span class="bold">distintos tipos de sprites</span>, en función de su naturaleza:</p>
+                                <h3 class="sg-h3">General Sprite</h3>
+                                <p class="textC">Para el <span class="bold">General Sprite</span> usaremos el <em>tag</em> <span class="bold">img</span> con una imagen transparente <em>(inv.gif)</em>, junto con la class <span class="bold">"s"</span> seguida de la class correspondiente al sprite en concreto que queramos usar, p.e. <span class="bold">"socFacebook"</span>.</p>
+                                <div class="js-sg-code-viewer">
+                                    <p class="textC">
+                                        <span class="js-sg-arrow">→</span>
+                                        <a href="#" class="js-sg-trigger sg-link">Mostrar código</a>
+                                    </p>
+                                    <div class="js-sg-code-block hidden">
+                                        <pre><code>&lt;img src=&quot;img/inv.gif&quot; width=&quot;15&quot; height=&quot;15&quot; class=&quot;s socFacebook&quot; alt=&quot;Facebook&quot; /&gt;</code></pre>
+                                        <p class="padT10 textC">Este ejemplo daría como resultado el siguiente icono: <img src="img/inv.gif" width="15" height="15" class="s socFacebook" alt="Facebook" style="vertical-align:middle;" /></p>
+                                    </div>
+                                </div>
+                                <p class="textC">Esta es la <span class="bold">imagen</span> que usaremos para el <span class="bold">General Sprite</span> <em>(sprite_fancybox_xx.png)</em>, donde <span class="bold">"xx"</span> es la <span class="bold">última versión del fichero:</span> <a href="img/sprite_fancybox_09.png" class="sg-link" target="_blank">sprite_fancybox_09.png</a></p>
+                                <p class="textC">Estas son las <span class="bold">classes</span> que usaremos para los <span class="bold">distintos iconos:</span></p>
+                            </div>
+                            <div class="grid_16">
+                                <ul class="sg-box-grey">
+                                    <li>
+                                        <img src="img/inv.gif" width="433" height="35" class="s logoMain" alt=" " />
+                                        <span class="sg-class-name">logoMain</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid_4">
+                                <ul class="sg-box-grey">
+                                    <li>
+                                        <img src="img/inv.gif" width="15" height="15" class="s socFacebook" alt=" " />
+                                        <span class="sg-class-name">socFacebook</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="15" height="15" class="s socFacebookOver" alt=" " />
+                                        <span class="sg-class-name">socFacebookOver</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="15" height="15" class="s socTwitter" alt=" " />
+                                        <span class="sg-class-name">socTwitter</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="15" height="15" class="s socTwitterOver" alt=" " />
+                                        <span class="sg-class-name">socTwitterOver</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="15" height="15" class="s socPinterest" alt=" " />
+                                        <span class="sg-class-name">socPinterest</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="15" height="15" class="s socPinterestOver" alt=" " />
+                                        <span class="sg-class-name">socPinterestOver</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="15" height="15" class="s socEmail" alt=" " />
+                                        <span class="sg-class-name">socEmail</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="15" height="15" class="s socEmailOver" alt=" " />
+                                        <span class="sg-class-name">socEmailOver</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="15" height="15" class="s countrySwitch" alt=" " />
+                                        <span class="sg-class-name">countrySwitch</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="16" height="44" class="s arrowGray" alt=" " />
+                                        <span class="sg-class-name">arrowGray</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="10" height="10" class="s shareProduct" alt=" " />
+                                        <span class="sg-class-name">shareProduct</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="9" height="7" class="s valueProduct" alt=" " />
+                                        <span class="sg-class-name">valueProduct</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="34" height="12" class="s arrowDownBlack" alt=" " />
+                                        <span class="sg-class-name">arrowDownBlack</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="34" height="12" class="s arrowDownPink" alt=" " />
+                                        <span class="sg-class-name">arrowDownPink</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="9" height="9" class="s incrementItem" alt=" " />
+                                        <span class="sg-class-name">incrementItem</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="9" height="9" class="s decrementItem" alt=" " />
+                                        <span class="sg-class-name">decrementItem</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="17" height="20" class="s removeItem" alt=" " />
+                                        <span class="sg-class-name">removeItem</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid_4">
+                                <ul class="sg-box-grey">
+                                    <li>
+                                        <img src="img/inv.gif" width="118" height="62" class="s brandWaymag" alt=" " />
+                                        <span class="sg-class-name">brandWaymag</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="150" height="62" class="s brandCosmopolitan" alt=" " />
+                                        <span class="sg-class-name">brandCosmopolitan</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="66" height="62" class="s brandPramer" alt=" " />
+                                        <span class="sg-class-name">brandPramer</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid_4">
+                                <ul class="sg-box-grey">
+                                    <li>
+                                        <img src="img/inv.gif" width="150" height="45" class="s brandTotalMedios" alt=" " />
+                                        <span class="sg-class-name">brandTotalMedios</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="145" height="45" class="s brandWaymagGrey" alt=" " />
+                                        <span class="sg-class-name">brandWaymagGrey</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="150" height="45" class="s brandNeutronico" alt=" " />
+                                        <span class="sg-class-name">brandNeutronico</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="150" height="45" class="s brandPulsoSocial" alt=" " />
+                                        <span class="sg-class-name">brandPulsoSocial</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="150" height="45" class="s brandEntreMujeres" alt=" " />
+                                        <span class="sg-class-name">brandEntreMujeres</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid_4">
+                                <ul class="sg-box-grey">
+                                    <li>
+                                        <img src="img/inv.gif" width="92" height="45" class="s brandEmol" alt=" " />
+                                        <span class="sg-class-name">brandEmol</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="157" height="45" class="s brandLaTercera" alt=" " />
+                                        <span class="sg-class-name">brandLaTercera</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="100" height="45" class="s brandMujer" alt=" " />
+                                        <span class="sg-class-name">brandMujer</span>
+                                    </li>
+                                </ul>
+                            </div>                            
+                        </div>
+                    </div>
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <h3 class="sg-h3">World Map Sprite</h3>
+                                <p class="textC">Para el <span class="bold">World Map Sprite</span> usaremos el <em>tag</em> <span class="bold">img</span> con una imagen transparente <em>(inv.gif)</em>, junto con la class <span class="bold">"sWorldmap"</span> seguida de la class correspondiente al sprite en concreto que queramos usar, p.e. <span class="bold">"flagAr"</span>.</p>
+                                <div class="js-sg-code-viewer">
+                                    <p class="textC">
+                                        <span class="js-sg-arrow">→</span>
+                                        <a href="#" class="js-sg-trigger sg-link">Mostrar código</a>
+                                    </p>
+                                    <div class="js-sg-code-block hidden">
+                                        <pre><code>&lt;img src=&quot;img/inv.gif&quot; width=&quot;60&quot; height=&quot;75&quot; class=&quot;sWorldmap flagAr&quot; alt=&quot;Argentina&quot; /&gt;</code></pre>
+                                        <p class="padT10 textC">Este ejemplo daría como resultado el siguiente icono: <img src="img/inv.gif" width="60" height="75" class="sWorldmap flagAr" alt="Argentina" style="vertical-align:middle;" /></p>
+                                    </div>
+                                </div>
+                                <p class="textC">Esta es la <span class="bold">imagen</span> que usaremos para el <span class="bold">World Map Sprite</span> <em>(sprite_worldmap_xx.png)</em>, donde <span class="bold">"xx"</span> es la <span class="bold">última versión del fichero:</span> <a href="worldmap/img/sprite_worldmap_02.png" class="sg-link" target="_blank">sprite_worldmap_02.png</a></p>
+                                <p class="textC">Estas son las <span class="bold">classes</span> que usaremos para los <span class="bold">distintos iconos:</span></p>
+                            </div>
+                            <div class="grid_4">
+                                <ul class="sg-box-grey">
+                                    <li>
+                                        <img src="img/inv.gif" width="60" height="75" class="sWorldmap flagAr" alt=" " />
+                                        <span class="sg-class-name">flagAr</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="60" height="75" class="sWorldmap flagCo" alt=" " />
+                                        <span class="sg-class-name">flagCo</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid_4">
+                                <ul class="sg-box-grey">
+                                    <li>
+                                        <img src="img/inv.gif" width="60" height="75" class="sWorldmap flagMx" alt=" " />
+                                        <span class="sg-class-name">flagMx</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="60" height="75" class="sWorldmap flagCl" alt=" " />
+                                        <span class="sg-class-name">flagCl</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="grid_4 _suffix_4">
+                                <ul class="sg-box-grey">
+                                    <li>
+                                        <img src="img/inv.gif" width="60" height="75" class="sWorldmap flagPe" alt=" " />
+                                        <span class="sg-class-name">flagPe</span>
+                                    </li>
+                                    <li>
+                                        <img src="img/inv.gif" width="60" height="75" class="sWorldmap flagUy" alt=" " />
+                                        <span class="sg-class-name">flagUy</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="clear"></div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- HEADINGS-->
+                <div class="sg-box">
+                    <h2 id="styles-headings" class="sg-h2">Headings</h2>                   
+                    <div class="wrap">
+                        <div class="container_16">
+                            <div class="grid_16">
+                                <h1>Lorem ipsum dolor sit amet</h1>
+                                <h2>Lorem ipsum dolor sit amet</h2>
+                                <h3>Lorem ipsum dolor sit amet</h3>
+                                <h4>Lorem ipsum dolor sit amet</h4>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                
+            </div>
+            <!-- * /Content * -->
+
+            <!-- * Footer * -->
+            <div id="footer">             
+                <!-- Terms and Conditions Sub-Footer -->
+                <div class="termsSubFooter wrap">
+                    <div class="container_16">
+                        <div class="grid_16 textC">
+                            <ul class="dropdownNav skinDropdownNavTerms">
+                                <li>© FancyBox 2012.</li>
+                                <li><a href="#" title="Términos">Términos</a></li>
+                                <li><a href="#" title="Privacidad">Privacidad</a></li>
+                                <li><a href="#" title="Conócenos">Conócenos</a></li>
+                                <li><a href="#" title="Preguntas frecuentes">Preguntas frecuentes</a></li>
+                                <li><a href="#" title="Contacto">Contacto</a></li>
+                                <li><a href="#" title="Prensa">Prensa</a></li>
+                                <li><a href="#" title="Cambiar País"><img src="img/inv.gif" width="15" height="15" class="s countrySwitch" alt=" " />Cambiar País</a>
+                                    <ul>
+                                        <li><a href="#">Argentina</a></li>
+                                        <li><a href="#">Colombia</a></li>
+                                        <li><a href="#">España</a></li>
+                                        <li><a href="#">Lorem ipsum</a></li>
+                                    </ul>                            
+                                </li>
+                            </ul>
+                        </div>                        
+                    </div>
+                </div>
+                <!-- /Terms and Conditions Sub-Footer -->
+            </div>
+            <!-- * /Footer * -->            
+        </div>
+        <!--<script type="text/javascript" src="js/frontend.js"></script>-->
+    </body>
+</html>

@@ -1,0 +1,990 @@
+/*** FANCYBOX.COM
+     Created: Oct. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+
+                | RESET
+                | FONT FACE (not minified, to prevent some issues)
+                > BASE <
+    FRAMEWORK   | GRID
+                | WIDGETS
+                | HELPERS
+
+    THEME       | PAGES
+                | SPRITES
+                | THEMES
+
+    RESPONSIVE  | MEDIA QUERIES (Load the last!)
+
+*************************************************************************/
+
+/* BASE
+-------------------------------------------------------------------------
+ * Base: HTML elements (headings, paragraphs, quotes, anchors, forms,
+   buttons, tables, lists...). Typography (fonts, fontrendering
+   normalization, scale, baseline grid...).
+------------------------------------------------------------------------*/
+
+/*** Html and Body ***/
+html {
+    font-size:62.5%; /* Font base =10px (1rem) */
+    background:#fff;
+}
+body {
+    font:normal 14px/20px Arial,Helvetica,sans-serif;
+    color:#363636; /* Font base color */
+}
+
+/*** Links ***/
+a {
+    color:#c11d7f;
+    text-decoration:none;
+    outline:medium none;
+}
+/* Este código es el bueno. Provisionalmente comentado para
+   no romper los buttons del "checkout" del theme de Presta.
+a,
+a:active,
+a:visited {
+    color:#c11d7f;
+    text-decoration:none;
+    outline:medium none;
+}*/
+a:hover {
+    text-decoration:none;
+}
+/* Unnderlined links */
+a.underlined {
+    color:#363636;
+    text-decoration:underline;
+}
+a.underlined:hover {
+    text-decoration:none;
+}
+
+/*** Images within Links ***/
+a img {
+    border:none;
+    opacity:1;
+    filter:alpha(opacity=100);
+    -webkit-transition:opacity .2s ease-in;
+       -moz-transition:opacity .2s ease-in;
+            transition:opacity .2s ease-in;
+}
+a:hover img {
+    opacity:.75;
+    filter:alpha(opacity=75);
+}
+/* To disable opacity image effect, put this class to the anchor wrapper */
+a.noImgFx:hover img {
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+
+/*** Flexible Images ***/
+.flxImg { /* The flexible img wrapper, could be <a> or <span>. Should be combined with a percentage width class */
+    display:block;
+    /*width:100%;*/
+}
+/*.flxImg img,
+.flxImg embed,
+.flxImg object,
+.flxImg video {*/
+.flxImg img {
+    display:block;
+    max-width:100%;
+    -ms-interpolation-mode:bicubic; /* http://css-tricks.com/ie-fix-bicubic-scaling-for-images */
+}
+/*.flxImg.floatL {
+    margin-right:1%;
+}
+.flxImg.floatR {
+    margin-left:1%;
+}*/
+/* Flexible image (optional) skins */
+.skinFlxImg {
+    border:4px solid #fff;
+    background-color:#fff; /* Needed to achieve image roll-over effect (prevents to show page background) */
+}
+.skinFlxImg2 {
+    min-height:150px;
+    border:1px solid #a09a9d;
+    background-color:#e2dbdd; /* Needed to achieve image roll-over effect (prevents to show page background) */
+    z-index:2; /* If img is showed, text caption is hidden below it */
+}
+.skinFlxImg2 .caption {
+    display:block;
+    font-family:'Century Gothic W01';
+    line-height:100%;
+    text-transform:uppercase;
+    text-align:center;
+    z-index:-1; /* If img is showed, text caption is hidden below it */
+}
+.skinFlxImg3 {
+    border:1px solid #d3c4c9;
+    background-color:#fff; /* Needed to achieve image roll-over effect (prevents to show page background) */
+}
+.skinFlxImg3 img {
+    margin: 0 auto;
+}
+
+/*** Flexible YouTube Videos (http://avexdesigns.com/responsive-youtube-embed/) ***/
+.flxVideo {
+    position:relative;
+    padding-bottom:56.25%;
+    /*padding-top:30px; * Remove if controls are hidden by default */
+    height:0;
+    overflow:hidden;
+}
+.flxVideo iframe,
+.flxVideo object,
+.flxVideo embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+/*** Selected text ***/
+::selection {
+    background:#f3d2e5;
+}
+
+/*** Headings ***/
+/* Classes added to change appearance without altering SEO. Ex: <h3 class="h1">Lorem ipsum</h3> */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+    display:block; /* Not redundant, necessary to achieve the same look with other tags different to Heading */
+    /*line-height:normal;*/
+}
+h1, .h1 {
+    font:normal 18px/18px 'Walbaum W01 Bold Italic';
+    color:#362e33;
+    padding-bottom:25px;
+}
+h1 .upper, .h1 .upper {
+    font-size:30px;
+    line-height:30px;
+}
+h2, .h2 {
+    font:normal 20px/20px 'Walbaum W01 Bold Italic';
+    color:#000;
+    text-align:center;
+    padding-bottom:25px;
+    margin-bottom:25px;
+}
+h3, .h3 {
+    font:normal 18px/18px 'Walbaum W01 Bold Italic';
+    color:#000;
+    text-align:center;
+    padding-bottom:25px;
+    margin-bottom:25px;
+}
+h2, .h2,
+h3, .h3 {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAALCAYAAACwEeRxAAAAv0lEQVR42u3c0QmDMBiF0buIszqbk/19ElQEC20MxnPhLBCK7deUpqoCANxnmeZVLdOcqkoSZwMAjTkEAOgTwLUhggFAAAPAkAFcJ7KGMAAggAFg1Pjd3QQDAAIYoM+D0uxPu4jfSuIFZz/NMxvg+nNdAQDtfRG/AEBLvgUAcANsfW+AD2/OZm6AAfwEGkAA2+MDOOLXBDCAAAaAN/wB1i6Cz+LXOQGAAAaAkQI4hwB2gwcAAhgAxg1h8QsA9/oAHp4+pNmGolcAAAAASUVORK5CYII=) repeat-x center bottom; /* data uri */
+}
+.lt-ie8 h2, .lt-ie8 .h2,
+.lt-ie8 h3, .lt-ie8 .h3 {
+    background-image:url(../img/themes/woman/hr_bullet.png); /* ie7 doesn't support data uri */
+}
+h4, .h4 {
+    font:normal 18px/18px 'Walbaum W01 Bold Italic';
+    color:#000;
+    text-align:left;
+    padding-bottom:20px;
+    margin-bottom:30px;
+    background:none; /* Removes background image when class is applied to different level heading */
+    border-bottom:1px solid #000;
+}
+.asLabel {
+    font:bold 14px/14px Arial,Helvetica,sans-serif;
+    color:#a08a8f;
+    text-align:left;
+    text-transform:uppercase;
+    padding-bottom:15px;
+    margin-bottom:0;
+    background:none;
+}
+
+/* Links inside Headings */
+h1 a, .h1 a {
+    color:#362e33;
+    -webkit-transition:color .25s ease-in;
+       -moz-transition:color .25s ease-in;
+            transition:color .25s ease-in;
+}
+h2 a, .h2 a,
+h3 a, .h3 a,
+h4 a, .h4 a {
+    color:#000;
+    -webkit-transition:color .25s ease-in;
+       -moz-transition:color .25s ease-in;
+            transition:color .25s ease-in;
+}
+h1 a:hover, .h1 a:hover,
+h2 a:hover, .h2 a:hover,
+h3 a:hover, .h3 a:hover,
+h4 a:hover, .h4 a:hover {
+    color:#c11d7f;
+}
+
+/*** Paragraphs ***/
+p {padding-bottom:20px;}
+
+/*** Quotes ***/
+
+/*** Tables ***/
+
+/*** Lists ***/
+/* Bulleted List */
+.bullets,
+.bulletsS {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+}
+.bullets li {
+    padding:0 0 20px 30px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAAJCAYAAADgkQYQAAAARUlEQVQY02M4KFvPAMQKQFwNxMeA+AeUroaKM8AULAXi/1gwSFyBAarjPx5czQA1Gp+iYwxQN+BT9INok4hyE1G+IxhOAE7FrL0xSpIMAAAAAElFTkSuQmCC) no-repeat 0 5px; /* data uri */
+}
+.lt-ie8 .bullets li {
+    background-image:url(../img/themes/woman/bullet.png); /* ie7 doesn't support data uri */
+}
+/* Bulleted List Small */
+.bulletsS {
+    padding-bottom: 15px;
+}
+.bulletsS li:before {
+    content: '•';
+    font-size: 18px;
+    font-weight: bold;
+    color: #c11d7f;
+    padding-right: 8px;
+}
+
+/*** Forms ***/
+/* Input states */
+input[disabled],
+textarea[disabled],
+select[disabled],
+input[readonly],
+textarea[readonly],
+select[readonly] {
+    color:#999!important;
+    border-color:#b5b5b5!important;
+    background-color:#eee!important;
+}
+input[type=button]:disabled,
+input[type=submit]:disabled,
+button:disabled {
+    color:#9f9f9f!important;
+    border-color:#b5b5b5!important;
+    background-color:transparent!important;
+    cursor:default!important;
+}
+
+/*** Buttons ***/
+/* Button normal (usamos EMs para que escale bien en los distintos tamaños de botón) */
+.btn {
+    display:inline-block;
+    width:auto;
+    margin:0;
+    padding:0;
+    border:none;
+    cursor:pointer;
+    white-space:nowrap;
+    background-color:transparent;
+}
+
+/* Size Button eXtra Large */
+/*.sizeBtnXL {
+    ...
+}*/
+/* Size Button Large */
+.sizeBtnL {
+    font-size:24px;
+    line-height:44px;
+    height:44px;
+}
+/* Size Button Medium */
+.sizeBtnM {
+    font-size:18px;
+    line-height:34px;    
+    height:34px;
+}
+/* Size Button Small */
+.sizeBtnS {
+    font-size:14px;
+    line-height:22px;
+    height:22px;
+}
+
+/* Skins Buttons (arrow icon) */
+.skinBtnL1,
+.skinBtnR1,
+.skinBtnL2,
+.skinBtnR2,
+.skinBtnL3,
+.skinBtnR3,
+.skinBtnL4,
+.skinBtnR4,
+.skinBtnL5,
+.skinBtnR5,
+.skinBtnL6,
+.skinBtnR6,
+.skinBtnL7,
+.skinBtnR7 {
+    background-image:url(../img/themes/woman/sprite_fancybox_arrows_00.png);
+    background-repeat:no-repeat;
+}
+
+/* Skin Button 1 */
+.skinBtnL1,
+.skinBtnR1 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#c11d7f;
+    text-transform:uppercase;
+    -webkit-transition:.1s linear 0s;
+       -moz-transition:.1s linear 0s;
+            transition:.1s linear 0s;
+}
+/*Arrow Left*/
+.skinBtnL1.sizeBtnL {
+    padding-left:30px;
+    background-position: left 0;
+}
+.skinBtnL1.sizeBtnL:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL1.sizeBtnL:active {
+    padding-left:30px; /* arrow movement effect */
+}
+.skinBtnL1.sizeBtnM {
+    padding-left:25px;
+    background-position: left -100px;
+}
+.skinBtnL1.sizeBtnM:hover {
+    padding-left:27px; /* arrow movement effect */
+}
+.skinBtnL1.sizeBtnM:active {
+    padding-left:25px; /* arrow movement effect */
+}
+.skinBtnL1.sizeBtnS {
+    padding-left:15px;
+    background-position: left -200px;
+}
+.skinBtnL1.sizeBtnS:hover {
+    padding-left:17px; /* arrow movement effect */
+}
+.skinBtnL1:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL1.sizeBtnS:active {
+    padding-left:15px; /* arrow movement effect */
+}
+/*Arrow Right*/
+.skinBtnR1.sizeBtnL {
+    padding-right:30px;
+    background-position: right 0;
+}
+.skinBtnR1.sizeBtnL:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR1.sizeBtnL:active {
+    padding-right:30px; /* arrow movement effect */
+}
+.skinBtnR1.sizeBtnM {
+    padding-right:25px;
+    background-position: right -100px;
+}
+.skinBtnR1.sizeBtnM:hover {
+    padding-right:27px; /* arrow movement effect */
+}
+.skinBtnR1.sizeBtnM:active {
+    padding-right:25px; /* arrow movement effect */
+}
+.skinBtnR1.sizeBtnS {
+    padding-right:15px;
+    background-position: right -200px;
+}
+.skinBtnR1.sizeBtnS:hover {
+    padding-right:17px; /* arrow movement effect */
+}
+.skinBtnR1:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR1.sizeBtnS:active {
+    padding-right:15px; /* arrow movement effect */
+}
+
+/* Skin Button 2 */
+.skinBtnL2,
+.skinBtnR2 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#c11d7f;
+    text-transform:uppercase;
+    -webkit-transition:.1s linear 0s;
+       -moz-transition:.1s linear 0s;
+            transition:.1s linear 0s;
+}
+/*Arrow Left*/
+.skinBtnL2.sizeBtnL {
+    padding-left:30px;
+    background-position: left -300px;
+}
+.skinBtnL2.sizeBtnL:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL2.sizeBtnL:active {
+    padding-left:30px; /* arrow movement effect */
+}
+.skinBtnL2.sizeBtnM {
+    padding-left:25px;
+    background-position: left -400px;
+}
+.skinBtnL2.sizeBtnM:hover {
+    padding-left:27px; /* arrow movement effect */
+}
+.skinBtnL2.sizeBtnM:active {
+    padding-left:25px; /* arrow movement effect */
+}
+.skinBtnL2.sizeBtnS {
+    padding-left:15px;
+    background-position: left -500px;
+}
+.skinBtnL2.sizeBtnS:hover {
+    padding-left:17px; /* arrow movement effect */
+}
+.skinBtnL2:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL2.sizeBtnS:active {
+    padding-left:15px; /* arrow movement effect */
+}
+/*Arrow Right*/
+.skinBtnR2.sizeBtnL {
+    padding-right:30px;
+    background-position: right -300px;
+}
+.skinBtnR2.sizeBtnL:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR2.sizeBtnL:active {
+    padding-right:30px; /* arrow movement effect */
+}
+.skinBtnR2.sizeBtnM {
+    padding-right:25px;
+    background-position: right -400px;
+}
+.skinBtnR2.sizeBtnM:hover {
+    padding-right:27px; /* arrow movement effect */
+}
+.skinBtnR2.sizeBtnM:active {
+    padding-right:25px; /* arrow movement effect */
+}
+.skinBtnR2.sizeBtnS {
+    padding-right:15px;
+    background-position: right -500px;
+}
+.skinBtnR2.sizeBtnS:hover {
+    padding-right:17px; /* arrow movement effect */
+}
+.skinBtnR2:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR2.sizeBtnS:active {
+    padding-right:15px; /* arrow movement effect */
+}
+
+/* Skin Button 3 */
+.skinBtnL3,
+.skinBtnR3 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#9f9f9f;
+    text-transform:uppercase;
+    pointer-events:none; /* Disable links for <a> elements */
+}
+/*Arrow Left*/
+.skinBtnL3.sizeBtnL {
+    padding-left:30px;
+    background-position: left -600px;
+}
+.skinBtnL3.sizeBtnM {
+    padding-left:25px;
+    background-position: left -700px;
+}
+.skinBtnL3.sizeBtnS {
+    padding-left:15px;
+    background-position: left -800px;
+}
+/*Arrow Right*/
+.skinBtnR3.sizeBtnL {
+    padding-right:30px;
+    background-position: right -600px;
+}
+.skinBtnR3.sizeBtnM {
+    padding-right:25px;
+    background-position: right -700px;
+}
+.skinBtnR3.sizeBtnS {
+    padding-right:15px;
+    background-position: right -800px;
+}
+
+/* Skin Button 4 */
+.skinBtnL4,
+.skinBtnR4 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#c11d7f;
+    text-transform:uppercase;
+    -webkit-transition:.1s linear 0s;
+       -moz-transition:.1s linear 0s;
+            transition:.1s linear 0s;
+}
+/*Arrow Left*/
+.skinBtnL4.sizeBtnL {
+    padding-left:30px;
+    background-position: left -900px;
+}
+.skinBtnL4.sizeBtnL:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL4.sizeBtnL:active {
+    padding-left:30px; /* arrow movement effect */
+}
+.skinBtnL4.sizeBtnM {
+    padding-left:25px;
+    background-position: left -1000px;
+}
+.skinBtnL4.sizeBtnM:hover {
+    padding-left:27px; /* arrow movement effect */
+}
+.skinBtnL4.sizeBtnM:active {
+    padding-left:25px; /* arrow movement effect */
+}
+.skinBtnL4.sizeBtnS {
+    padding-left:15px;
+    background-position: left -1100px;
+}
+.skinBtnL4.sizeBtnS:hover {
+    padding-left:17px; /* arrow movement effect */
+}
+.skinBtnL4:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL4.sizeBtnS:active {
+    padding-left:15px; /* arrow movement effect */
+}
+/*Arrow Right*/
+.skinBtnR4.sizeBtnL {
+    padding-right:30px;
+    background-position: right -900px;
+}
+.skinBtnR4.sizeBtnL:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR4.sizeBtnL:active {
+    padding-right:30px; /* arrow movement effect */
+}
+.skinBtnR4.sizeBtnM {
+    padding-right:25px;
+    background-position: right -1000px;
+}
+.skinBtnR4.sizeBtnM:hover {
+    padding-right:27px; /* arrow movement effect */
+}
+.skinBtnR4.sizeBtnM:active {
+    padding-right:25px; /* arrow movement effect */
+}
+.skinBtnR4.sizeBtnS {
+    padding-right:15px;
+    background-position: right -1100px;
+}
+.skinBtnR4.sizeBtnS:hover {
+    padding-right:17px; /* arrow movement effect */
+}
+.skinBtnR4:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR4.sizeBtnS:active {
+    padding-right:15px; /* arrow movement effect */
+}
+
+/* Skin Button 5 */
+.skinBtnL5,
+.skinBtnR5 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#000;
+    text-transform:uppercase;
+    -webkit-transition:.1s linear 0s;
+       -moz-transition:.1s linear 0s;
+            transition:.1s linear 0s;
+}
+/*Arrow Left*/
+.skinBtnL5.sizeBtnL {
+    padding-left:30px;
+    background-position: left -1200px;
+}
+.skinBtnL5.sizeBtnL:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL5.sizeBtnL:active {
+    padding-left:30px; /* arrow movement effect */
+}
+.skinBtnL5.sizeBtnM {
+    padding-left:25px;
+    background-position: left -1300px;
+}
+.skinBtnL5.sizeBtnM:hover {
+    padding-left:27px; /* arrow movement effect */
+}
+.skinBtnL5.sizeBtnM:active {
+    padding-left:25px; /* arrow movement effect */
+}
+.skinBtnL5.sizeBtnS {
+    padding-left:15px;
+    background-position: left -1400px;
+}
+.skinBtnL5.sizeBtnS:hover {
+    padding-left:17px; /* arrow movement effect */
+}
+.skinBtnL5:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL5.sizeBtnS:active {
+    padding-left:15px; /* arrow movement effect */
+}
+/*Arrow Right*/
+.skinBtnR5.sizeBtnL {
+    padding-right:30px;
+    background-position: right -1200px;
+}
+.skinBtnR5.sizeBtnL:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR5.sizeBtnL:active {
+    padding-right:30px; /* arrow movement effect */
+}
+.skinBtnR5.sizeBtnM {
+    padding-right:25px;
+    background-position: right -1300px;
+}
+.skinBtnR5.sizeBtnM:hover {
+    padding-right:27px; /* arrow movement effect */
+}
+.skinBtnR5.sizeBtnM:active {
+    padding-right:25px; /* arrow movement effect */
+}
+.skinBtnR5.sizeBtnS {
+    padding-right:15px;
+    background-position: right -1400px;
+}
+.skinBtnR5.sizeBtnS:hover {
+    padding-right:17px; /* arrow movement effect */
+}
+.skinBtnR5:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR5.sizeBtnS:active {
+    padding-right:15px; /* arrow movement effect */
+}
+
+/* Skin Button 6 */
+.skinBtnL6,
+.skinBtnR6 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#000;
+    text-transform:uppercase;
+    -webkit-transition:.1s linear 0s;
+       -moz-transition:.1s linear 0s;
+            transition:.1s linear 0s;
+}
+/*Arrow Left*/
+.skinBtnL6.sizeBtnL {
+    padding-left:30px;
+    background-position: left -900px;
+}
+.skinBtnL6.sizeBtnL:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL6.sizeBtnL:active {
+    padding-left:30px; /* arrow movement effect */
+}
+.skinBtnL6.sizeBtnM {
+    padding-left:25px;
+    background-position: left -1000px;
+}
+.skinBtnL6.sizeBtnM:hover {
+    padding-left:27px; /* arrow movement effect */
+}
+.skinBtnL6.sizeBtnM:active {
+    padding-left:25px; /* arrow movement effect */
+}
+.skinBtnL6.sizeBtnS {
+    padding-left:15px;
+    background-position: left -1100px;
+}
+.skinBtnL6.sizeBtnS:hover {
+    padding-left:17px; /* arrow movement effect */
+}
+.skinBtnL6:hover {
+    padding-left:32px; /* arrow movement effect */
+}
+.skinBtnL6.sizeBtnS:active {
+    padding-left:15px; /* arrow movement effect */
+}
+/*Arrow Right*/
+.skinBtnR6.sizeBtnL {
+    padding-right:30px;
+    background-position: right -900px;
+}
+.skinBtnR6.sizeBtnL:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR6.sizeBtnL:active {
+    padding-right:30px; /* arrow movement effect */
+}
+.skinBtnR6.sizeBtnM {
+    padding-right:25px;
+    background-position: right -1000px;
+}
+.skinBtnR6.sizeBtnM:hover {
+    padding-right:27px; /* arrow movement effect */
+}
+.skinBtnR6.sizeBtnM:active {
+    padding-right:25px; /* arrow movement effect */
+}
+.skinBtnR6.sizeBtnS {
+    padding-right:15px;
+    background-position: right -1100px;
+}
+.skinBtnR6.sizeBtnS:hover {
+    padding-right:17px; /* arrow movement effect */
+}
+.skinBtnR6:hover {
+    padding-right:32px; /* arrow movement effect */
+}
+.skinBtnR6.sizeBtnS:active {
+    padding-right:15px; /* arrow movement effect */
+}
+
+/* Skin Button 7 (Checkout) */
+.skinBtnL7,
+.skinBtnR7 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#fff;
+    text-transform:uppercase;
+    background-color: #c11d7f;
+    opacity:1;
+    filter:alpha(opacity=100);
+    -webkit-transition:.1s linear 0s;
+       -moz-transition:.1s linear 0s;
+            transition:.1s linear 0s;
+}
+/*Arrow Left*/
+.skinBtnL7.sizeBtnL {
+    padding:0 15px 0 25px;
+    /*padding-left:25px;*/
+    background-position: left -188px;
+}
+.skinBtnL7.sizeBtnM {
+    padding:0 10px 0 20px;
+    /*padding-left:20px;*/
+    background-position: left -196px;
+}
+.skinBtnL7.sizeBtnS {
+    padding:4px 10px 4px 15px;
+    /*padding-left:10px;*/
+    background-position: left -196px;
+}
+.skinBtnL7:hover {
+    opacity:.85;
+    filter:alpha(opacity=85);    
+}
+/*Arrow Right*/
+.skinBtnR7.sizeBtnL {
+    padding:0 25px 0 15px;
+    /*padding-right:25px;*/
+    background-position: right -188px;
+}
+.skinBtnR7.sizeBtnM {
+    padding:0 20px 0 10px;
+    /*padding-right:20px;*/
+    background-position: right -196px;
+}
+.skinBtnR7.sizeBtnS {
+    padding:4px 15px 4px 10px;
+    /*padding-right:10px;*/
+    background-position: right -196px;
+}
+.skinBtnR7:hover {
+    opacity:.85;
+    filter:alpha(opacity=85);    
+}
+
+/* Skin Button Facebook */
+.skinBtnFacebook {
+    font:normal 10px/14px 'Century Gothic W01';
+    color:#fff;
+    text-transform:uppercase;
+    padding:0 25px 0 10px;
+    background:#d0509d url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAIAAAC0tAIdAAAAqklEQVQoz5XOMQrCMBTG8e8migiCIAgOIggikptkyJChS+cuHXqT7l1acpOcorlBjD4J5vFA+4NC+PInFI8lkL77f171bQlcJUqpaZriWwgh77hI+r6PX/KOs2Se5xQNw8B2nCT0ZNu2bMex5JyLpaZp8i0Opa7rxnGkznufztbafIu9hOq6rtmOnYTqqqrYjq2E6vQPbMdGQrUxhu1YS6jWWrP9U69+oewJnyfWdS101M4AAAAASUVORK5CYII=) no-repeat right center; /* data uri */
+    border:1px solid #ac989d;
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+    -webkit-transition:.25s linear 0s;
+       -moz-transition:.25s linear 0s;
+            transition:.25s linear 0s;
+}
+.lt-ie8 .skinBtnFacebook {
+    background-image:url(../img/bg_facebook_icon_s.png); /* ie7 doesn't support data uri */
+}
+.skinBtnFacebook:hover {
+    text-shadow:1px 1px 0 #000;
+}
+
+/* Skin Button Tag */
+.skinBtnTag {
+    font:normal 10px/16px 'Century Gothic W01 Bold';
+    color:#fff;
+    text-transform:uppercase;
+    padding:0 6px;
+    background:#ac989d;
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+    -webkit-transition:background-color .25s ease-in;
+       -moz-transition:background-color .25s ease-in;
+            transition:background-color .25s ease-in;
+}
+.skinBtnTag:hover {
+    background-color:#c11d7f;
+}
+
+/* Skin Button Tag 2 (Checkout) */
+.skinBtnTag2 {
+    font:normal 11px/18px 'Century Gothic W01 Bold';
+    color:#000;
+    text-transform:uppercase;
+    padding:0 6px;
+    background:#e7e7e7;
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+    -webkit-transition:.25s ease-in;
+       -moz-transition:.25s ease-in;
+            transition:.25s ease-in;
+}
+.skinBtnTag2:hover {
+    color: #fff;
+    background-color:#ac989d;
+}
+
+/*** Notification Messages (class names from PrestaShop) ***/
+/* Warning, Success, Error */
+.warning,
+.success,
+.error {
+    margin:0 0 20px 0;
+    padding:10px;
+    font-size:13px;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+}
+.warning {
+    color:#c09853;
+    background-color:#fcf8e3;
+    border:1px solid #fbeed5;
+}
+.success {
+    color:#468847;
+    background-color:#dff0d8;
+    border:1px solid #d6e9c6;
+}
+.error {
+    color:#b94a48;
+    background-color:#f2dede;
+    border:1px solid #eed3d7;
+}
+.warning p,
+.success p,
+.error p {
+    padding-bottom:0;
+}
+.error ol {
+    margin-left:20px;
+}
+.error p.lnk {
+    margin-top:10px;
+    padding:0;
+    font-size:11px;
+}
+.required {
+    color:#990000;
+}
+
+/* Warning inline, Success inline */
+.warning_inline,
+.success_inline,
+.error_inline {
+    float:left;
+    margin:0 0 0 10px;
+    padding:5px;
+    font-size:11px;
+    line-height:15px;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+}
+.warning_inline {
+    color:#c09853;
+    background-color:#fcf8e3;
+    border:1px solid #fbeed5;
+}
+.success_inline {
+    color:#468847;
+    background-color:#dff0d8;
+    border:1px solid #d6e9c6;
+}
+.error_inline {
+    color:#b94a48;
+    background-color:#f2dede;
+    border:1px solid #eed3d7;
+}
+.warning_inline p,
+.success_inline p,
+.error_inline p {
+    padding-bottom:0;
+}
+
+/* Warning inline, Success inline (inside Header) */
+#header .warning_inline,
+#header .success_inline,
+#header .error_inline {
+    clear: both;
+    float: none;
+    margin: 0;
+    padding: 5px 0 0;
+    background-color: transparent;
+    border: none;
+    font-weight: 700;
+}
+#header .success_inline {
+    color: #18cc00;
+}
+#header .error_inline {
+    color: #f10000;
+}

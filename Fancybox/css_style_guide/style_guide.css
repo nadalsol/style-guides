@@ -1,0 +1,108 @@
+/*** PINROOM.COM
+     Created: 16.04.2012
+     Author : Nadal Soler (nadal dot soler at pinroom dot com)
+              Front-end Developer
+*************************************************************************
+
+/* STYLE GUIDE (http://pinroom.devel/app_dev.php/fronttest)
+-------------------------------------------------------------------------
+ * Style Guide: UI Pattern Library styles.
+   A website Style Guide is an ideal way to ensure brand identity,
+   professionalism and consistency across your site.
+   Read: http://www.netmagazine.com/features/create-website-style-guide
+------------------------------------------------------------------------*/
+
+.sg-box {
+    padding:8px 10px;
+    margin-bottom:20px;
+    background-color:#fff;
+    -webkit-border-radius:6px;
+       -moz-border-radius:6px;
+            border-radius:6px;
+    -webkit-box-shadow:0 0 12px 0 rgba(0,0,0,.13);
+       -moz-box-shadow:0 0 12px 0 rgba(0,0,0,.13);
+            box-shadow:0 0 12px 0 rgba(0,0,0,.13);
+}
+.sg-nav {
+    overflow:hidden;
+}
+.sg-nav li {
+    float:left;
+    margin-right:10px;
+}
+.sg-nav li:first-child {
+  padding-top:2px;
+}
+.sg-nav li:last-child {
+    float:right;
+    margin-right:0;
+}
+.sg-nav li a {
+    display:inline-block;
+    color:#fff;
+    background-color:#444;
+    padding:3px 5px;
+    -webkit-border-radius:6px;
+       -moz-border-radius:6px;
+            border-radius:6px;
+    -webkit-transition:background-color .25s ease-in;
+       -moz-transition:background-color .25s ease-in;
+            transition:background-color .25s ease-in;
+}
+.sg-nav li a:hover {
+    background-color:#c11d7f;
+}
+.sg-nav li:last-child a {
+    background-color:#c11d7f;
+}
+.sg-nav li:last-child a:hover {
+    background-color:#444;
+}
+.sg-grid p {
+    color:#444;
+    text-align:center;
+    padding:5px 0;
+    margin-bottom:10px;
+    background-color:#bbb;
+}
+.sg-link {
+    color:#c11d7f;
+}
+.sg-box pre { /* .js-sg-code-block */
+    font-size:.917em;
+    color:yellow;
+    background-color:#333;
+    padding:10px;
+    white-space:pre-wrap;
+    -webkit-border-radius:4px;
+       -moz-border-radius:4px;
+            border-radius:4px;
+    -webkit-box-shadow:inset 0 0 8px #000;
+       -moz-box-shadow:inset 0 0 8px #000;
+            box-shadow:inset 0 0 8px #000;
+}
+.sg-box-grey {
+    display:block;
+    background-color:#ddd;
+    padding:20px;
+    margin-bottom:25px;
+    -webkit-border-radius:4px;
+       -moz-border-radius:4px;
+            border-radius:4px;
+    -webkit-box-shadow:inset 0 0 8px #999;
+       -moz-box-shadow:inset 0 0 8px #999;
+            box-shadow:inset 0 0 8px #999;
+}
+.sg-box-grey li {
+    padding-bottom:10px;
+}
+.sg-box-grey li img {
+    vertical-align:middle;
+}
+.sg-box-grey li .sg-class-name {
+    font-family:"Courier New",Courier,monospace;
+    font-size:.917em;
+    text-shadow:1px 1px 0 rgba(256,256,256,.4);
+    padding-left:5px;
+}
+em {font-style:italic!important;}

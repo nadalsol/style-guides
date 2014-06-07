@@ -1,0 +1,795 @@
+/*** FANCYBOX.COM
+     Created: Oct. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+
+                | RESET
+                > BASE <
+    FRAMEWORK   | GRID
+                | WIDGETS
+                | HELPERS
+
+    THEME       | PAGES
+                | SPRITES
+
+    RESPONSIVE  | MEDIA QUERIES (Load the last!)
+
+*************************************************************************/
+
+/* BASE
+-------------------------------------------------------------------------
+ * Base: HTML elements (headings, paragraphs, quotes, anchors, forms,
+   buttons, tables, lists...). Typography (fonts, fontrendering
+   normalization, scale, baseline grid...).
+   Why font sizing in rem (root em) units? Read: http://snook.ca/s/997
+------------------------------------------------------------------------*/
+
+/*** Html and Body ***/
+html {
+    font-size:62.5%; /* Font base =10px (1rem) */
+    background:#fff;
+}
+body {
+    font:normal 14px/20px Arial,Helvetica,sans-serif; /* px (old browsers) */
+    font-size:1.4rem; /* rem (CSS3 browsers) */
+    line-height:2.0rem; /* rem (CSS3 browsers) */
+    color:#363636; /* Font base color */
+}
+
+/*** Typography ***/
+/* Web Fonts (source: Fonts.com) */
+/*@import url("http://fast.fonts.com/t/1.css?apiType=css&amp;projectid=df154425-8fec-4c55-bf85-6110e0b10c9f");*/
+@font-face{
+font-family:"Century Gothic W01 Bold";
+src:url("../fonts/b247e158-e647-4a3d-9637-944de5124043.eot?iefix") format("eot");}
+@font-face{
+font-family:"Century Gothic W01 Bold";
+src:url("../fonts/b247e158-e647-4a3d-9637-944de5124043.eot?iefix");
+src:url("../fonts/2ef5ecda-1772-45e2-843f-a13f5d76ed3a.woff") format("woff"),url("../fonts/33cf10ca-a6bb-4888-a320-d38720c9847b.ttf") format("truetype"),url("../fonts/3428a0e6-cb4d-408a-8331-cc78554ab49c.svg#3428a0e6-cb4d-408a-8331-cc78554ab49c") format("svg");
+}
+@font-face{
+font-family:"Century Gothic W01";
+src:url("../fonts/bd45538f-4200-4946-b177-02de8337032d.eot?iefix") format("eot");}
+@font-face{
+font-family:"Century Gothic W01";
+src:url("../fonts/bd45538f-4200-4946-b177-02de8337032d.eot?iefix");
+src:url("../fonts/9908cdad-7524-4206-819e-4f345a666324.woff") format("woff"),url("../fonts/b710c26a-f1ae-4fb8-a9fe-570fd829cbf1.ttf") format("truetype"),url("../fonts/c9e387df-c0d3-42e1-8de6-78c41f68594c.svg#c9e387df-c0d3-42e1-8de6-78c41f68594c") format("svg");
+}
+@font-face{
+font-family:"Walbaum W01 Bold Italic";
+src:url("../fonts/496478a2-156e-43ff-91a8-2b0432496479.eot?iefix") format("eot");}
+@font-face{
+font-family:"Walbaum W01 Bold Italic";
+src:url("../fonts/496478a2-156e-43ff-91a8-2b0432496479.eot?iefix");
+src:url("../fonts/7af6fecc-d601-4ec9-b966-c46f029900e2.woff") format("woff"),url("../fonts/7684a869-08be-40e0-833a-240adb8141fd.ttf") format("truetype"),url("../fonts/e4da6924-5b01-4a99-b2e9-1f6dfd52bb80.svg#e4da6924-5b01-4a99-b2e9-1f6dfd52bb80") format("svg");
+}
+@font-face{
+font-family:"Walbaum W02 Bold";
+src:url("../fonts/0e98562a-aae9-4a1c-9c0e-2d3d54b20c62.eot?iefix") format("eot");}
+@font-face{
+font-family:"Walbaum W02 Bold";
+src:url("../fonts/0e98562a-aae9-4a1c-9c0e-2d3d54b20c62.eot?iefix");
+src:url("../fonts/15c00221-147f-4171-b018-7eb362d48a11.woff") format("woff"),url("../fonts/f57db147-7c99-4823-9a89-dda4149ead27.ttf") format("truetype"),url("../fonts/b84256ee-5181-49e2-8740-370d26135131.svg#b84256ee-5181-49e2-8740-370d26135131") format("svg");
+}
+
+/* Font sizes
+ * px (old browsers) / rem (CSS3 browsers)
+ */
+/*.font9  {font-size:  9px; font-size:  .9rem;}
+.font10 {font-size: 10px; font-size: 1.0rem;} * Font base *
+.font11 {font-size: 11px; font-size: 1.1rem;}
+.font12 {font-size: 12px; font-size: 1.2rem;}
+.font13 {font-size: 13px; font-size: 1.3rem;}
+.font14 {font-size: 14px; font-size: 1.4rem;}
+.font15 {font-size: 15px; font-size: 1.5rem;}
+.font16 {font-size: 16px; font-size: 1.6rem;}
+.font17 {font-size: 17px; font-size: 1.7rem;}
+.font18 {font-size: 18px; font-size: 1.8rem;}
+.font19 {font-size: 19px; font-size: 1.9rem;}
+.font20 {font-size: 20px; font-size: 2.0rem;}
+.font21 {font-size: 21px; font-size: 2.1rem;}
+.font22 {font-size: 22px; font-size: 2.2rem;}
+.font23 {font-size: 23px; font-size: 2.3rem;}
+.font24 {font-size: 24px; font-size: 2.4rem;}
+.font30 {font-size: 30px; font-size: 3.0rem;}
+.font100{font-size:100px; font-size:10.0rem;}
+
+.lineH10 {line-height:10px; line-height:1.0rem;}
+.lineH13 {line-height:13px; line-height:1.3rem;}
+.lineH15 {line-height:15px; line-height:1.5rem;}*/
+
+/*** Links ***/
+a {
+    color:#c11d7f;
+    text-decoration:none;
+    outline:medium none;
+}
+/* Este código es el bueno. Provisionalmente comentado para
+   no romper los buttons del "checkout" del theme de Presta.
+a, a:active, a:visited {
+    color:#c11d7f;
+    text-decoration:none;
+    outline:medium none;
+}*/
+a:hover {
+    text-decoration:none;
+}
+
+/*** Images within Links ***/
+a img {
+    border:none;
+    opacity:1;
+    filter:alpha(opacity=100);
+    -webkit-transition:opacity .2s ease-in;
+       -moz-transition:opacity .2s ease-in;
+            transition:opacity .2s ease-in;
+}
+a:hover img {
+    opacity:.75;
+    filter:alpha(opacity=75);
+}
+/* To disable opacity image effect, put this class to the anchor wrapper */
+a.noImgFx:hover img {
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+
+/*** Flexible Images ***/
+.flxImg { /* The flexible img wrapper, could be <a> or <span>. Should be combined with a percentage width class */
+    display:block;
+    /*width:100%;*/
+}
+/*.flxImg img,
+.flxImg embed,
+.flxImg object,
+.flxImg video {*/
+.flxImg img {
+    display:block;
+    max-width:100%;
+    -ms-interpolation-mode:bicubic; /* http://css-tricks.com/ie-fix-bicubic-scaling-for-images */
+}
+/*.flxImg.floatL {
+    margin-right:1%;
+}
+.flxImg.floatR {
+    margin-left:1%;
+}*/
+/* Flexible image (optional) skin */
+.skinFlxImg {
+    border:4px solid #fff;
+    background-color:#fff; /* Needed to prevent page background images visibility on roll-over */
+}
+
+/*** Flexible YouTube Videos (http://avexdesigns.com/responsive-youtube-embed/) ***/
+.flxVideo {
+    position:relative;
+    padding-bottom:56.25%;
+    /*padding-top:30px; * Remove if controls are hidden by default */
+    height:0;
+    overflow:hidden;
+}
+.flxVideo iframe,
+.flxVideo object,
+.flxVideo embed {
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+}
+
+/*** Selected text ***/
+::selection {
+    background:#f3d2e5;
+}
+
+/*** Headings ***/
+/* Classes added to change appearance without altering SEO. Ex: <h3 class="h1">Lorem ipsum</h3> */
+h1, .h1 {
+    font:normal 18px/18px 'Walbaum W01 Bold Italic';
+    font-size:1.8rem;
+    line-height:1.8rem;
+    color:#362e33;
+    padding-bottom:25px;
+}
+h1 .upper, .h1 .upper {
+    font-size:30px;
+    line-height:30px;
+    font-size:3.0rem;
+    line-height:3.0rem;
+}
+h2, .h2 {
+    font:normal 20px/20px 'Walbaum W01 Bold Italic';
+    font-size:2.0rem;
+    line-height:2.0rem;
+    color:#000;
+    text-align:center;
+    padding-bottom:25px;
+    margin-bottom:25px;
+}
+h3, .h3 {
+    font:normal 18px/18px 'Walbaum W01 Bold Italic';
+    font-size:1.8rem;
+    line-height:1.8rem;
+    color:#000;
+    text-align:center;
+    padding-bottom:25px;
+    margin-bottom:25px;
+}
+h2, .h2,
+h3, .h3 {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAALCAYAAACwEeRxAAAAv0lEQVR42u3c0QmDMBiF0buIszqbk/19ElQEC20MxnPhLBCK7deUpqoCANxnmeZVLdOcqkoSZwMAjTkEAOgTwLUhggFAAAPAkAFcJ7KGMAAggAFg1Pjd3QQDAAIYoM+D0uxPu4jfSuIFZz/NMxvg+nNdAQDtfRG/AEBLvgUAcANsfW+AD2/OZm6AAfwEGkAA2+MDOOLXBDCAAAaAN/wB1i6Cz+LXOQGAAAaAkQI4hwB2gwcAAhgAxg1h8QsA9/oAHp4+pNmGolcAAAAASUVORK5CYII=) repeat-x center bottom; /* data uri */    
+}
+.lt-ie8 h2, .lt-ie8 .h2,
+.lt-ie8 h3, .lt-ie8 .h3 {
+    background-image:url(../img/hr_pink_box.png); /* ie7 doesn't support data uri */
+}
+h4, .h4 {
+    font:normal 18px/18px 'Walbaum W01 Bold Italic';
+    font-size:1.8rem;
+    line-height:1.8rem;
+    color:#000;
+    text-align:left;
+    padding-bottom:20px;
+    margin-bottom:30px;
+    background:none;
+    border-bottom:1px solid #000;
+}
+
+/* Not redundant, necessary to achieve the same look with other tags different to Heading */
+h1, .h1, h2, .h2, h3, .h3, h4, .h4 {
+    display:block;
+    /*line-height:normal;*/
+}
+
+.asLabel {
+    font:bold 14px/14px Arial,Helvetica,sans-serif;
+    font-size:1.4rem;
+    line-height:1.4rem;
+    color:#a08a8f;
+    text-align:left;
+    text-transform:uppercase;
+    padding-bottom:15px;
+    margin-bottom:0;
+    background:none;
+}
+
+/* Links inside Headings */
+h1 a, .h1 a {
+    color:#362e33;
+    -webkit-transition:color .25s ease-in;
+       -moz-transition:color .25s ease-in;
+            transition:color .25s ease-in;
+}
+h2 a, .h2 a,
+h3 a, .h3 a,
+h4 a, .h4 a {
+    color:#000;
+    -webkit-transition:color .25s ease-in;
+       -moz-transition:color .25s ease-in;
+            transition:color .25s ease-in;
+}
+h1 a:hover, .h1 a:hover,
+h2 a:hover, .h2 a:hover,
+h3 a:hover, .h3 a:hover,
+h4 a:hover, .h4 a:hover {
+    color:#c11d7f;
+}
+
+/*** Paragraphs ***/
+p {padding-bottom:20px;}
+
+/*** Quotes ***/
+
+/*** Tables ***/
+/*Table*/
+table {
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    line-height:17px;
+    line-height:1.7rem;
+    empty-cells:hide;
+}
+table .s {
+    vertical-align:middle;
+}
+table th span {
+    display:none;
+}
+table th,
+table td {
+    border-right:1px solid #fff;
+    border-left:1px solid #fff;
+    vertical-align:middle;
+}
+/*Thead*/
+table thead th {
+    padding:0 0 10px 0;
+    background:#fff;
+}
+/*Thead and Tbody*/
+table thead th,
+table tbody th {
+    font-weight:700;
+    color:#a08a8f;
+    text-align:left;
+    text-transform:uppercase;
+}
+/*Tbody*/
+table tbody th,
+table tbody td {
+    background:#ebe7e9;
+    padding:15px 20px;
+    border-bottom:15px solid #fff;
+}
+table tbody tr.itemLast td {
+    border-bottom:35px solid #fff;
+}
+table tbody td.withImg {
+    padding:0;
+    width:115px;
+    background-color:#fff;
+}
+table tbody td.withInput {
+    padding:0;
+    background-color:#fff;
+}
+table tbody tr.total th,
+table tbody tr.total td {
+    font-size:18px;
+    font-size:1.8rem;
+    font-weight:700;
+    color:#363636;
+    background:#fff;
+}
+/*Tfoot*/
+table tfoot td p {
+    padding:20px 0 0 0;
+    border-top:1px solid #000;
+}
+
+/*** Lists ***/
+.bullets {
+    list-style-type:none;
+    padding:0;
+    margin:0;
+}
+.bullets li {
+    padding:0 0 20px 30px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAAKCAYAAACNMs+9AAAAUUlEQVQY02M4KFvPAMW+QLwPiD9DMYjtA5OHKWoB4v84cAtMoQ8eRTDsywC1gpDCfSCFn4hQ+IlYhZ9JstqXWM8QHTww7Ad1xhco3ge1DSwPAGEf1hcpuPgKAAAAAElFTkSuQmCC) no-repeat 0 5px; /* data uri */
+}
+.lt-ie8 .bullets li {
+    background-image:url(../img/bullet.png); /* ie7 doesn't support data uri */
+}
+
+/*** Forms ***/
+/* Form elements */
+/*form p,
+form li {
+    padding-bottom:10px;
+}*/
+
+/*  Habitualmente escondemos los label, aunque los ponemos en el HTML con un class="hidden" para mejorar la accesibilidad.
+    Si excepcionalmente queremos mostrarlos (p.e. en los input type password) usaremos el class "labelBlock" en lugar de "hidden",
+    seguido del skin correspondiente (p.e. class="labelBlock skinLabelBlockW140").
+*/
+/*.labelBlock {
+    display:block;
+}
+
+.skinLabelBlock { * Label appears before input *
+    font-size:14px; font-size:1.4rem;
+    color:#999;
+    padding-bottom:3px;
+}
+
+.skinLabelBlockW120 { * Label appears beside input *
+    float:left;
+    width:120px;
+    font-size:14px; font-size:1.4rem;
+    color:#999;
+    padding-top:5px;
+    margin-right:20px;
+}
+
+.skinLabelBlockW140 { * Label appears beside input *
+    float:left;
+    width:140px;
+    font-size:14px; font-size:1.4rem;
+    color:#999;
+    padding-top:5px;
+    margin-right:20px;
+}*/
+
+/* Input types */
+/*input, textarea, select {
+    font-family:'Lato',Arial,Helvetica,sans-serif; * Don't remove! most browsers default to a monospace font if removed *
+    font-size:12px; font-size:1.2rem; * parece redundante pero no lo es, no quitar *
+    vertical-align:middle;
+    color:#000;
+    margin:0;
+    padding:6px 8px;
+    background-color:#fff;
+    border:1px solid #bababa;
+    -webkit-border-radius:7px;
+       -moz-border-radius:7px;
+            border-radius:7px;
+}
+
+textarea {
+    height:70px;
+}
+
+form input[type=checkbox],
+form input[type=radio] {
+    display:inline-block;
+    vertical-align:text-top;
+    margin:0 5px;
+    padding:0;
+    border:none;
+}
+
+input[type=file] {
+    padding:3px;
+}
+
+/* Input state: Focused */
+/*input:focus, textarea:focus, select:focus {
+    outline:none;
+    border:1px solid #6399b0;
+    -webkit-transition:box-shadow 0.2s ease-in;
+       -moz-transition:box-shadow 0.2s ease-in;
+         -o-transition:box-shadow 0.2s ease-in;
+            transition:box-shadow 0.2s ease-in;
+    -webkit-box-shadow:0 0 6px 0 rgb(99,153,176); * #6399b0 *
+       -moz-box-shadow:0 0 6px 0 rgb(99,153,176);
+            box-shadow:0 0 6px 0 rgb(99,153,176);
+}*/
+
+/* Input state: Required */
+/*input[required], textarea[required], select[required] {
+    border:1px solid #b3b3b3;
+    background-color:#f7f7b2;
+    -webkit-box-shadow:none;
+       -moz-box-shadow:none;
+            box-shadow:none;
+}*/
+
+/* Input state: Disabled and Readonly */
+/*input[disabled], textarea[disabled], select[disabled],
+input[readonly], textarea[readonly], select[readonly] {
+    color:#666;
+    background-color:#eee;
+}
+
+input[type=button]:disabled, input[type=submit]:disabled, button:disabled {
+    background-color:#ccc;
+    cursor:default;
+}*/
+
+/* Input Placeholder */
+/*input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+    color:#666;
+}
+input:-moz-placeholder, textarea:-moz-placeholder {
+    color:#666;
+}
+input:-ms-input-placeholder { * only IE 10 *
+    color:#666;
+}*/
+
+/*** Buttons ***/
+/* Button normal (usamos EMs para que escale bien en los distintos tamaños de botón) */
+.btn {
+    display:inline-block;
+    width:auto;
+    margin:0;
+    padding:0;
+    border:none;
+    cursor:pointer;
+    white-space:nowrap;
+}
+/*.btn:hover {}
+.btn:active {}*/
+
+/* Size Button eXtra Large */
+/*.sizeBtnXL {
+    ...    
+}*/
+/* Size Button Large */
+.sizeBtnL {
+    font-size:24px;
+    font-size:2.4rem;
+    line-height:44px;
+    line-height:4.4rem;
+    /*height:44px; height:4.4rem;*/
+}
+/* Size Button Medium */
+.sizeBtnM {
+    font-size:18px;
+    font-size:1.8rem;
+    line-height:34px;
+    line-height:3.4rem;
+    /*height:34px; height:3.4rem;*/
+}
+/* Size Button Small */
+.sizeBtnS {
+    font-size:14px;
+    font-size:1.4rem;
+    line-height:22px;
+    line-height:2.2rem;
+    /*height:22px; height:2.2rem;*/
+}
+
+/* Skin Button 1 */
+.skinBtnL1,
+.skinBtnR1 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#c11d7f;
+    text-transform:uppercase;
+    -webkit-transition:.25s linear 0s;
+       -moz-transition:.25s linear 0s;
+            transition:.25s linear 0s;
+}
+/*Arrow Left*/
+.skinBtnL1.sizeBtnL {
+    padding-left:30px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAsCAYAAAB7aah+AAACt0lEQVRYw72YTWgTYRCG86fBUNJAKdbaBKpUAv7gQaQegtaDlyLoQRAt4iFBVDzUXhSsFVEPkoN6UPBQ9FAQixZUKEUpiqBIkSIVBAWhUKiUghSpxWJd3w/ehWHd3Wx2BxeekHyz5OELszPzJfYqPxDTAFc/sMizf+J4GQP3I0oKYJGSZbDJTbQZLIOdEURDYjdV13v45hZ4A+IhJCXwh5JZkPUTNYF5cKROSQK8F7s57nmv+HAGTINMHaKykEwYcRBRCnwEAwElOTBHifnpOn3vdyzsA4sgH0BUFbu5V/N+l8WnYKiGpMg0NpIfYF0YUQf4BTp9RKNiN+cC/dQeAfMsvHNLd1zdQvIZpKOIGsEcOOaQpPnltmh/4Az1CVbADGgQoj4hGavrmfMJJsEkuExJC1gQ9ayoJTLsAUvAFM3BWvUsisgw/Li17zm+fIUS85Dm1EUv2i5sACtb0wV7N+VQFT5ABThaadxr3V1bsRKxuG89Cy3C1QBm1sRXW49az1rV5p4roXtWDdFVOwF6sqW3WJuV6a4iwtUOlux6lo6n2rA+Aa5pi0ZEOp/n+i7wE7Rril4KUb+Imco+rCnaDn5TZCacAmN59qzdmslwW+xK9qiLLE8JLVETmBftusRYhvNFWfOBPSV2NQmSjB0G30BWS5QCU0Jm78I0xdfgulZRNbIuIZJFdQfTfaOKiLKHQnZTxAbBiKbIOcjbja8FLIAuFRFllzxauZmEPrArq4gyYFrIDjBmJqGv4ISKiLJDQvRFjFsHOTnlVESUjXsMkOOcCdVEW0QdNCPxesa2cZjpUBG51EF5NL0DnmiKnHXQntWbwXeeTKKLKDvpcRDrBVM8c6mIkiy0zqPlKvAJnFYRudRBeVju5rk4pyJyqYMyvUfBDU2Rsw7a6V1k2y/G/sNfNGY8e/AXh1HLywhbkc8AAAAASUVORK5CYII=) no-repeat left top; /* data uri */
+}
+.lt-ie8 .skinBtnL1.sizeBtnL {
+    background-image:url(../img/arrow_pink_black_left_l.png); /* ie7 doesn't support data uri */
+}
+.skinBtnL1.sizeBtnM {
+    padding-left:25px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAACCUlEQVRIx6WWTyjkYRjHf2PENP5kDLshaQ5i3RgHKdau9uDgQK0DBw5zEAeHvW1No8RJiRyU0ihpNybjsMpt7EGSQW0p+ZcoNw6SIuz3ra96G++M3/vOW59p5nl/ffrN+z7v8z7WRnnI0gVjBbyAtTdz+BDB7xqyFsoeQY1KWA0OgcuGLAPEKZxWPsMvE+CnDWEfZTegOJWwAJyC0hSyHHBJ4Y+kz0k/+kE4hXCYsmOQbUfoBPugXiErA3cUdqZcloTAF7AJHAnCMGUb766zIhgB3ZLMD56I30ToYxq5KYzx7cK28jTJxBgQm9BBmVi/snSEubHy0ElppueMwpDtk5RsYsjTthj0dgrZBXCnJcTwOizreuZj4KUrr2FEq3AkEU6Jv+p3+Q7wezsxjbSEGFXggWvXhNgC6E1HuErZMmNid4/FRpkKX/MuIsWDYNRUWMdTIaTNjLuY7D7TTZmjcEcUVcZFVV8yFZaAW0rlDfkLPhslNkaQwkspsWtBnKVOW+gG55QOS3OzIKAtpLRHURw+gCOQbyLECbS2KJ2X5sSdMq4tpLQRPCcU2CzwD1RqCyn9pbgC2kHUVFgB7hWX1Dr4pi2kdFRxjYpWZA9kmgjzwJXiop8EA9pCSgNSK1LEeCHPucdE6AT7imZpkG9qmfSGX6V27hPjYg13RSdnGTacUUr/SPFW8Ps/8Thmf+SOAAcAAAAASUVORK5CYII=) no-repeat left top; /* data uri */
+}
+.lt-ie8 .skinBtnL1.sizeBtnM {
+    background-image:url(../img/arrow_pink_black_left_m.png); /* ie7 doesn't support data uri */
+}
+.skinBtnL1.sizeBtnS {
+    padding-left:15px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAWCAYAAAD9091gAAAAn0lEQVQoz2P4//8/Aza8R642AIif45JkAeJPQLwOl4LlQPwFiNmwSRoA8V8gjgTxsSl4BMSnYXx0yQYg/g3E4hgKQIJQyQZkTcgKToGMR7cSJhkJxP9ADsRQAPIK1EvLsXkZpOA7EH8DBQ7ZCmBWLMGqAMmRf7E6EsmbZ3B6k6iAQgtqMawKkCLrFD4FhtBQxR7dBBMMWpJbzUAg0T4DAHZxzkKEZ3v3AAAAAElFTkSuQmCC) no-repeat left top; /* data uri */
+}
+.lt-ie8 .skinBtnL1.sizeBtnS {
+    background-image:url(../img/arrow_pink_black_left_s.png); /* ie7 doesn't support data uri */
+}
+.skinBtnL1:hover {
+    padding-left:36px; /* arrow movement effect */
+    text-shadow:0 0 6px rgba(193,29,127,.4);
+}
+.skinBtnL1:active {
+    padding-left:30px; /* arrow movement effect */
+}
+/*Arrow Right*/
+.skinBtnR1.sizeBtnL {
+    padding-right:30px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAsCAYAAAB7aah+AAACvUlEQVRYw7WYS2gTURSGJ5PoYChpoJTW2gRUKgEfdCFSF8HHwk0RdCGIFnGRICoutJsW+kLUhWShLhRcFLsoSIsKKpSiFEVQJEiRCoKCUChUSkGK1GKxxv/AsRzCncydmTuBbzOTzJeTnDmPsV5nBi0JXs9BhemvPh8USyHaAVZZtAyyISUjYFJtt6ySiGo0hGQfWAU73UQpMM+ivyAfQBIDb8Ed5U8nZGdFVB+A7VN0CiyCBi+RDcpCVvAhSYJZcMk1GapkHfzTkWgBpDVFg+ATSGiJWPZARFXSkGTAMjhSM70Vos3gJ4so7XMen6EsfeZ5H7nIekRUEzXe2wF+g7agIgd8EbJOl3R+D0palaGG7KgQkdSpes8ZsADqQ4lYNilk3eJcHZgDRe1a5yHKiTq4BJr53FUwDeJGRIo6OIxjVHRXwEFf1VtDlOabl0Rrj1u6X+D4uO82oSkrkGi3k628bO1bA9uiEtm2FSvfbypWivWHKbLTkYiIUmPXtUctVyqbYhtJNAfqohDRRee7Uvl3IjGuRyG6AcpOLNEq6uAK2GpSRBf7Bfbz/9UronpiUjTOFfp/YvQL0StTogPcazIsyfKkRJI/oN2EyOYyMyCiGRXR3DWVDAWeA5IsyYs2vwgaTIhS4Ds4yZI4mBbRXDB1w94Eb7i5rZcgZgYkTIi2czrvVRRV4lCg2VsB3RvDIgFuC8lY4CG/Cvq2S6BZ0fh8LQC1TlK3/Ah6XFr5UKi1RXAOfAMOS44JySxImhCleaI5Lsatr0J0IvQixtBsNuUyQE4Z2fh4yqRhYw9LtohWQPVslynRU3BPRDOiW8/8iGgD+AEaFWuLZz3TFVEZmQGXXRax86a28ovgM9igWC2pgMZNiNK8b3YqlmXteqYjugUmXMbeMVMPNHLcnnMsaTP8QGNd9JDHp0gf0fwDbhrLy/85TCAAAAAASUVORK5CYII=) no-repeat right top; /* data uri */
+}
+.lt-ie8 .skinBtnR1.sizeBtnL {
+    background-image:url(../img/arrow_pink_black_right_l.png); /* ie7 doesn't support data uri */
+}
+.skinBtnR1.sizeBtnM {
+    padding-right:25px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAACA0lEQVRIx6WWSygFURjH56KLySt53kui5JGFyMLGK0sbyobyiIgVsUNsZGNBWSHujtyIDVl5LGThoqw8UqIsLdybIo//qb8aY+6dmTNTv82Z6Tfn8Z3v+5Sj3EnlFzx74BtsacftoOiEpeCD0lqbslaw+/8PirJAYQBEWZTFgRtQbCRMBy+UdlkUjoG5f0vWSEcpfAKqicwD7kFKJGEsuKN0ykToAwOGh6KTtlAYAt4w31WBSxBtKqT0iNJVg/cucALqw4aNgbASfJJK3fs2sBkxDsNIfZzloWZcZZjkywi9IEhpM8fFQc2Y3pQI0kkKbzY8QwUYuwMJToQqeBTS5cz+AMY6Ld1lE2lHWWzu92Jm34fqcqc5FnYn10X5sgaCpe4csfQ5x0KxTL9neJ97+Q6KnAgTeBDixP2U7jgRToMJ7uUmhQeyQhG81yLnQVJDmbg5FbJCv8jGItmCMwpXZA9FlIFjLrWTsleQLSMUKUkEcTkD+4nCcctFSkcvWOLspih7APEywiRwCzKYHEIUttsqoxpmwYgufZ0Cl4ywEFwBtybBfoFq24WebIMmXQlYk+ocQCPY1xWpN5AnI4wBF6BEV0anZXubQTDP2Y1Q9gwSZYQpvK+pEKRpWpEe2e5rnjPUNkuXNpqlP8JicC72EIISTTvXINsfroMGzm6Xsm3ZhvMHnKhmpNGvcwQAAAAASUVORK5CYII=) no-repeat right top; /* data uri */
+}
+.lt-ie8 .skinBtnR1.sizeBtnM {
+    background-image:url(../img/arrow_pink_black_right_m.png); /* ie7 doesn't support data uri */
+}
+.skinBtnR1.sizeBtnS {
+    padding-right:15px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAWCAYAAAD9091gAAAAlklEQVQoz2PYI1f7HIgD/v//z4ANMwAl1wHxJyBmwaWADYi/APESrApABFAyEoj/ArEBVgVQRWeA+BE+BeJA/BuIG7AqgCpqgCoSw6oAqugREJ/Cp8AQiP+BHI5VAVTRcqjX2XApYAHib0D8nWwFuK0AhSY0VCPxefM0oYASJz2oQaGHM7Kg0f0Pa3QjJZjlZCc5vIkWAAR0zkb1xGXfAAAAAElFTkSuQmCC) no-repeat right top; /* data uri */
+}
+.lt-ie8 .skinBtnR1.sizeBtnS {
+    background-image:url(../img/arrow_pink_black_right_s.png); /* ie7 doesn't support data uri */
+}
+.skinBtnR1:hover {
+    padding-right:36px; /* arrow movement effect */
+    text-shadow:0 0 6px rgba(193,29,127,.4);
+}
+.skinBtnR1:active {
+    padding-right:30px; /* arrow movement effect */
+}
+
+/* Skin Button 2 */
+.skinBtnL2,
+.skinBtnR2 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#c11d7f;
+    text-transform:uppercase;
+    -webkit-transition:.25s linear 0s;
+       -moz-transition:.25s linear 0s;
+            transition:.25s linear 0s;
+}
+/*Arrow Left*/
+.skinBtnL2.sizeBtnL {
+    padding-left:30px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAsCAYAAAB7aah+AAACu0lEQVRYw72YX0gUURSHN9cQFrEFCZRawURZKCJIwh6kfOllCeohiITwYSMqeohe6sEUs6DYh/6A0otUIEQ+CBWIFFIJLiYlZRAUFAuCIUJJ2eKy6/Q7cC4dhpnZ2ZlDA5/onOF+3OHO755r5FWiL6KBZVm91r/rmb1OPybBg5CSJrDGkgJocxLtBAWwL4RoVMwm4/SM+eUOmAGbAkg6wQZLlkCdl6gerIATFUqqwFsxmx63Z+Uf50EOxCoQpYVkjsR+RNXgI+jzKYmDZZbQq+vwet5+4xBYAwkfooyYzf1yzzvdfApGy0iSvIzp+gUag4hawTro8BBNiNlc8vOq3Qr0Lcw6LXcMnBKSz6AmjGgLWAYnbZIaHtxch/2uUK/iKbAIaoXoopBMVvLNeRWjYB4MsKQBrIo8S2qJiIMgDyg0R8rlWRgRMZbdm3mOwUssoY80ri6abrm6A5R+vsmZ2aSDJLyfqOn+duOF9S51z9ooljzzLLAIg9aCxeLvdSvbnrE+dD8cDLpnlRNdM+8rd/d1FveW5HJXEWHsZpA3eVbKF7bj/hy4ri0aF8v5Mt/fD/6AZk3RSyHqFTVK9jFN0R5QZBF1OE1cS/CedUBzMQyJWck96grHU5WWqB6siO26k2sx7i/Smh/sWTGreRDl2nHwHdRpiarBgpCZWdCmOA1uaoUqybqESIZqOy/3FhURyx4L2W1RGwHjmiJ7I282vgawCrpURCzrd9nKqRN6z7uyiihG+SpkR7hGndBXcFpFxLJjQvRFtFtHuXOKq4hYNuXSQE5xT6gm2iVykFribVzbzc1Mq4rIIQfl0XQYPNEU2XPQ9OpbwQ8+mYQXseyMy0HsAljgM5eKKMpBaz9abgafwDkVkUMOysNyis/FcRWRQw7K5T0BbmmK7DlolneSt/1k5D/8i4bas0d/AWu7Gd6Ig/1uAAAAAElFTkSuQmCC) no-repeat left top; /* data uri */
+}
+.lt-ie8 .skinBtnL2.sizeBtnL {
+    background-image:url(../img/arrow_pink_white_left_l.png); /* ie7 doesn't support data uri */
+}
+.skinBtnL2.sizeBtnM {
+    padding-left:25px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAAB/ElEQVRIx6WWSyhEURjHx5DHhCYNhSRKHiuRsCGykGwoGwrFxmzHDpnNZKOJokhhR4nYkJXHQhZzUVaY5FWW0ozI6/qf/Kdup3mee+s3zf3u9Jtzz/nOdz7LUdGkRQVd17f0/2vPGBcfu6AnQVkzZV+gShZWgGuQHqfMCjQK5+TnoS8zYCxO4SBlLyA3ktAObkFBDJkNPFE4Gu43xpsRsBpD6KbMD9JiCZPBBaiLICsEbxR2R/pTOdACTkBSGOEKZUfR3iJccBP0SrJa8ENqExWWMI1sBuEhR7caKwsiPZgCbsq6KAuKeVQVZgL/aYO3FJJrCifjydNoDwe09oXQjngUOWhK+B34cGgdi1+vvgch7I93n0dL4plX7VH3tc0H77wHVlNCyMrBpxjaab13X7y+WeEO524D92Jl/VwoZeEBhZuMTQCPGWENd4W4mlgrr5j0youyTKFPFFVW9Q0zwnwQoDS0KMegWTWxhXScwicmdjXQWOqUhBngnlI340tgWElIaR+FbywOeeAGZKsKk0R+S+XLBaaVhJQ2gl9DgU0Fl6BMSUjpmnQEdIJtM8Ji8C4dUmKftykJKfVIx2glOAcpqsIs8Eypi/FZ4FQSUjpkaEUciOVwn9tVhaJZupCaJSdHalHtDVsN7Vwl5/BMdHIWEw3nNqW7jLWC9T/sdtij1jbo5QAAAABJRU5ErkJggg==) no-repeat left top; /* data uri */
+}
+.lt-ie8 .skinBtnL2.sizeBtnM {
+    background-image:url(../img/arrow_pink_white_left_m.png); /* ie7 doesn't support data uri */
+}
+.skinBtnL2.sizeBtnS {
+    padding-left:15px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAWCAYAAAD9091gAAAAl0lEQVQoz2P4//8/Aw4cAMTPcUmyAPEnIF6HS8FyIP4CxGzYJA2A+C8QR4L42BQ8AuLTMD66ZAMQ/wZicWwKxKGSDciakBWcghrPgE0ByEH/oA7EUMAG9dJybF4GEd+B+Bs0cMhTALNiCS4FMEf+xeVIGD6Dz5tEBRRyUIvhUgCLrFP4FBhCQxVndBNMMMhJbjUDgUT7DACRLTE5LEuLAwAAAABJRU5ErkJggg==) no-repeat left top; /* data uri */
+}
+.lt-ie8 .skinBtnL2.sizeBtnS {
+    background-image:url(../img/arrow_pink_white_left_s.png); /* ie7 doesn't support data uri */
+}
+.skinBtnL2:hover {
+    padding-left:36px; /* arrow movement effect */
+    text-shadow:0 0 6px #ff61c0;
+}
+.skinBtnL2:active {
+    padding-left:30px; /* arrow movement effect */
+}
+/*Arrow Right*/
+.skinBtnR2.sizeBtnL {
+    padding-right:30px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABoAAAAsCAYAAAB7aah+AAACv0lEQVRYw7WYX0hTURzH12YMhthAAsUmlBiDIoIk7EGql15GUA9BJEQPi6joIXqxBzPKguQ+WEHRi2QghD4EFYgUUgmNGiVlEBQUA8EQoaRsODZv3x/80h/j3N1z7z33wOdlZ7ufne13f39u5GWqLyKxbfupvbZ6q/f9ElGItoISi5ZAa0DJMJhQbuLiljjVSADJblAC25xEDWCORSugy4dkHXgNbil/OiE7IU71DkQ9io6BBdDoJoqCvJBlPUgSoADOOQZDlayTfzpa8yCpKeoDn0Cdlohl98WpLA1JCiyBAzXDWyFqBr9ZRGGfdvkMRekT1/vIQdYjTjVe472dYBm0+xXFwRchyziE8xtgaWWGGrKDQkTSeNV7joN5sCGQiGUTQnZB7NWDWXBSO9e5iNIiDy6CJt67AqZBzIhIkQeH8Bol3SLY5yl7a4iSfPPSquR2Wc/w+pjnMqEpy5Ll19uCPdV2tQK2hCWKrpQr+feZe/b3G8/J2R2KiPjY/aA/12HZ5T/LJJoF9WGI6KJzhduvciIwroUhug7ylWJpk8iDRbDZpIgu9hfs4f/rojjVI5OiMc7Q/wOjV4hemBLt5VqTYkkrd0q0ymCnCVGU08wlcZoRcZo7poIhy31AgiVdoswvgEYTogbwAxxlSQxMi9OcMXXDDoApLm6rKYjXDKgzIWrjcO5QJFVa+3313gro3hgSAXBTSEZ9N/lV0LddBE2KwudpAKi1SdXyA+hxKOWXA40tglPgG4iz5JCQFEDChCjJHc1h0W59FaIjgQcxhnqzSYcGctLIxMddJjUbO1jSIkoB5bPtpkSPwV1xmmHdfOZFRBPAT7BRMba45jNdEaWRGXDeYRA7bWoqPws+g/WK0ZISaMyEKMnzZkYxLGvnMx3RIBh3aHtHTT3QSHN5TrOk3fADjVXRQ26fQn1E8w9CHxneBjI2EAAAAABJRU5ErkJggg==) no-repeat right top; /* data uri */
+}
+.lt-ie8 .skinBtnR2.sizeBtnL {
+    background-image:url(../img/arrow_pink_white_right_l.png); /* ie7 doesn't support data uri */
+}
+.skinBtnR2.sizeBtnM {
+    padding-right:25px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAACBElEQVRIx6WWSyhEURjHZ5DHNCShkETJYyWTsCGykGwoG8ooNmzZITaTjaZRFCnsKBEbsvJYaBYzTFlhkldZSoi8rv8Zf3VdM3Pnnjv125w7/frOOd/5vs+ynz9m+UVRlG3l57euXjeCRSMsB++U1huUdYCtfx8gmqbQD+JilCWDM1AaTpgF7intiVE4DDz/tqySDlF4C2w6slxwAdKjCZNAkNJxHeES6A97KRppO4XPIC/C/6pAAMTrCindp3QxzHcrOAQNEdMmjNABPolD870TrEXNwwjSJUa5p1q3MU0KZYR54InSNq6Li5rQfSlRpGMUnnlr3EVYCwK7GaEN3ISeT/OsH2vOmN6yjrT7wXet+Fvm3j8eXzNNCy/du3G+ppmnB38oUI9podimt9q9w7N8AyVmhHZehLjxVUo3zQhdYJRnuUbhrqxQJO+pqHmQ1FEmXk6lrHBVVGNRbIGPwgXZSxFt4IBbdVL2CHJkhKIkiSSuYGLfUjgSc5PS0AfmGd04ZVcgRUaYBs5BNovDM4VdhtqoikkwqClfXmCVERaDE5CoKrBfoNZwoycboFXTApalJgfQBHY0TeoFFMgIE8AxKNO0UZfsbDMAphjdIGV3IFVGmM73mgFBpmoU6ZWdvqYYoXpYChgYlv4IS8GROEMIylTjXKPsfLgCGhndFmUbsgPnN2t82KOCpngPAAAAAElFTkSuQmCC) no-repeat right top; /* data uri */
+}
+.lt-ie8 .skinBtnR2.sizeBtnM {
+    background-image:url(../img/arrow_pink_white_right_m.png); /* ie7 doesn't support data uri */
+}
+.skinBtnR2.sizeBtnS {
+    padding-right:15px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAgAAAAWCAYAAAD9091gAAAAh0lEQVQoz53SsQ2AIBCFYQrDCLIGbmLLNg5jQucg6BQ29sZoYRTfJVdyZ0Lx2fgnyHkm57xBD6aEHhPs0EiBhQNGKSABHvBSQBZYtcDBDYMUGH5JUSsFho9JWtDByx9eDEjkq1spoKGdcFUH6hGepxq0a85/g3JVo07azwo8Pa8tTKxeOXVpP71wMT2S5tBkAAAAAElFTkSuQmCC) no-repeat right top; /* data uri */
+}
+.lt-ie8 .skinBtnR2.sizeBtnS {
+    background-image:url(../img/arrow_pink_white_right_s.png); /* ie7 doesn't support data uri */
+}
+.skinBtnR2:hover {
+    padding-right:36px; /* arrow movement effect */
+    text-shadow:0 0 6px #ff61c0;
+}
+.skinBtnR2:active {
+    padding-right:30px; /* arrow movement effect */
+}
+
+/* Skin Button 3 (disabled) */
+.skinBtnR3 {
+    font-family:'Century Gothic W01';
+    font-weight:400;
+    color:#9f9f9f;
+    text-transform:uppercase;
+}
+/*Arrow Right*/
+.skinBtnR3.sizeBtnM {
+    cursor:text;
+    padding-right:25px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABQAAAAiCAYAAABfqvm9AAAB2UlEQVRIx62WO0gDQRCGNREfIUoQFdRCFMTESgwWNopiaaNgo6CCNtrGTkWbYGORgJ1g7BRCJDYRKx+FWPgIWPlAEAOWFhoExcc/8AfWI5fcbVJ8cOwmH3c7MztTEolEShQOwC/YM6xbxrjQCb4o7bcpGwOJbBsbFF4Ch0VZJbgD3myb9eCV0mmLwkUQyvbJGRYoTAFXHlkTeASeXMIK8EDpah7hNpgzC4rKKIVp0Gzymx6QBE4rQuGE0kiWvVJwBgZypY0RP/gmfsPeOIjly0OzM5K3PFbWXEyTVh2hnN87pSNck0CtWakUM1YolLdqYwa4CxHKJz4rFTRltZZzMUmh1HpdMYQO5SxDxRDKZx5S+Ak6ChG6GQiJeJTS/UKEQbDM5xiFR7pCSd5b3nl9lEnldOsKo7yNJSgXFG7pBkXawKkSFJG9gUYdoZNJ3MXETlG4ZKdJqcyCTaV2RfYEqnSENeAeNDBV0hRO2G2jGdZBwHB9nfNStS1sBzegXLlgf0CvTqMX4mDY0AJ2dCeHIdar2qQ+QIuOsAxcA5+hjQZ1Z5t5EOZzgLIXUK0j9LBea3l5ZkaRGd3pK8w3VIelpI1h6Z/QC654hj5lnBvUnQ93lT8nKIvrDpx/aapjhnxfFQUAAAAASUVORK5CYII=) no-repeat right top; /* data uri */
+}
+.lt-ie8 .skinBtnR3.sizeBtnM {
+    background-image:url(../img/arrow_disabled_right_m.png); /* ie7 doesn't support data uri */
+}
+
+/* Skin Button Facebook */
+.skinBtnFacebook {
+    font:normal 10px/14px 'Century Gothic W01';
+    font-size:1.0rem;
+    line-height:1.4rem;
+    color:#fff;
+    text-transform:uppercase;
+    padding:0 25px 0 10px;
+    background:#d0509d url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA8AAAAPCAIAAAC0tAIdAAAAqklEQVQoz5XOMQrCMBTG8e8migiCIAgOIggikptkyJChS+cuHXqT7l1acpOcorlBjD4J5vFA+4NC+PInFI8lkL77f171bQlcJUqpaZriWwgh77hI+r6PX/KOs2Se5xQNw8B2nCT0ZNu2bMex5JyLpaZp8i0Opa7rxnGkznufztbafIu9hOq6rtmOnYTqqqrYjq2E6vQPbMdGQrUxhu1YS6jWWrP9U69+oewJnyfWdS101M4AAAAASUVORK5CYII=) no-repeat right center; /* data uri */
+    border:1px solid #ac989d;
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+    -webkit-transition:.25s linear 0s;
+       -moz-transition:.25s linear 0s;
+            transition:.25s linear 0s;
+}
+.lt-ie8 .skinBtnFacebook {
+    background-image:url(../img/bg_facebook_icon_s.png); /* ie7 doesn't support data uri */
+}
+.skinBtnFacebook:hover {
+    text-shadow:1px 1px 0 #000;
+}
+
+/* Skin Button Tag */
+.skinBtnTag {
+    font:normal 10px/16px 'Century Gothic W01 Bold';
+    font-size:1.0rem;
+    line-height:1.6rem;
+    color:#fff;
+    text-transform:uppercase;
+    padding:0 6px;
+    background:#ac989d;
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+    -webkit-transition:background-color .25s ease-in;
+       -moz-transition:background-color .25s ease-in;
+            transition:background-color .25s ease-in;
+}
+.skinBtnTag:hover {
+    background-color:#c11d7f;
+}
+
+/*** Notification Messages (class names from PrestaShop) ***/
+.warning,
+.success,
+.error {
+    margin:0 0 20px 0;
+    padding:10px;
+    font-size:13px;
+    font-size:1.3rem;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+}
+.warning {
+    color:#c09853;
+    background-color:#fcf8e3;
+    border:1px solid #fbeed5;
+}
+.success {
+    color:#468847;
+    background-color:#dff0d8;
+    border:1px solid #d6e9c6;
+}
+.error {
+    color:#b94a48;
+    background-color:#f2dede;
+    border:1px solid #eed3d7;
+}
+.warning p,
+.success p,
+.error p {
+    padding-bottom:0;
+}
+.error ol {
+    margin-left:20px;
+}
+.error p.lnk {
+    margin-top:10px;
+    padding:0;
+    font-size:11px;
+    font-size:1.1rem;
+}
+.required {
+    color:#990000;
+}
+.warning_inline,
+.success_inline {
+    float:left;
+    margin:0 0 0 10px;
+    padding:0 5px;
+    font-size:11px;
+    font-size:1.1rem;
+    line-height:15px;
+    line-height:1.5rem;
+    text-shadow:0 1px 0 rgba(255, 255, 255, 0.5);
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+}
+.warning_inline {
+    color:#c09853;
+    background-color:#fcf8e3;
+    border:1px solid #fbeed5;
+}
+.success_inline {
+    color:#468847;
+    background-color:#dff0d8;
+    border:1px solid #d6e9c6;
+}

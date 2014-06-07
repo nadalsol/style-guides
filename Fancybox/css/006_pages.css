@@ -1,0 +1,1897 @@
+/*** FANCYBOX.COM
+     Created: Oct. 2012
+     Author : Nadal Soler (nadal dot soler at gmail dot com)
+              Front-end Developer
+*************************************************************************
+
+                | RESET
+                | FONT FACE (not minified, to prevent some issues)
+                | BASE
+    FRAMEWORK   | GRID
+                | WIDGETS
+                | HELPERS
+
+    THEME       > PAGES <
+                | SPRITES
+                | THEMES
+
+    RESPONSIVE  | MEDIA QUERIES (Load the last!)
+
+*************************************************************************/
+
+/* PAGES
+-------------------------------------------------------------------------
+ * Pages: Basic structure and Page speciﬁc styles.
+------------------------------------------------------------------------*/
+
+/*** Basic structure ****************************************************
+*************************************************************************/
+/*#page {}
+    #header {z-index:10}
+    #columns {z-index:1}
+        #left_column {}
+        #center_column {}
+        #right_column {}
+    #footer {}*/
+
+/*** Header ***/
+#header {
+    padding-bottom:10px;
+    border-bottom:1px solid #000;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAAUCAIAAADDbMD2AAAADElEQVQI12NgoC4AAABQAAEiE+h1AAAAAElFTkSuQmCC) repeat-x center top; /* data uri */
+}
+.lt-ie8 #header {
+    background-image:url(../img/themes/woman/bg_header.png); /* ie7 doesn't support data uri */
+}
+
+/* Top Bar Nav */
+.topBarNav {
+    font:normal 11px/20px 'Century Gothic W01 Bold';
+}
+.topBarNav li {
+    display:inline;
+    padding-left:10px;
+}
+.topBarNav li.networks {
+    color: #c26b9f;
+    padding-left:0;
+}
+.topBarNav a {
+    text-transform:uppercase;
+    color:#cab4b9;
+    -webkit-transition:color .25s ease-in;
+       -moz-transition:color .25s ease-in;
+            transition:color .25s ease-in;
+}
+.topBarNav a:hover {
+    color:#fff;
+}
+
+/* Social Buttons Nav */
+.socialBtnsNav {
+    height:58px;
+    overflow:hidden; /* clear of floats */
+}
+.socialBtnsNav li {
+    float:left;
+    margin:10px 10px 0 0;
+}
+.socialBtnsNav li.newsSubscribe {
+    margin-right:0;
+    overflow:hidden; /* clear of floats */
+}
+.socialBtnsNav li.newsSubscribe a {
+    display:block;
+    float:left;
+}
+.socialBtnsNav li.newsSubscribe a.expanded {
+    -webkit-border-top-left-radius:0;
+    -webkit-border-bottom-left-radius:0;
+    -moz-border-radius-topleft:0;
+    -moz-border-radius-bottomleft:0;
+    border-top-left-radius:0;
+    border-bottom-left-radius:0;
+}
+.socialBtnsNav li.newsSubscribe form {
+    float:left;
+}
+.socialBtnsNav li.newsSubscribe input {
+    display:block;
+    width:175px;
+    font-size:10px;
+    line-height:14px;
+    color:#363636;
+    padding:0 4px;
+    margin:0;
+    background-color:#e1dbdd;
+    border:1px solid #a09a9c;
+    border-right:none;
+    -webkit-border-top-left-radius:2px;
+    -webkit-border-bottom-left-radius:2px;
+    -moz-border-radius-topleft:2px;
+    -moz-border-radius-bottomleft:2px;
+    border-top-left-radius:2px;
+    border-bottom-left-radius:2px;
+}
+.socialBtnsNav li.newsSubscribe input:focus {
+    outline:0;
+}
+
+/* Categories Nav */
+.categoriesNav {
+    float:right;
+    font:normal 12px/35px 'Century Gothic W01 Bold';
+    text-transform:uppercase;
+    height:58px;
+}
+.categoriesNav li {
+    position: relative;
+    display:inline;
+    padding-right:10px;
+}
+.categoriesNav li a {
+    color:#a08a8f;
+    -webkit-transition:color .25s ease-in;
+       -moz-transition:color .25s ease-in;
+            transition:color .25s ease-in;
+}
+.categoriesNav li a:hover {
+    color:#c11d7f;
+}
+.categoriesNav li .s {
+    position: absolute;
+    display: block;
+    width: 56px;
+    height: 20px;
+    top: 27px;
+    left: 0px;
+}
+.categoriesNav li .s.new-category-woman {
+    display: none;
+}
+.categoriesNav li .s.new-category-man {
+    left: 8px;
+}
+.categoriesNav li .s.new-category-baby {
+    left: -8px;
+}
+.categoriesNav li.points,
+.categoriesNav li.logIn {
+    border-left:1px solid #000;
+}
+.categoriesNav li.points {
+    padding:0 10px;
+}
+.categoriesNav li.logIn {
+    padding:0 0 0 10px;
+}
+.categoriesNav li.points a,
+.categoriesNav li.logIn a {
+    color:#211915;
+}
+.categoriesNav li.points a:hover,
+.categoriesNav li.logIn a:hover {
+    color:#c11d7f;
+}
+.categoriesNav li.category-woman,
+.categoriesNav li.category-man,
+.categoriesNav li.category-baby {
+    font-size: 17px;
+}
+.categoriesNav li.category-woman > a {
+    color: #c11d7f;
+}
+.categoriesNav li.category-man > a {
+    color: #a5001f;
+}
+.categoriesNav li.category-baby > a {
+    color: #5fd1ac;
+}
+.categoriesNav li.active {
+    font-family:'Century Gothic W01'!important;
+    font-size: 12px!important;
+}
+.categoriesNav li.active > a {
+    color:#a9a9a9!important;
+}
+/*.categoriesNav li.active > a:hover {
+    color:#000;
+}*/
+
+/* Main Nav */
+.skinDropdownNavMain {
+    float:right;
+    font:normal 14px/24px 'Century Gothic W01';
+    padding-top:12px;
+}
+.skinDropdownNavMain li {
+    margin-left:10px;
+}
+.skinDropdownNavMain li:first-child {
+    margin-left:0;
+}
+/*main level link*/
+.skinDropdownNavMain a {
+    color:#211915;
+    -webkit-transition:color .25s ease-in;
+       -moz-transition:color .25s ease-in;
+            transition:color .25s ease-in;
+}
+/*main level link*/
+.skinDropdownNavMain > li > a {
+    text-transform:uppercase;
+}
+/*main level link hover*/
+.skinDropdownNavMain li:hover > a {
+    color:#c11d7f;
+}
+/*sub levels link hover*/
+/*.skinDropdownNavMain ul li:hover a,
+.skinDropdownNavMain li:hover li a {
+    text-decoration:none;
+}*/
+.skinDropdownNavMain ul a:hover {
+    color:#c11d7f!important;
+}
+/*level 2 list*/
+.skinDropdownNavMain ul {
+    /*width:110px;*/
+    font:normal 12px/20px Arial,Helvetica,sans-serif;
+    margin:0;
+    padding:10px;
+    top:24px;
+    left:-10px;
+    text-align:left;
+    background:#fff;
+    border-bottom:1px solid #000;
+    border-left:1px solid #000;
+    -webkit-border-bottom-left-radius:2px;
+       -moz-border-radius-bottomleft: 2px;
+            border-bottom-left-radius:2px;
+    border-right:1px solid #000;
+    -webkit-border-bottom-right-radius:2px;
+       -moz-border-radius-bottomright: 2px;
+            border-bottom-right-radius:2px;
+}
+/*dropdown*/
+.skinDropdownNavMain ul li {
+    margin:0;
+    padding:0;
+    white-space:nowrap;
+}
+.skinDropdownNavMain ul a {
+    color:#000;
+    font-weight:normal;
+}
+/*level 3+ list*/
+/*.skinDropdownNavMain ul ul {
+    left:181px;
+    top:-3px;
+}*/
+.skinDropdownNavMain li.shop {
+    margin-right:0;
+}
+.skinDropdownNavMain li.shop a {
+    color:#a08a8f;
+    padding-left:12px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAI0lEQVQI12M4KFvvDcTPgfgZEHswAIkXQPwfih9gFfBC1gIAhUkiHElh2S8AAAAASUVORK5CYII=) no-repeat left 10px; /* data uri */
+}
+.lt-ie8 .skinDropdownNavMain li.shop a {
+    background-image:url(../img/themes/woman/bullet_s.png); /* ie7 doesn't support data uri */
+}
+/*.skinDropdownNavMain li.shop a:hover {
+    color:#c11d7f;
+}*/
+.skinDropdownNavMain li.active > a {
+    font-family:'Century Gothic W01 Bold';
+    color:#c11d7f;
+}
+/*.skinDropdownNavMain li.active > a:hover {
+    color:#000;
+}*/
+
+/*** Columns (aka 'Content') ***/
+#columns {
+    padding:30px 0 40px;
+    min-height:350px;
+}
+/*#columns .wrap {
+    min-height:300px;
+}*/
+
+/*** Footer ***/
+#footer {
+    border-top:5px solid #000;
+    padding-bottom:60px;
+}
+
+/* Brands Sub-Footer */
+.brandsSubFooter .row1 .wrap {
+    padding:20px 0;
+}
+.brandsSubFooter .row2 {
+    border-top:1px solid #000;
+}
+.brandsSubFooter .row2 .wrap {
+    padding-top:20px;
+}
+.brandsSubFooter ul {
+    font:normal 16px/12px 'Century Gothic W01';
+    color:#000;
+    text-transform:uppercase;
+    text-align:center;
+}
+.brandsSubFooter li {
+    display:inline;
+    margin:0 10px;
+}
+.brandsSubFooter li:first-child {
+    vertical-align:top;
+}
+.brandsSubFooter .row1 li:first-child {
+    line-height:45px;
+}
+.brandsSubFooter .row2 li:first-child {
+    line-height:62px;
+}
+
+/* Terms and Conditions Sub-Footer */
+.termsSubFooter {
+    padding-top:25px;
+}
+.skinDropdownNavTerms {
+    font-size:12px;
+    color:#000;
+}
+.skinDropdownNavTerms li {
+    padding:0 5px;
+}
+.skinDropdownNavTerms > li:first-child {
+    text-transform:uppercase;
+}
+/*main level link*/
+.skinDropdownNavTerms a {
+    color:#000;
+    text-decoration:none;
+}
+/*main level link hover*/
+.skinDropdownNavTerms li:hover > a {
+    text-decoration:underline;
+}
+/*sub levels link hover*/
+.skinDropdownNavTerms ul li:hover a,
+.skinDropdownNavTerms li:hover li a {
+    text-decoration:none;
+}
+.skinDropdownNavTerms ul a:hover {
+    color:#c11d7f!important;
+}
+/*level 2 list*/
+.skinDropdownNavTerms ul {
+    /*width:110px;*/
+    margin:0;
+    padding:10px;
+    bottom:20px;
+    left:0;
+    text-align:left;
+    background:#fff;
+    border-top:1px solid #000;
+    border-left:1px solid #000;
+    -webkit-border-top-left-radius:2px;
+       -moz-border-radius-topleft: 2px;
+            border-top-left-radius:2px;
+}
+/*dropdown*/
+.skinDropdownNavTerms ul li {
+    margin:0;
+    padding:0 10px 0 14px;
+    white-space:nowrap;
+}
+.skinDropdownNavTerms ul a {
+    color:#000;
+    font-weight:normal;
+}
+/*level 3+ list*/
+/*.skinDropdownNavTerms ul ul {
+    left:181px;
+    top:-3px;
+}*/
+
+/*** Page speciﬁc styles ************************************************
+*************************************************************************/
+/*** Stage Home ***/
+.page_index #columns {
+    padding-top:0;
+}
+/* TODO
+   Cuando el diseño del Stage de Woman esté aprobado, hay que cambiar la caja provisional (fancybox_box_stage_sample_01.png)
+   por la buena (fancybox_box_stage_sample_01_.png), eliminando la primera y renombrando la segunda a "fancybox_box_stage_sample_01.png".
+   Cambiar también el CSS (006_pages.css), buscando los comentarios "TODO - Stage Woman bueno" y "TODO - Stage Woman provisional".
+*/
+.stage {
+    height:400px; /* box height: 430px (height+paddings) */
+    padding-top:30px;
+    border-bottom:2px solid #fff;
+    /*background:#e8dbca url(../img/themes/woman/bg_stage.jpg) no-repeat left top;*/ /* TODO - Stage Woman bueno */
+    background-color:#fff; /* TODO - Stage Woman provisional */
+    overflow:hidden;
+}
+/* Wrap Box (stage box) */
+.wrapBox {
+   position:relative;
+   width:100%;
+   height:370px;
+   /*background:rgba(0,0,0,.5);*/
+}
+.wrapBox,
+.wrapBox .specialOffer,
+.wrapBox .theBox,
+.wrapBox .priceInfo,
+.wrapBox .from,
+.wrapBox .price,
+.wrapBox .frequency {
+   display:block;
+}
+
+/* TODO - Stage Woman bueno */
+/*.wrapBox .specialOffer {
+    position:absolute;
+    top:20px;
+    left:235px;
+    z-index:10;
+}
+.wrapBox .priceInfo {
+    position:absolute;
+    top:45px;
+    right:55px;
+    z-index:11;
+    text-align:right;
+}
+.wrapBox .theBox {
+    position:absolute;
+    bottom:-15px;
+    right:20px;
+}*/
+/* /TODO - Stage Woman bueno */
+/* TODO - Stage Woman provisional */
+.wrapBox .specialOffer {
+    position:absolute;
+    top:50px;
+    right:424px;
+    z-index:10;
+}
+.wrapBox .priceInfo {
+    position:absolute;
+    top:60px;
+    right:313px;
+    z-index:11;
+    text-align:right;
+}
+.wrapBox .theBox {
+    position:absolute;
+    bottom:15px;
+    right:30px;
+}
+/* /TODO - Stage Woman provisional */
+
+.wrapBox .specialOffer2 {
+    position: absolute;
+    width: 124px;
+    height: 124px;
+    top: 40px;
+    right: 440px;
+    z-index: 10;
+    background: url(../img/themes/woman/fancybox_box_stage_offer_plain_01.png) no-repeat left top;
+    -webkit-transform: rotate(-10deg);
+       -moz-transform: rotate(-10deg);
+        -ms-transform: rotate(-10deg);
+         -o-transform: rotate(-10deg);
+            transform: rotate(-10deg);
+}
+.wrapBox .specialOffer2 p {
+    font:normal 14px/16px 'Century Gothic W01';
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    padding: 10px 0 0;
+}
+
+.wrapBox .specialOffer2 p.lastDayLeft {
+    padding-top: 44px;
+}
+
+.wrapBox .specialOffer2 span {
+    display: block;
+}
+.wrapBox .specialOffer2 span.daysLeft {
+    font-size: 60px;
+    line-height: 58px;
+}
+.wrapBox .specialOffer2 span.sale {
+    font:normal 14px/16px 'Century Gothic W01 Bold';
+}
+
+.wrapBox .from {
+    font:normal 15px/15px 'Walbaum W01 Bold Italic';
+    color:#000;
+    padding-bottom:5px;
+}
+.wrapBox .price {
+    font:normal 33px/33px 'Walbaum W02 Bold';
+}
+.wrapBox .currency {
+    color:#000;
+}
+.wrapBox .amount {
+    color:#c11d7f;
+}
+.wrapBox .frequency {
+    font:normal 15px/15px 'Walbaum W01 Bold Italic';
+    color:#000;
+}
+
+/*** Wrap Full (full width containers with background images) ***/
+/* Wrap Full Top */
+.wrapFullTop {
+    padding-top:20px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAACMCAIAAAAyWVTYAAAAD0lEQVQoz2NgGAWjgHgAAAIwAAEse+c0AAAAAElFTkSuQmCC) repeat-x center top; /* data uri */
+}
+.lt-ie8 .wrapFullTop {
+    background-image:url(../img/themes/woman/bg_one_stripe_1x140.png); /* ie7 doesn't support data uri */
+}
+/* Wrap Full */
+.wrapFull {
+    padding:0;
+    background:#fff;
+}
+/* Wrap Full 1 Stripe */
+.wrapFull1Stripe {
+    padding:0 0 45px 0;
+    background:#fff url(../img/themes/woman/bg_wrap_full_1stripe.png) left bottom repeat-x;
+}
+/* Wrap Full 1 Stripe Large */
+.wrapFull1StripeLarge {
+    padding:0 0 20px 0;
+    min-height:380px;
+    background:#fff url(../img/themes/woman/bg_wrap_full_1stripe_large.png) left bottom repeat-x;
+}
+/* Wrap Full 1 Stripe XLarge */
+.wrapFull1StripeXLarge {
+    padding:0 0 40px 0;
+    background:#fff url(../img/themes/woman/bg_wrap_full_1stripe_xlarge.png) left bottom repeat-x;
+}
+/* Wrap Full 2 Stripes */
+.wrapFull2Stripes {
+    padding:0;
+    background:#fff url(../img/themes/woman/bg_wrap_full_2stripes.png) left center repeat-x;
+}
+
+/*** Beauty Test ***/
+.page_module-surveysamples-customer .beautyTest p.textC {
+    padding:65px 10px 0;
+    height:155px;
+}
+.page_module-surveysamples-customer .beautyTest p.floatL,
+.page_module-surveysamples-customer .beautyTest p.floatR {
+    padding-bottom:0;
+}
+
+/*** Checkout (Shopping Cart) ***/
+/*.page_order-opc #columns > .wrap {
+    max-width:none;
+    margin:0;
+}*/
+
+/*** H1 Composed (Home) ***/
+h1.headingComposed,
+.h1.headingComposed {
+    padding:30px 0 22px;
+}
+h1.headingComposed .secondary,
+.h1.headingComposed .secondary {
+    display:block;
+    padding-bottom:10px;
+    color:#000;
+}
+h1.headingComposed .main,
+.h1.headingComposed .main {
+    display:block;
+    font:normal 48px/48px 'Walbaum W02 Bold';
+    color:#c11d7f;
+    text-transform:uppercase;
+}
+
+/*** H1 Composed 2 (Home for Xmas) ***/
+h1.headingComposed2 {
+    padding:0 0 22px 0;
+}
+h1.headingComposed2 .secondary {
+    display:block;
+    padding-bottom:5px;
+    font:normal 35px/35px 'Walbaum W01 Bold Italic';
+    text-align:center;
+}
+h1.headingComposed2 .main {
+    display:block;
+    padding-bottom:15px;
+    font:normal 50px/50px 'Walbaum W02 Bold';
+    color:#c11d7f;
+    text-transform:uppercase;
+    text-align:center;
+}
+
+/*** H2 Composed (Product Items) ***/
+h2.headingComposed,
+h2.headingComposedFull {
+    padding-bottom: 0;
+    margin-bottom: 15px;
+    text-align: left;
+    height: 76px; /* constrains/crops text length to 2 lines */
+    overflow: hidden;
+
+}
+h2.headingComposed {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAALCAYAAACwEeRxAAAAv0lEQVR42u3aQQrCQBBFwb6IZ/VsOVnLIA0ajMnCiNPWh0LRnYTAyxiZGcNyuZYcr+OzsfoeAAAAZharAM4HIhgAAICWAZwvRIUwAAAATB/AG/H7dBIMAAAAUwfwTvzm/R/Qfijgj2+UZh+a681+4RoDEMBv4hcAAABaOBK/nhQAToDNvns6Z+YEGOCcE+DYOfn1QwEC2EwAmwAGaBPAsRW/bqYAAAB0C+BYBbCniQAAAPQJ4HpTESx+AQAA6OgGGh5KmKHi+ioAAAAASUVORK5CYII=) repeat-x left bottom; /* data uri */
+}
+h2.headingComposedFull {
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAALCAYAAACtWacbAAAATUlEQVQY04XQAQoAIAgDQD/SW3tbL1tMymSFCUOoy0ADYMxofQfsPGN5F4SUgBnhEX9cgYA/wP/qKQ4qFGAhKwFL9nMDQSbolG5cAe8mWFCza3we/jcAAAAASUVORK5CYII=) no-repeat left bottom; /* data uri */
+    /*background-color: rgba(220,220,220,0.5);*/
+}
+.lt-ie8 h2.headingComposed {
+    background-image:url(../img/themes/woman/hr_bullet_left.png); /* ie7 doesn't support data uri */
+}
+.lt-ie8 h2.headingComposedFull {
+    background-image:url(../img/themes/woman/bg_pink_box.png); /* ie7 doesn't support data uri */
+}
+h2.headingComposed .secondary,
+h2.headingComposedFull .secondary {
+    display:block;
+    font:normal 14px/16px 'Walbaum W01 Bold Italic';
+    color:#362e33;
+}
+h2.headingComposed .main,
+h2.headingComposedFull .main {
+    display:block;
+    font:normal 20px/22px 'Walbaum W01 Bold Italic';
+    color:#60565c;
+}
+
+/*** Notes ***/
+.note {
+    clear:both;
+}
+.skinNote1,
+.skinNote2 {
+    font-size:11px;
+    line-height:15px;
+    color:#595959;
+}
+.skinNote1 {
+    padding:0 0 10px 15px;
+}
+.skinNote2 {
+    padding:15px 0 0 0;
+}
+.skinNote3,
+.skinNote4 {
+    font-size:10px;
+    line-height:14px;
+    color:#363636;
+    padding:5px 0 0 0;
+}
+.skinNote3 {
+    margin-left:40%;
+}
+.skinNote4 {
+    display:block;
+    text-transform:lowercase;
+}
+.skinNote5 {
+    font-size:12px;
+    line-height:16px;
+    color:#8d8d8d;
+    font-style:italic;
+    display:block!important;
+}
+.skinNote6 {
+    font-size:12px;
+    line-height:16px;
+    color:#a08a8f;
+    font-weight:normal;
+    text-transform:none;
+    display:block;
+}
+.skinNote7 {
+    font-size:11px;
+    line-height:15px;
+    color:#595959;
+    padding:0;
+}
+.skinNote8 {
+    font-size:10px;
+    line-height:14px;
+    color:#363636;
+}
+
+/*** HR (Horizontal Rules) below texts ***/
+.hrTxt,
+.hrTxt2 {
+    margin-bottom:30px;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAA8AAAAALCAYAAACwEeRxAAAAv0lEQVR42u3c0QmDMBiF0buIszqbk/19ElQEC20MxnPhLBCK7deUpqoCANxnmeZVLdOcqkoSZwMAjTkEAOgTwLUhggFAAAPAkAFcJ7KGMAAggAFg1Pjd3QQDAAIYoM+D0uxPu4jfSuIFZz/NMxvg+nNdAQDtfRG/AEBLvgUAcANsfW+AD2/OZm6AAfwEGkAA2+MDOOLXBDCAAAaAN/wB1i6Cz+LXOQGAAAaAkQI4hwB2gwcAAhgAxg1h8QsA9/oAHp4+pNmGolcAAAAASUVORK5CYII=) repeat-x center bottom; /* data uri */
+}
+.hrTxt {
+    padding-bottom:50px;
+}
+.hrTxt2 {
+    padding-bottom:43px;
+}
+.lt-ie8 .hrTxt,
+.lt-ie8 .hrTxt2 {
+    background-image:url(../img/themes/woman/hr_bullet.png); /* ie7 doesn't support data uri */
+}
+
+/*** Carousel Text ***/
+.carouselText {
+    font:normal 10px/12px 'Century Gothic W01';
+    color:#fff;
+    text-transform:uppercase;
+    text-align:center;
+    padding:5px 0 0;
+}
+
+/* 3 Columns Layouts
+ * Breaking the grid to acomplish a 3 cols. centered layouts
+ */
+.threeCols {
+    clear:both;
+    width:95.41666666666667%;
+    /*height:315px; * constrains/crops text length to 3 lines */
+    margin:0 auto;
+    overflow:hidden; /* clear of floats */
+}
+.threeCols li {
+    display:inline;
+    float:left;
+    width:33.62445414847162%;
+}
+.threeCols li.central {
+    width:32.75109170305677%;
+}
+.threeCols li .flxImg {
+    border:4px solid #fff;
+    background-color:#fff;
+    margin-bottom:20px;
+}
+.threeCols li.central .flxImg {
+    border-left:none;
+    border-right:none;
+}
+.threeCols li .desc {
+    padding:0 20px;
+}
+/* Skin Welcome Steps (Home) */
+.skinThreeColsWelcome {
+    padding-top:20px;
+}
+.skinThreeColsWelcome li .desc h2 {
+    margin-bottom:12px;
+}
+.skinThreeColsWelcome li .desc .text {
+    text-align:center;
+    padding-bottom:0;
+}
+.skinThreeColsWelcome li .desc .text a {
+    color:#363636;
+}
+.skinThreeColsWelcome li .desc .text a:hover {
+    color:#c11d7f;
+}
+/* Skin Choose (Regala) */
+.skinThreeColsChoose li .desc .text {
+    font-family:'Century Gothic W01';
+    text-align:center;
+    text-transform:uppercase;
+    padding-bottom:40px;
+}
+.skinThreeColsChoose li .desc .text a {
+    display:block;
+    color:#fff;
+}
+.skinThreeColsChoose li .desc .text a:hover {
+    color:#c11d7f;
+}
+.skinThreeColsChoose .flxImg img {
+    min-height:150px;
+}
+
+/* Start Steps (Cómo funciona) */
+.threeStartSteps {
+    clear:both;
+    width:98%;
+    /*height:368px; * constrains/crops text length */
+    margin:0 1%;
+    overflow:hidden; /* clear of floats */
+}
+.threeStartSteps li {
+    display:inline;
+    float:left;
+    width:31%;
+    position:relative;
+    padding-left:3.5%;
+}
+.lt-ie8 .threeStartSteps li {
+    padding-left:3.448%; /* 3.5  - 0.0520 = 3.448 */
+}
+.threeStartSteps li:first-child {
+    padding-left:0;
+}
+.threeStartSteps li h2 {
+    min-height: 40px; /* Accomodating 2 lines of text */
+}
+.threeStartSteps li .flxImg {
+    background-color:#fff;
+}
+.threeStartSteps li .text {
+    text-align:center;
+    padding:0 10px;
+}
+.threeStartSteps li .text a {
+    color:#363636;
+}
+.threeStartSteps li .text a:hover {
+    color:#c11d7f;
+}
+.threeStartSteps li .arrowGray {
+    display:block;
+    position:absolute;
+    top:135px;
+    left:2.7%;
+}
+.threeStartSteps li:first-child .arrowGray {
+    display:none;
+}
+
+/* Stage "How It Works (Cómo funciona)" */
+.howItWorks {
+    margin-bottom:50px;
+}
+.howItWorks .subscribe {
+    padding-top:105px;
+}
+.howItWorks .subscribe li:first-child {
+    padding-bottom:31px;
+}
+
+/*** Subscription Plans (Pedir)  ***/
+.subscriptionPlans > li:first-child {
+    margin-top:0;
+}
+.subscriptionPlans > li {
+    border-left:1px solid #000;
+    margin-top:20px;
+    background-color: #fff;
+}
+.subscriptionPlans .name {
+    font:normal 20px/20px 'Walbaum W01 Bold Italic';
+    color:#cec3c7;
+    text-transform:capitalize;
+    padding:10px 4%;
+    background:#000;
+}
+.subscriptionPlans .features {
+    padding:15px 4% 0;
+    overflow:hidden; /* clear of floats */
+}
+.subscriptionPlans .priceAndTerms {
+    float:left;
+    width:48%;
+    overflow:hidden; /* clear of floats */
+}
+.subscriptionPlans .priceAndTerms .price {
+    display:block;
+    /*float:left;*/
+    font:normal 45px/45px 'Walbaum W02 Bold';
+    /*padding-right:30px;
+    background:url(../img/themes/woman/slash_pink_price_l.png) no-repeat right 3px;*/
+}
+.subscriptionPlans .priceAndTerms .price .amount {
+    color:#c11d7f;
+}
+.subscriptionPlans .priceAndTerms .price .frequency {
+    clear: both;
+    display: block;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 13px;
+    line-height: 15px;
+    color: #000;
+    font-weight: bold;
+}
+.subscriptionPlans .priceAndTerms .price .currency {
+    color:#000;
+}
+.subscriptionPlans .priceAndTerms .priceMonth {
+    display:block;
+    /*float:left;*/
+    font-size:13px;
+    line-height:15px;
+    color:#000;
+    /*text-align:center;*/
+    padding-top:5px;
+}
+.subscriptionPlans .priceAndTerms .priceMonth span {
+    display:inline;
+}
+.subscriptionPlans .priceAndTerms .priceMonth .amountMonth {
+    font-weight:700;
+    color:#9e5c7f;
+}
+.subscriptionPlans .priceAndTerms .terms {
+    clear:both;
+    font-size:11px;
+    line-height:13px;
+    padding:10px 0 5px;
+}
+.subscriptionPlans .getFancy {
+    float:right;
+    width:52%;
+    padding-top:5px;
+    overflow:hidden; /* clear of floats */
+}
+.subscriptionPlans .getFancy li {
+    float:right;
+}
+.subscriptionPlans .getFancy li:first-child {
+    padding-bottom:10px;
+}
+
+/*** Forms (Beauty Test, Survey, Contact, Checkout...) ***/
+.fancyForm fieldset li {
+    overflow:hidden; /* clear of floats */
+}
+.fancyForm label {
+    display:block;
+}
+.fancyForm label b {
+    color:#c11d7f; /* required fields asterisk */
+}
+/* Input types */
+.fancyForm input[type=text],
+.fancyForm input[type=password],
+.fancyForm textarea,
+.fancyForm select {
+    font-family:Arial,Helvetica,sans-serif; /* Don't remove! most browsers default to a monospace font if removed */
+    font-size:14px;
+    vertical-align:middle;
+    margin:0;
+    -webkit-border-radius:1px;
+       -moz-border-radius:1px;
+            border-radius:1px;
+}
+.fancyForm input[type=text],
+.fancyForm input[type=password],
+.fancyForm textarea {
+    color:#363636;
+    background-color:#e1dbdd;
+    border:1px solid #a09a9c;
+    padding:12px 15px;
+}
+.fancyForm select {
+    color:#000;
+    background-color:#a08a8f;
+    border:1px solid #cec3c7;
+    padding:11px 15px;
+}
+.lt-ie8 .fancyForm select {
+    color:#363636;
+    background-color:#fff;
+    border:1px solid #a09a9c;
+}
+.fancyForm textarea {
+    width:100%;
+    height:90px;
+    resize:vertical;
+    -webkit-box-sizing:border-box;
+       -moz-box-sizing:border-box;
+            box-sizing:border-box;
+}
+.fancyForm input:focus,
+.fancyForm textarea:focus,
+.fancyForm select:focus {
+    outline:0;
+    border-color:#666;
+}
+.fancyForm input[type=checkbox],
+.fancyForm input[type=radio] {
+    display:inline-block;
+    vertical-align:text-top;
+    margin:0 1% 0 0;
+    padding:0;
+    border:none;
+}
+/* Skin Beauty Test */
+.skinFancyFormBeautyTest fieldset ul,
+.skinFancyFormBeautyTest fieldset ol {
+    height:150px;
+    margin-bottom:40px;
+    overflow:auto;
+}
+.skinFancyFormBeautyTest fieldset li {
+    float:left;
+    width:50%;
+    padding-left:0;
+}
+.skinFancyFormBeautyTest fieldset li:first-child {
+    width:47%;
+    padding-left:3%;
+}
+.skinFancyFormBeautyTest legend {
+    font-size:14px;
+    font-weight:700;
+    color:#a08a8f;
+    text-transform:uppercase;
+    padding-bottom:10px;
+}
+.skinFancyFormBeautyTest label {
+    padding-bottom:10px;
+}
+/* Skin Survey */
+.skinFancyFormSurvey fieldset ul,
+.skinFancyFormSurvey fieldset ol {
+    padding-bottom:25px;
+}
+.skinFancyFormSurvey legend {
+    font-size:14px;
+    font-weight:700;
+    color:#a08a8f;
+    text-transform:uppercase;
+    padding-bottom:10px;
+}
+.skinFancyFormSurvey label {
+    padding-bottom:10px;
+}
+/* Skin Label Beside */
+.skinFancyFormLabelBeside fieldset ul,
+.skinFancyFormLabelBeside fieldset ol {
+    padding-bottom:40px;
+}
+.skinFancyFormLabelBeside fieldset li {
+    padding-top:20px;
+}
+.skinFancyFormLabelBeside fieldset li:first-child {
+    padding-top:0;
+}
+.skinFancyFormLabelBeside > fieldset > legend {
+    font:normal 18px/18px 'Walbaum W01 Bold Italic';
+    color:#000;
+    text-align:left;
+    padding:10px 0 20px;
+    margin-bottom:30px;
+    background:none;
+    border-bottom:1px solid #000;
+    width:100%;
+}
+.skinFancyFormLabelBeside > fieldset > legend .btn {
+    margin-left:3%;
+}
+.skinFancyFormLabelBeside > fieldset:first-child > legend {
+    padding-top:0;
+}
+.skinFancyFormLabelBeside > fieldset label,
+.skinFancyFormLabelBeside > fieldset fieldset legend {
+    display:block;
+    float:left;
+    font-size:14px;
+    font-weight:700;
+    color:#a08a8f;
+    text-transform:uppercase;
+}
+.skinFancyFormLabelBeside > fieldset .colL fieldset label,
+.skinFancyFormLabelBeside > fieldset .colR fieldset label {
+    display:inline;
+    float:none;
+    font-weight:400;
+    color:#363636;
+    text-transform:none;
+    padding-right:10%;
+}
+.skinFancyFormLabelBeside > fieldset label.invisible,
+.skinFancyFormLabelBeside > fieldset fieldset legend.invisible {
+    visibility:hidden;
+}
+.skinFancyFormLabelBeside > fieldset .colL label,
+.skinFancyFormLabelBeside > fieldset .colL fieldset legend {
+    width:38%;
+    margin-right:2%;
+}
+.skinFancyFormLabelBeside > fieldset .colR label,
+.skinFancyFormLabelBeside > fieldset .colR fieldset legend {
+    width:34%;
+    margin:0 1% 0 5%;
+}
+.skinFancyFormLabelBeside > fieldset .colL fieldset label,
+.skinFancyFormLabelBeside > fieldset .colR fieldset label {
+    width:auto;
+    margin:0;
+}
+.skinFancyFormLabelBeside input[type=text],
+.skinFancyFormLabelBeside input[type=password],
+.skinFancyFormLabelBeside textarea,
+.skinFancyFormLabelBeside select,
+.skinFancyFormLabelBeside > fieldset fieldset > ol {
+    display:block;
+    float:left;
+    width:60%;
+    -webkit-box-sizing:border-box;
+       -moz-box-sizing:border-box;
+            box-sizing:border-box;
+}
+.lt-ie8 .skinFancyFormLabelBeside input[type=text],
+.lt-ie8 .skinFancyFormLabelBeside input[type=password],
+.lt-ie8 .skinFancyFormLabelBeside textarea,
+.lt-ie8 .skinFancyFormLabelBeside select,
+.lt-ie8 .skinFancyFormLabelBeside > fieldset fieldset > ol {
+    width:53%;
+}
+.skinFancyFormLabelBeside > fieldset fieldset > ol {
+    padding-bottom:0;
+}
+.skinFancyFormLabelBeside > fieldset fieldset > ol.block li {
+    display:block;
+    padding-top:5px;
+}
+.skinFancyFormLabelBeside > fieldset fieldset > ol.block li:first-child {
+    padding-top:0;
+}
+.skinFancyFormLabelBeside > fieldset fieldset > ol.inline li {
+    display:inline;
+    padding-top:0;
+}
+.skinFancyFormLabelBeside .composedDate select {
+    width:17%;
+}
+.skinFancyFormLabelBeside .composedDate select.central {
+    width:22%;
+    margin:0 2%;
+}
+.skinFancyFormLabelBeside > fieldset .colFoot {
+    border-top:1px solid #000;
+    overflow:hidden; /* clear of floats */
+}
+.skinFancyFormLabelBeside > fieldset .colFoot p {
+    padding:20px 0 0 0;
+}
+/* Skin Label Beside Single */
+.skinFancyFormLabelBesideSingle label {
+    display:block;
+    float:left;
+    width:115px;
+    font-size:14px;
+    font-weight:700;
+    color:#a08a8f;
+    text-transform:uppercase;
+    text-align:center;
+    padding-top:13px;
+}
+.skinFancyFormLabelBesideSingle input[type=text],
+.skinFancyFormLabelBesideSingle input[type=password],
+.skinFancyFormLabelBesideSingle textarea,
+.skinFancyFormLabelBesideSingle select {
+    display:block;
+    float:left;
+    width:42%;
+    margin-right:3%;
+}
+.skinFancyFormLabelBesideSingle .btn {
+    margin-top:10px;
+}
+/* Skin Label Above
+   The "level1" class seems redundant, but it isn't!
+   It's necessary in the Product Survey (survey_samples.tpl),
+   where the HTML structure is slightly different.
+ */
+.skinFancyFormLabelAbove fieldset ul,
+.skinFancyFormLabelAbove fieldset ol {
+    padding-bottom:40px;
+}
+.skinFancyFormLabelAbove fieldset li {
+    padding-top:20px;
+}
+.skinFancyFormLabelAbove fieldset li:first-child {
+    padding-top:0;
+}
+.skinFancyFormLabelAbove fieldset li.grid_6,
+.skinFancyFormLabelAbove fieldset li.grid_5,
+.skinFancyFormLabelAbove fieldset li.grid_4,
+.skinFancyFormLabelAbove fieldset li.grid_3,
+.skinFancyFormLabelAbove fieldset li.grid_2 {
+    margin-left:0;
+}
+.skinFancyFormLabelAbove > fieldset label,
+.skinFancyFormLabelAbove fieldset.level1 label,
+.skinFancyFormLabelAbove > fieldset fieldset legend,
+.skinFancyFormLabelAbove fieldset.level1 fieldset legend {
+    display:block;
+    font-size:14px;
+    font-weight:700;
+    color:#a08a8f;
+    text-transform:uppercase;
+    padding-bottom:10px;
+}
+.skinFancyFormLabelAbove > fieldset fieldset label,
+.skinFancyFormLabelAbove fieldset.level1 fieldset label {
+    display:inline;
+    float:none;
+    font-weight:400;
+    color:#363636;
+    text-transform:none;
+    padding-right:9%;
+}
+.skinFancyFormLabelAbove input[type=text],
+.skinFancyFormLabelAbove input[type=password],
+.skinFancyFormLabelAbove textarea,
+.skinFancyFormLabelAbove select,
+.skinFancyFormLabelAbove > fieldset fieldset > ol,
+.skinFancyFormLabelAbove fieldset.level1 fieldset > ol {
+    display:block;
+    width:100%;
+    -webkit-box-sizing:border-box;
+       -moz-box-sizing:border-box;
+            box-sizing:border-box;
+}
+.skinFancyFormLabelAbove input[type=text].inlineW20 {
+    display:inline;
+    width:20%;
+    margin-right:1%;
+}
+.skinFancyFormLabelAbove > fieldset fieldset > ol,
+.skinFancyFormLabelAbove fieldset.level1 fieldset > ol {
+    padding-bottom:0;
+}
+.skinFancyFormLabelAbove > fieldset fieldset > ol.block li,
+.skinFancyFormLabelAbove fieldset.level1 fieldset > ol.block li {
+    display:block;
+    padding-top:5px;
+}
+.skinFancyFormLabelAbove > fieldset fieldset > ol.block li:first-child,
+.skinFancyFormLabelAbove fieldset.level1 fieldset > ol.block li:first-child {
+    padding-top:0;
+}
+.skinFancyFormLabelAbove > fieldset fieldset > ol.inline li,
+.skinFancyFormLabelAbove fieldset.level1 fieldset > ol.inline li {
+    display:inline;
+    padding-top:0;
+    /*white-space:nowrap;*/
+}
+.skinFancyFormLabelAbove > fieldset .colFoot,
+.skinFancyFormLabelAbove fieldset.level1 .colFoot {
+    border-top:1px solid #000;
+    overflow:hidden; /* clear of floats */
+}
+.skinFancyFormLabelAbove > fieldset .colFoot p,
+.skinFancyFormLabelAbove fieldset.level1 .colFoot p {
+    padding:20px 0 0 0;
+}
+.skinFancyFormLabelAbove .skinBtnFacebook {
+    margin-top:8px;
+}
+.skinFancyFormLabelAbove .labelComposed {
+    overflow:hidden; /* clear of floats */
+}
+.skinFancyFormLabelAbove .labelComposed label {
+    float:left;
+}
+.skinFancyFormLabelAbove .labelComposed p {
+    float:right;
+    padding-bottom:0;
+}
+
+/*** Forms (Page Not Found 404) ***/
+#pagenotfound h1 {
+    padding-top:10px;
+}
+#pagenotfound .fancyForm legend {
+    padding:20px 0 38px;
+}
+/*#pagenotfound .fancyForm input[type=text],
+#module-fancygifttofriend-gift .fancyForm input[type=file] {*/
+#pagenotfound .fancyForm input[type=text] {
+    font-family:Arial,Helvetica,sans-serif; /* Don't remove! most browsers default to a monospace font if removed */
+    font-size:24px;
+    vertical-align:middle;
+    color:#363636;
+    width:80%;
+    margin:0;
+    padding:6px 10px;
+    background-color:#7b7577;
+    border:1px solid #3a3436;
+    -webkit-border-radius:1px;
+       -moz-border-radius:1px;
+            border-radius:1px;
+}
+#pagenotfound .fancyForm input[type=text]:focus {
+    background-color:#ada5a8;
+    outline:0;
+}
+
+/*** Points ***/
+.points .comingSoon {
+    position:relative;
+}
+.points .comingSoon span {
+    display:block;
+    position:absolute;
+    top:8px;
+    left:-5px;
+    padding:15px 30px;
+    font:normal 20px/20px 'Century Gothic W01';
+    color:#9f9f9f;
+    text-transform:uppercase;
+    background:rgb(0,0,0); /* fallback */
+    background:rgba(0,0,0,.8);
+    z-index:10;
+}
+.points .action {
+    padding:20px 0 0;
+    text-align:center;
+}
+.points .desc {
+    padding:25px 0 0;
+    text-align:center;
+}
+
+/*** Payment Method (respuesta del Módulo de Pago On-line) ***/
+/* Esto es temporal, lo mejoraremos en fase 2 */
+.asLegend {
+    font-size:14px;
+    font-weight:700;
+    color:#a08a8f;
+    text-transform:uppercase;
+    /*padding-bottom:10px;*/
+}
+
+/*** Product Items ***/
+.productItems .intro {
+    padding: 40px 0;
+}
+.productItems .products {
+    clear:both;
+}
+.productItems .products > li {
+    padding:20px 0;
+    overflow:hidden; /* clear of floats */
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12O4fOQkAATOAmEvRe6VAAAAAElFTkSuQmCC); /* data uri */
+    background-repeat: repeat-x;
+    background-position: center 90px;
+}
+.lt-ie8 .productItems .products > li {
+    background-image: url(../img/themes/woman/px_theme_1x1.png); /* ie7 doesn't support data uri */
+}
+.productItems .products > li:first-child {
+    padding-top:0;
+    background-position: center 70px;
+}
+.productItems .products .priceAndBuy {
+    text-align:center;
+    padding-top:15px;
+}
+.productItems .products .priceAndBuy .price {
+    font:normal 30px/30px 'Walbaum W02 Bold';
+    padding-right:13px;
+    background:url(../img/themes/woman/slash_pink_price_m.png) no-repeat right 5px;
+}
+.productItems .products .priceAndBuy .price .amount {
+    color:#c11d7f;
+}
+.productItems .products .priceAndBuy .price .currency {
+    color:#000;
+}
+.productItems .products .priceAndBuy .quantityAndUnits {
+    font-size:13px;
+    line-height:15px;
+    color:#000;
+}
+.productItems .products .priceAndBuy .quantityAndUnits .quantity {
+    font-weight:700;
+    color:#9e5c7f;
+}
+.productItems .products .priceAndBuy .terms {
+    font-size:11px;
+    line-height:13px;
+    padding:7px 0 15px;
+}
+.productItems .products h2.headingComposed .main {
+    text-transform:capitalize;
+}
+.productItems .products .features dt {
+    font-weight:700;
+    text-transform:uppercase;
+    color:#9e5c7f;
+}
+.productItems .products .features dd {
+    padding-bottom:20px;
+}
+.productItems .products .features dd p {
+    padding-bottom:0; /* TODO - It shouldn't be a paragraph inside a definition description (this is a back-end issue) */
+}
+
+/* Sharing Buttons Nav */
+.sharingBtnsNav {
+    padding-bottom:40px;
+    overflow:hidden; /* clear of floats */
+}
+.sharingBtnsNav li {
+    float:left;
+    margin-right:10px;
+}
+.sharingBtnsNav li.info {
+    float:right;
+    margin-right:0;
+}
+.sharingBtnsNav li.share a,
+.sharingBtnsNav li.value a {    
+    display:block;
+    float:left;
+    font:normal 10px/16px 'Century Gothic W01 Bold';
+    color:#fff;
+    text-transform:uppercase;
+    padding:0 6px;
+    background:#ac989d;
+    -webkit-border-radius:2px;
+       -moz-border-radius:2px;
+            border-radius:2px;
+    -webkit-transition:background-color .25s ease-in;
+       -moz-transition:background-color .25s ease-in;
+            transition:background-color .25s ease-in;
+}
+.sharingBtnsNav li.share a:hover,
+.sharingBtnsNav li.value a:hover {
+    background-color:#c11d7f;
+}
+
+/*** Brands FancyBox ***/
+a.fancyBrand {
+    background:#fff;
+}
+a.fancyBrand:hover {
+    background:#f4f4f4;
+}
+/* To disable opacity image effect */
+a.fancyBrand:hover img {
+    opacity:1;
+    filter:alpha(opacity=100);
+}
+
+/*** Regala ***/
+.titleLarge {
+    font:normal 20px/20px 'Walbaum W01 Bold Italic';
+    color:#000;
+    text-align:left;
+    padding-bottom:20px;
+    margin-bottom:0;
+    background:none; /* Removes background image when class is applied to different level heading */
+}
+.titleLargeLight {
+    font:normal 20px/20px 'Walbaum W01 Bold Italic';
+    color:#989898;
+    text-align:right;
+    padding:6px 0 40px;
+}
+.titleSmall {
+    font:normal 18px/18px 'Walbaum W01 Bold Italic';
+    color:#000;
+    text-align:left;
+    padding:15px 0 0;
+    margin-bottom:35px;
+    background:none; /* Removes background image when class is applied to different level heading */
+}
+
+/*** Compromise ***/
+.compromise p {
+    padding-bottom: 0;
+}
+.compromise .compromiseClaim p {
+    padding-top: 30px;
+}
+.compromise .compromiseClaim p .highlighted {
+    color: #000;
+    font-weight: 700;
+}
+.compromise .compromiseHighlights {
+    padding-bottom: 30px;
+}
+.compromise .compromiseHighlights li {
+    padding-top: 60px;
+}
+.compromise .compromiseHighlights .sCompromise {
+    display: block;
+    margin: 0 auto;
+}
+.compromise .compromiseHighlights h2 {
+    font-size: 18px;
+    line-height: 18px;
+    text-align: left;
+    padding-bottom: 10px;
+    margin-bottom: 0;
+    background: none;
+}
+
+/*** OLD Checkout (Shopping Cart) Steps / Survey Steps ***
+   * TODO -> remove OLD Checkout styles when the new implementation is finished.
+             Be careful!!! Don't remove 'js-survey-steps' styles!!! 
+***/
+#js-checkout-steps > div,
+#js-survey-steps > div {
+    background:#f5f3f4 url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAIAAACQd1PeAAAADElEQVQI12NgYGAAAAAEAAEnNCcKAAAAAElFTkSuQmCC) repeat-x center 57px; /* data uri */  
+}
+.lt-ie8 #js-checkout-steps > div,
+.lt-ie8 #js-survey-steps > div {
+    background-image:url(../img/themes/woman/px_black_1x1.png); /* ie7 doesn't support data uri */
+}
+#js-checkout-steps > div.active,
+#js-survey-steps > div.active {
+    border-bottom:1px solid #000;
+    background-color:#fff;
+}
+#js-checkout-steps > div.active.last,
+#js-survey-steps > div.active.last {
+    border-bottom:none;
+    background:#fff url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAADcCAYAAACxtct4AAAAH0lEQVQ4y2NgYGD4z/D//3+GUWKUGFACnBJHiaFLAADT5NwyF9S77gAAAABJRU5ErkJggg==) repeat-x center 57px; /* data uri */
+}
+.lt-ie8 #js-checkout-steps > div.active.last,
+.lt-ie8 #js-survey-steps > div.active.last {
+    background-image:url(../img/themes/woman/bg_two_stripes_1x220.png); /* ie7 doesn't support data uri */
+}
+#js-checkout-steps > div.active.last .skinFancyFormLabelAbove .colFoot,
+#js-survey-steps > div.active.last .skinFancyFormLabelAbove .colFoot {
+    border-top:none;
+}
+#js-checkout-steps > div.active.last .skinFancyFormLabelAbove .colFoot p,
+#js-survey-steps > div.active.last .skinFancyFormLabelAbove .colFoot p {
+    padding:30px 0 0 0;
+}
+#js-checkout-steps > div.confirmation,
+#js-survey-steps > div.confirmation {
+    background-color:#fff;
+}
+#js-checkout-steps > div.completed h2,
+#js-survey-steps > div.completed h2 {
+    color:#a08a8f;
+}
+#js-checkout-steps .title,
+#js-survey-steps .title {
+    display:block;
+    overflow:hidden; /* clear of floats */
+}
+#js-checkout-steps .title h2,
+#js-survey-steps .title h2 {
+    float:left;
+    text-align:left;
+    background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAkAAAALCAYAAACtWacbAAAATUlEQVQY04XQAQoAIAgDQD/SW3tbL1tMymSFCUOoy0ADYMxofQfsPGN5F4SUgBnhEX9cgYA/wP/qKQ4qFGAhKwFL9nMDQSbolG5cAe8mWFCza3we/jcAAAAASUVORK5CYII=) no-repeat left bottom; /* data uri */
+    margin:18px 0 0 0;
+}
+.lt-ie8 #js-checkout-steps .title h2,
+.lt-ie8 #js-survey-steps .title h2 {
+    background-image:url(../img/themes/woman/bg_pink_box.png); /* ie7 doesn't support data uri */
+}
+#js-checkout-steps .title img.s,
+#js-survey-steps .title img.s {
+    float:right;
+    margin-top:22px;
+}
+#js-checkout-steps .content,
+#js-survey-steps .content {
+    clear:both;
+    padding:30px 0 40px;
+}
+
+/*** OLD Checkout (Shopping Cart) Table ***
+   * TODO -> remove OLD Checkout styles when the new implementation is finished.
+***/
+/*Table*/
+.checkoutTable {
+    width:100%;
+    border-collapse:separate;
+    border-spacing:0;
+    line-height:17px;
+    empty-cells:hide;
+}
+.checkoutTable .s {
+    vertical-align:middle;
+}
+.checkoutTable th span {
+    display:none;
+}
+.checkoutTable th,
+.checkoutTable td {
+    border-right:1px solid #fff;
+    border-left:1px solid #fff;
+    vertical-align:middle;
+}
+/*Thead*/
+.checkoutTable thead th {
+    padding:0 0 10px 0;
+    background:#fff;
+}
+/*Thead and Tbody*/
+.checkoutTable thead th,
+.checkoutTable tbody th {
+    font-weight:700;
+    color:#a08a8f;
+    text-align:left;
+    text-transform:uppercase;
+}
+/*Tbody*/
+.checkoutTable tbody th,
+.checkoutTable tbody td {
+    background:#ebe7e9;
+    padding:15px 20px;
+    border-bottom:15px solid #fff;
+}
+.checkoutTable tbody tr.itemLast td {
+    border-bottom:35px solid #fff;
+}
+.checkoutTable tbody td.withImg {
+    padding:0;
+    width:115px;
+    background-color:#fff;
+}
+.checkoutTable tbody td.withInput {
+    padding:0;
+    background-color:#fff;
+}
+.checkoutTable tbody tr.total th,
+.checkoutTable tbody tr.total td {
+    font-size:18px;
+    font-weight:700;
+    color:#363636;
+    background:#fff;
+}
+/*Tfoot*/
+.checkoutTable tfoot td p {
+    padding:20px 0 0 0;
+    border-top:1px solid #000;
+}
+
+/*** NEW Checkout *******************************************************
+*************************************************************************/
+/*** Base ***/
+.checkout {
+    clear: both;
+    overflow: hidden; /* clear of floats */
+}
+/* Headings */
+.checkout  h1,
+.checkout .h1,
+.checkout  h2,
+.checkout .h2,
+.checkout  h3,
+.checkout .h3,
+.checkout  h4,
+.checkout .h4,
+.lt-ie8 .checkout  h1,
+.lt-ie8 .checkout .h1,
+.lt-ie8 .checkout  h2,
+.lt-ie8 .checkout .h2,
+.lt-ie8 .checkout  h3,
+.lt-ie8 .checkout .h3,
+.lt-ie8 .checkout  h4,
+.lt-ie8 .checkout .h4 {
+    text-align: left;
+    text-transform: uppercase;
+    margin-bottom: 0;
+    border-bottom: 0;
+    background: none;
+}
+.checkout  h1,
+.checkout .h1 {
+    font: normal 36px/36px 'Century Gothic W01';
+    color: #c11d7f;
+    padding-bottom: 30px;
+}
+.checkout  h2,
+.checkout .h2 {
+    font: normal 25px/25px 'Century Gothic W01';
+    color: #c11d7f;
+    padding-bottom: 20px;
+}
+.checkout  h3,
+.checkout .h3 {
+    font: normal 16px/16px 'Century Gothic W01 Bold';
+    color: #000;
+    padding-bottom: 25px;
+}
+.checkout  h4,
+.checkout .h4 {
+    font: normal 16px/16px 'Century Gothic W01';
+    color: #000;
+    padding-bottom: 20px;
+}
+/* Required fields */
+.checkout .grid_8 p.required {
+    color: #363636;
+}
+.checkout .grid_8 p.required sup {
+    color: #c11d7f;
+}
+
+/*** Your Order ***/
+.checkout .yourOrder {
+    border: 1px solid #aaa;
+    padding: 15px;
+    margin-bottom: 20px;
+    overflow: hidden; /* clear of floats */
+}
+.checkout .yourOrder .grid_16 {
+    width: 100%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.checkout .yourOrder .grid_8 {
+    width: 49%;
+    margin-left: 0;
+    margin-right: 0;
+}
+.checkout .yourOrder .grid_8.first {
+    margin-right: 2%;
+}
+.checkout .yourOrder dl {
+    overflow: hidden; /* clear of floats */
+}
+.checkout .yourOrder dt {
+    clear: both;
+    width: 70%;
+    padding-right: 5%;
+}
+.checkout .yourOrder dd {
+    width: 25%;
+}
+.checkout .yourOrder dt,
+.checkout .yourOrder dd {
+    float: left;
+    padding-top: 18px;
+}
+.checkout .yourOrder p {
+    padding-bottom: 0;
+}
+
+/*** User Data & Payment Method ***/
+.checkout .userData,
+.checkout .paymentMethod {
+    border: 1px solid #aaa;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+/* Payment Brands */
+.checkout .paymentBrands dt:first-child {
+    padding-top: 0;
+}
+.checkout .paymentBrands dt,
+.checkout .paymentBrands dd {
+    padding-top: 10px;
+}
+.checkout .paymentBrands ul {
+    overflow: hidden; /* clear of floats */
+}
+.checkout .paymentBrands li {
+    float: left;
+    margin: 0 20px 10px 0;
+}
+.checkout .paymentBrands li img {
+    display: block;
+}
+/* Secure Brands */
+.checkout .secureBrands {
+    clear: both;
+    float: right;
+    overflow: hidden; /* clear of floats */
+}
+.checkout .secureBrands li {
+    float: right;
+    margin-left: 20px;
+}
+.checkout .secureBrands li img {
+    display: block;
+}
+
+/*** Framed Box ***/
+.checkout .framed {
+    border: 1px solid #a6a6a6;
+    margin-bottom: 15px;
+}
+.checkout .framed .header,
+.checkout .framed .content {
+    padding: 15px;
+}
+.checkout .framed .header {
+    background: #ffffff;
+    background: -moz-linear-gradient(top,  #ffffff 0%, #e7f3f1 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e7f3f1));
+    background: -webkit-linear-gradient(top,  #ffffff 0%,#e7f3f1 100%);
+    background: -o-linear-gradient(top,  #ffffff 0%,#e7f3f1 100%);
+    background: -ms-linear-gradient(top,  #ffffff 0%,#e7f3f1 100%);
+    background: linear-gradient(to bottom,  #ffffff 0%,#e7f3f1 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e7f3f1',GradientType=0 );
+}
+.checkout .framed .header p {
+    padding-bottom: 0;
+}
+.checkout .framed .content {
+    border-top: 1px solid #a6a6a6;  
+}
+
+/*** Overriding 'order-opc.css' properties ***/
+.checkout #new_account_form fieldset:first-child {
+    padding-top: 0;
+}
+.checkout #new_account_form fieldset {
+    padding-top: 25px;
+}
+.checkout #new_account_form p {
+    padding: 0 0 10px 0;
+}
+.checkout #new_account_form .error p,
+.checkout #new_account_form .framed .header p {
+    padding-bottom: 0;
+}
+.checkout #new_account_form p.text input,
+.checkout #new_account_form p.text textarea,
+.checkout #new_account_form p.password input,
+.checkout #new_account_form p.select input,
+.checkout #new_account_form p.select select {
+    /*padding: 0 5px;
+    height: 22px;
+    width: 360px;
+    border: 1px solid #ccc;
+    font-size: 12px;
+    color: #666;*/
+    padding: 6px 12px;
+    /*margin-bottom: 15px; */
+    width: 100%;
+    border: 1px solid #a6a6a6;
+    font-family: Arial,Helvetica,sans-serif;
+    font-size: 14px;
+    color: #000;
+    -webkit-box-sizing: border-box;
+       -moz-box-sizing: border-box;
+            box-sizing: border-box;
+}
+.checkout #new_account_form p.text input:focus,
+.checkout #new_account_form p.text textarea:focus,
+.checkout #new_account_form p.password input:focus,
+.checkout #new_account_form p.select input:focus,
+.checkout #new_account_form p.select select:focus {
+    outline:0;
+    border-color:#666;
+}
+/*.checkout #new_account_form p.radio span,*/
+.checkout #new_account_form p.text label,
+.checkout #new_account_form p.password label,
+.checkout #new_account_form p.select label,
+.checkout #new_account_form p.select span,
+.checkout #new_account_form p.textarea label {
+    /*display: inline-block;
+    padding: 6px 15px;
+    width: 230px;
+    font-size: 14px;
+    text-align: right;*/
+    display: block;
+    padding: 0;
+    width: auto;
+    text-align: left;
+}
+/* Two fields (one besides the other) */
+.checkout #new_account_form p.text.twoFields {
+    overflow: hidden; /* clear of floats */
+}
+.checkout #new_account_form p.text.twoFields label {
+    display: inline-block;
+}
+.checkout #new_account_form p.text.twoFields input.first {
+    float: left;
+    width: 70%;
+    border-right: none;
+}
+.checkout #new_account_form p.text.twoFields input.last {
+    float: left;
+    width: 30%;
+}

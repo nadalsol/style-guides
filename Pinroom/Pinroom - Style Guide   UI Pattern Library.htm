@@ -1,0 +1,1829 @@
+<!DOCTYPE html>
+<!-- saved from url=(0028)http://pinroom.com/fronttest -->
+<html lang="es"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+                <meta name="robots" content="INDEX,FOLLOW">
+        <meta description="Pinroom, tu habitación online. Diviértete, infórmate, comparte.">
+                        <title>Pinroom - Style Guide / UI Pattern Library</title>
+                    <link href="./Pinroom - Style Guide   UI Pattern Library_files/85c2563.css" type="text/css" rel="stylesheet" media="screen">
+                        <script id="facebook-jssdk" src="./Pinroom - Style Guide   UI Pattern Library_files/all.js"></script><script type="text/javascript" async="" src="./Pinroom - Style Guide   UI Pattern Library_files/ga.js"></script><script type="text/javascript" src="./Pinroom - Style Guide   UI Pattern Library_files/e3ad15b.js"></script>
+    
+    <script type="text/javascript">
+        $(document).ready(function(){
+            //Switcher between 2 elements (show/hide)
+            $('.js-sg-switcher .js-sg-trigger').click(function (event) {
+                event.preventDefault();
+                var switcher = $(this).parents('.js-sg-switcher');
+                var switcher_title_1 = switcher.find('.js-sg-switcher-title-1');
+                var switcher_title_2 = switcher.find('.js-sg-switcher-title-2');
+                var switcher_1 = switcher.find('.js-sg-switcher-1');
+                var switcher_2 = switcher.find('.js-sg-switcher-2');
+                if (switcher_title_2.hasClass('hidden')) {
+                    switcher_title_2.removeClass('hidden');
+                    switcher_title_1.addClass('hidden');
+                    switcher_1.fadeOut();
+                    switcher_2.fadeIn();
+                } else {
+                    switcher_title_1.removeClass('hidden');
+                    switcher_title_2.addClass('hidden');
+                    switcher_2.fadeOut();
+                    switcher_1.fadeIn();
+                }
+            });
+            //Code viewer
+            $('.js-sg-code-viewer .js-sg-trigger').click(function (event) {
+                event.preventDefault();
+                var code_switcher = $(this).parents('.js-sg-code-viewer');
+                var code_switcher_code = code_switcher.find('.js-sg-code-block');
+                var code_switcher_arrows = $(this).prev('.js-sg-arrow');
+                var code_switcher_anchor_text = $(this);
+                if (code_switcher_code.hasClass('hidden')) {
+                    code_switcher_code.fadeIn().removeClass('hidden');
+                    code_switcher_arrows.html('&uarr;');
+                    code_switcher_anchor_text.text('Ocultar código');
+                } else {
+                    code_switcher_code.fadeOut().addClass('hidden');
+                    code_switcher_arrows.html('&rarr;');
+                    code_switcher_anchor_text.text('Mostrar código');
+                }
+            });
+        });
+    </script>
+        <link rel="shortcut icon" href="http://cdn-media-01.pinroom.com/v206/favicon.ico">
+        <script type="text/javascript">
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-32204013-1']);
+_gaq.push(['_trackPageview']);
+(function() {
+var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+    <style type="text/css">.fb_hidden{position:absolute;top:-10000px;z-index:10001}.fb_invisible{display:none}.fb_reset{background:none;border:0;border-spacing:0;color:#000;cursor:auto;direction:ltr;font-family:"lucida grande", tahoma, verdana, arial, sans-serif;font-size:11px;font-style:normal;font-variant:normal;font-weight:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal}.fb_reset>div{overflow:hidden}.fb_link img{border:none}
+.fb_dialog{background:rgba(82, 82, 82, .7);position:absolute;top:-10000px;z-index:10001}.fb_reset .fb_dialog_legacy{overflow:visible}.fb_dialog_advanced{padding:10px;-moz-border-radius:8px;-webkit-border-radius:8px;border-radius:8px}.fb_dialog_content{background:#fff;color:#333}.fb_dialog_close_icon{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 0 transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif);cursor:pointer;display:block;height:15px;position:absolute;right:18px;top:17px;width:15px}.fb_dialog_mobile .fb_dialog_close_icon{top:5px;left:5px;right:auto}.fb_dialog_padding{background-color:transparent;position:absolute;width:1px;z-index:-1}.fb_dialog_close_icon:hover{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -15px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_close_icon:active{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yq/r/IE9JII6Z1Ys.png) no-repeat scroll 0 -30px transparent;_background-image:url(http://static.ak.fbcdn.net/rsrc.php/v2/yL/r/s816eWC-2sl.gif)}.fb_dialog_loader{background-color:#f2f2f2;border:1px solid #606060;font-size:24px;padding:20px}.fb_dialog_top_left,.fb_dialog_top_right,.fb_dialog_bottom_left,.fb_dialog_bottom_right{height:10px;width:10px;overflow:hidden;position:absolute}.fb_dialog_top_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 0;left:-10px;top:-10px}.fb_dialog_top_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -10px;right:-10px;top:-10px}.fb_dialog_bottom_left{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -20px;bottom:-10px;left:-10px}.fb_dialog_bottom_right{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ye/r/8YeTNIlTZjm.png) no-repeat 0 -30px;right:-10px;bottom:-10px}.fb_dialog_vert_left,.fb_dialog_vert_right,.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{position:absolute;background:#525252;filter:alpha(opacity=70);opacity:.7}.fb_dialog_vert_left,.fb_dialog_vert_right{width:10px;height:100%}.fb_dialog_vert_left{margin-left:-10px}.fb_dialog_vert_right{right:0;margin-right:-10px}.fb_dialog_horiz_top,.fb_dialog_horiz_bottom{width:100%;height:10px}.fb_dialog_horiz_top{margin-top:-10px}.fb_dialog_horiz_bottom{bottom:0;margin-bottom:-10px}.fb_dialog_iframe{line-height:0}.fb_dialog_content .dialog_title{background:#6d84b4;border:1px solid #3b5998;color:#fff;font-size:14px;font-weight:bold;margin:0}.fb_dialog_content .dialog_title>span{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/yd/r/Cou7n-nqK52.gif) no-repeat 5px 50%;float:left;padding:5px 0 7px 26px}body.fb_hidden{-webkit-transform:none;height:100%;margin:0;overflow:visible;position:absolute;top:-10000px;left:0;width:100%}.fb_dialog.fb_dialog_mobile.loading{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/ya/r/3rhSv5V8j3o.gif) white no-repeat 50% 50%;min-height:100%;min-width:100%;overflow:hidden;position:absolute;top:0;z-index:10001}.fb_dialog.fb_dialog_mobile.loading.centered{max-height:590px;min-height:590px;max-width:500px;min-width:500px}#fb-root #fb_dialog_ipad_overlay{background:rgba(0, 0, 0, .45);position:absolute;left:0;top:0;width:100%;min-height:100%;z-index:10000}#fb-root #fb_dialog_ipad_overlay.hidden{display:none}.fb_dialog.fb_dialog_mobile.loading iframe{visibility:hidden}.fb_dialog_content .dialog_header{-webkit-box-shadow:white 0 1px 1px -1px inset;background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#738ABA), to(#2C4987));border-bottom:1px solid;border-color:#1d4088;color:#fff;font:14px Helvetica, sans-serif;font-weight:bold;text-overflow:ellipsis;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0;vertical-align:middle;white-space:nowrap}.fb_dialog_content .dialog_header table{-webkit-font-smoothing:subpixel-antialiased;height:43px;width:100%}.fb_dialog_content .dialog_header td.header_left{font-size:12px;padding-left:5px;vertical-align:middle;width:60px}.fb_dialog_content .dialog_header td.header_right{font-size:12px;padding-right:5px;vertical-align:middle;width:60px}.fb_dialog_content .touchable_button{background:-webkit-gradient(linear, 0% 0%, 0% 100%, from(#4966A6), color-stop(.5, #355492), to(#2A4887));border:1px solid #29447e;-webkit-background-clip:padding-box;-webkit-border-radius:3px;-webkit-box-shadow:rgba(0, 0, 0, .117188) 0 1px 1px inset, rgba(255, 255, 255, .167969) 0 1px 0;display:inline-block;margin-top:3px;max-width:85px;line-height:18px;padding:4px 12px;position:relative}.fb_dialog_content .dialog_header .touchable_button input{border:none;background:none;color:#fff;font:12px Helvetica, sans-serif;font-weight:bold;margin:2px -12px;padding:2px 6px 3px 6px;text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog_content .dialog_header .header_center{color:#fff;font-size:16px;font-weight:bold;line-height:18px;text-align:center;vertical-align:middle}.fb_dialog_content .dialog_content{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat 50% 50%;border:1px solid #555;border-bottom:0;border-top:0;height:150px}.fb_dialog_content .dialog_footer{background:#f2f2f2;border:1px solid #555;border-top-color:#ccc;height:40px}#fb_dialog_loader_close{float:left}.fb_dialog.fb_dialog_mobile .fb_dialog_close_button{text-shadow:rgba(0, 30, 84, .296875) 0 -1px 0}.fb_dialog.fb_dialog_mobile .fb_dialog_close_icon{visibility:hidden}
+.fb_iframe_widget{display:inline-block;position:relative}.fb_iframe_widget span{display:inline-block;position:relative;text-align:justify}.fb_iframe_widget iframe{position:absolute}.fb_iframe_widget_lift{z-index:1}.fb_hide_iframes iframe{position:relative;left:-10000px}.fb_iframe_widget_loader{position:relative;display:inline-block}.fb_iframe_widget_fluid{display:inline}.fb_iframe_widget_fluid span{width:100%}.fb_iframe_widget_loader iframe{min-height:32px;z-index:2;zoom:1}.fb_iframe_widget_loader .FB_Loader{background:url(http://static.ak.fbcdn.net/rsrc.php/v2/y9/r/jKEcVPZFk-2.gif) no-repeat;height:32px;width:32px;margin-left:-16px;position:absolute;left:50%;z-index:4}
+.fb_connect_bar_container div,.fb_connect_bar_container span,.fb_connect_bar_container a,.fb_connect_bar_container img,.fb_connect_bar_container strong{background:none;border-spacing:0;border:0;direction:ltr;font-style:normal;font-variant:normal;letter-spacing:normal;line-height:1;margin:0;overflow:visible;padding:0;text-align:left;text-decoration:none;text-indent:0;text-shadow:none;text-transform:none;visibility:visible;white-space:normal;word-spacing:normal;vertical-align:baseline}.fb_connect_bar_container{position:fixed;left:0 !important;right:0 !important;height:42px !important;padding:0 25px !important;margin:0 !important;vertical-align:middle !important;border-bottom:1px solid #333 !important;background:#3b5998 !important;z-index:99999999 !important;overflow:hidden !important}.fb_connect_bar_container_ie6{position:absolute;top:expression(document.compatMode=="CSS1Compat"? document.documentElement.scrollTop+"px":body.scrollTop+"px")}.fb_connect_bar{position:relative;margin:auto;height:100%;width:100%;padding:6px 0 0 0 !important;background:none;color:#fff !important;font-family:"lucida grande", tahoma, verdana, arial, sans-serif !important;font-size:13px !important;font-style:normal !important;font-variant:normal !important;font-weight:normal !important;letter-spacing:normal !important;line-height:1 !important;text-decoration:none !important;text-indent:0 !important;text-shadow:none !important;text-transform:none !important;white-space:normal !important;word-spacing:normal !important}.fb_connect_bar a:hover{color:#fff}.fb_connect_bar .fb_profile img{height:30px;width:30px;vertical-align:middle;margin:0 6px 5px 0}.fb_connect_bar div a,.fb_connect_bar span,.fb_connect_bar span a{color:#bac6da;font-size:11px;text-decoration:none}.fb_connect_bar .fb_buttons{float:right;margin-top:7px}
+.fbpluginrecommendationsbarleft,.fbpluginrecommendationsbarright{position:fixed !important;bottom:0;z-index:999}.fbpluginrecommendationsbarleft{left:10px}.fbpluginrecommendationsbarright{right:10px}</style></head>
+    <body style="overflow-y: scroll;"><div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div></div></div><div style="position: absolute; top: -10000px; height: 0px; width: 0px;"><div><iframe name="fb_xdm_frame_http" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_http" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Pinroom - Style Guide   UI Pattern Library_files/dgdTycPTSRj.htm" style="border: none;"></iframe><iframe name="fb_xdm_frame_https" frameborder="0" allowtransparency="true" scrolling="no" id="fb_xdm_frame_https" aria-hidden="true" title="Facebook Cross Domain Communication Frame" tabindex="-1" src="./Pinroom - Style Guide   UI Pattern Library_files/dgdTycPTSRj(1).htm" style="border: none;"></iframe></div></div></div>
+        
+            <div id="header">
+                        <div class="logoRow container_16 clearfix">
+                <div class="grid_16 clearfix">
+                    <a href="http://pinroom.com/fronttest#" class="logoLink" title="PinRoom, tu habitación al mundo">
+                        <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="136" height="32" class="s logoPinroom" alt="Logotipo de Pinroom">                    </a>
+                </div>
+            </div>
+                        <div class="stripeRow skinStripeRowHeader">
+                <h1 class="font30 colorGrey2 textC padT15">Style Guide / UI Pattern Library</h1>
+            </div>
+        </div>
+    
+    
+        <div id="content" class="padT20 padR20 padL20">
+                
+                <div class="sg-box">
+            <ul class="sg-nav">
+                <li class="padT2 bold">Show me some:</li>
+                <li><a href="http://pinroom.com/fronttest#styles-grid-units" class="sg-link" title="Grid units">Grid units</a></li>
+                <li><a href="http://pinroom.com/fronttest#styles-media-object" class="sg-link" title="Media Object">Media Object</a></li>
+                <li><a href="http://pinroom.com/fronttest#styles-dialogs" class="sg-link" title="Dialogs">Dialogs</a></li>
+                <li><a href="http://pinroom.com/fronttest#styles-forms" class="sg-link" title="Forms">Forms</a></li>
+                <li><a href="http://pinroom.com/fronttest#styles-buttons" class="sg-link" title="Buttons">Buttons</a></li>
+                <li><a href="http://pinroom.com/fronttest#styles-sprites" class="sg-link" title="Sprites">Sprites</a></li>
+                <li><a href="http://redmine.pinroom.com/projects/pinroom-planning/wiki/Frontend" class="sg-link" title="More info on Redmine&#39;s Wiki" target="_blank">Wiki on Redmine</a></li>
+            </ul>
+        </div>
+
+                <div class="sg-box">
+            <h2 id="styles-grid-units" class="h1">
+                Grid units
+                <span class="font9 normal">(based on <a href="http://960.gs/" title="960 Grid System" class="sg-link" target="_blank">960.gs</a>)</span>
+            </h2>
+            <ul class="padT10 bullets">
+                <li><span class="bold">Ventanas modales (dialogs):</span> <em>grid</em> 12 columnas.</li>
+                <li><span class="bold">Páginas "no masonrizadas":</span> <em>grid</em> 16 columnas.</li>
+                <li><span class="bold">Páginas "masonrizadas":</span> no usaremos <em>grid</em> ya que cada <em>brick</em> se posiciona de manera absoluta (top y left) a partir de un contenedor. Aunque se podría usar un <em>grid</em> tiene sentido no usarlo ya que queremos mostrar los <em>bricks</em> en pantalla en el mismo orden que cargan en el código. Esto nos permite usar <a href="http://www.appelsiini.net/projects/lazyload" title="Lazy Load Plugin for jQuery" class="sg-link" target="_blank">Lazy Load</a>.</li>
+            </ul>
+            <div class="js-sg-switcher">
+                <h3 class="h2 padT15 padB10">
+                    <span class="js-sg-switcher-title-1">12 Column Grid (dialogs) | <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">16 Column Grid</a></span>
+                    <span class="js-sg-switcher-title-2 hidden"><a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">12 Column Grid (dialogs)</a> | 16 Column Grid</span>
+                </h3>
+                                <div class="js-sg-switcher-1 sg-grid">
+                    <div class="container_12">
+                        <div class="grid_12">
+                            <p>650</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1">
+                            <p>45</p>
+                        </div>
+                        <div class="grid_11">
+                            <p>595</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_2">
+                            <p>100</p>
+                        </div>
+                        <div class="grid_10">
+                            <p>540</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_3">
+                            <p>155</p>
+                        </div>
+                        <div class="grid_9">
+                            <p>485</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_4">
+                            <p>210</p>
+                        </div>
+                        <div class="grid_8">
+                            <p>430</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_5">
+                            <p>265</p>
+                        </div>
+                        <div class="grid_7">
+                            <p>375</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_6">
+                            <p>320</p>
+                        </div>
+                        <div class="grid_6">
+                            <p>320</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 suffix_11">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_1 suffix_10">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_2 suffix_9">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_3 suffix_8">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_4 suffix_7">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_5 suffix_6">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_6 suffix_5">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_7 suffix_4">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_8 suffix_3">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_9 suffix_2">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_10 suffix_1">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_11">
+                            <p>45</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_6 push_6">
+                            <div class="grid_1 alpha">
+                                <p>45</p>
+                            </div>
+                            <div class="grid_5 omega">
+                                <p>265</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_3 alpha">
+                                <p>155</p>
+                            </div>
+                            <div class="grid_3 omega">
+                                <p>155</p>
+                            </div>
+                        </div>
+                        <div class="grid_6 pull_6">
+                            <div class="grid_3 alpha">
+                                <p>155</p>
+                            </div>
+                            <div class="grid_3 omega">
+                                <p>155</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 alpha">
+                                <p>45</p>
+                            </div>
+                            <div class="grid_5 omega">
+                                <p>265</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                                <div class="js-sg-switcher-2 sg-grid hidden">
+                    <div class="container_16">
+                        <div class="grid_16">
+                            <p>940</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1">
+                            <p>40</p>
+                        </div>
+                        <div class="grid_15">
+                            <p>880</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_2">
+                            <p>100</p>
+                        </div>
+                        <div class="grid_14">
+                            <p>820</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_3">
+                            <p>160</p>
+                        </div>
+                        <div class="grid_13">
+                            <p>760</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_4">
+                            <p>220</p>
+                        </div>
+                        <div class="grid_12">
+                            <p>700</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_5">
+                            <p>280</p>
+                        </div>
+                        <div class="grid_11">
+                            <p>640</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_6">
+                            <p>340</p>
+                        </div>
+                        <div class="grid_10">
+                            <p>580</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_7">
+                            <p>400</p>
+                        </div>
+                        <div class="grid_9">
+                            <p>520</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_8">
+                            <p>460</p>
+                        </div>
+                        <div class="grid_8">
+                            <p>460</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 suffix_15">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_1 suffix_14">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_2 suffix_13">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_3 suffix_12">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_4 suffix_11">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_5 suffix_10">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_6 suffix_9">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_7 suffix_8">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_8 suffix_7">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_9 suffix_6">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_10 suffix_5">
+                            <p>40</p>
+                        </div>                        
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_11 suffix_4">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_12 suffix_3">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_13 suffix_2">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_14 suffix_1">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_1 prefix_15">
+                            <p>40</p>
+                        </div>
+                        <div class="clear"></div>
+                        <div class="grid_8 push_8">
+                            <div class="grid_1 alpha">
+                                <p>40</p>
+                            </div>
+                            <div class="grid_7 omega">
+                                <p>400</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_4 alpha">
+                                <p>220</p>
+                            </div>
+                            <div class="grid_4 omega">
+                                <p>220</p>
+                            </div>
+                        </div>                        
+                        <div class="grid_8 pull_8">
+                            <div class="grid_4 alpha">
+                                <p>220</p>
+                            </div>
+                            <div class="grid_4 omega">
+                                <p>220</p>
+                            </div>
+                            <div class="clear"></div>
+                            <div class="grid_1 alpha">
+                                <p>40</p>
+                            </div>
+                            <div class="grid_7 omega">
+                                <p>400</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div class="sg-box clearfix">
+            <h2 id="styles-media-object" class="h1">Media Object</h2>
+            <p class="padT10">El <span class="bold">Media Object</span> lo usaremos para la típica estructura de <span class="bold">imagen + descripción.</span> Se compone por una estructura tipo <span class="bold">Media Imagen (mediaImg) + Media Body (mediaBd).</span> Posibles configuraciones:</p>
+            <ul class="padT10 bullets">
+                <li><span class="bold">Imagen a la izquierda con enlace,</span> con contenido descriptivo a la derecha.</li>
+                <li><span class="bold">Imagen a la izquierda sin enlace,</span> con contenido descriptivo a la derecha.</li>
+                <li><span class="bold">Imagen a la derecha con enlace,</span> con contenido descriptivo a la izquierda.</li>
+                <li><span class="bold">Imagen a la derecha sin enlace,</span> con contenido descriptivo a la izquierda.</li>
+            </ul>
+            <p class="padT10">El <span class="bold">Media Object</span> se puede utilizar con <span class="bold">todo tipo de media u objetos de bloque,</span> no sólo con imágenes: párrafos, divs, videos, etc… Sólo hay que aplicar las mismas classes que en el caso de las imágenes.</p>
+            <div class="wp45 floatL">
+                <h3 class="h2 padT15">Ejemplo <span class="bold">imagen a la izquierda con enlace</span></h3>
+                <div class="padT10 media">
+                    <a href="http://pinroom.com/fronttest#" class="mediaImgL" title="Lorem ipsum dolor">
+                        <img src="./Pinroom - Style Guide   UI Pattern Library_files/75" width="75" height="75" class="mediaImg" alt="Lorem ipsum dolor">
+                    </a>
+                    <p class="mediaBd">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit vestibulum molestie. Aenean cursus elementum felis vitae varius. Etiam vulputate erat sit amet nisi facilisis vel mollis turpis molestie. Nullam in interdum elit. Sed consectetur leo ut sapien scelerisque imperdiet tristique eros laoreet. Nulla facilisi. Vestibulum vitae odio lorem. Quisque non sem at velit blandit lobortis vitae eget augue. Morbi hendrerit tellus hendrerit lacus faucibus quis malesuada lectus feugiat.</p>
+                </div>
+                <div class="padT10 js-sg-code-viewer">
+                    <p class="padB5">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;div class="media"&gt;
+    &lt;a href="#" class="mediaImgL" title="Lorem"&gt;
+        &lt;img src="http://placekitten.com/75/75" width="75" height="75" class="mediaImg" alt="Lorem" /&gt;
+    &lt;/a&gt;
+    &lt;p class="mediaBd"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <h3 class="h2 padT15">Ejemplo <span class="bold">imagen a la izquierda sin enlace</span></h3>
+                <div class="padT10 media">
+                    <img src="./Pinroom - Style Guide   UI Pattern Library_files/75" width="75" height="75" class="mediaImgL mediaImg" alt="Lorem ipsum dolor">
+                    <p class="mediaBd">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit vestibulum molestie. Aenean cursus elementum felis vitae varius. Etiam vulputate erat sit amet nisi facilisis vel mollis turpis molestie. Nullam in interdum elit. Sed consectetur leo ut sapien scelerisque imperdiet tristique eros laoreet. Nulla facilisi. Vestibulum vitae odio lorem. Quisque non sem at velit blandit lobortis vitae eget augue. Morbi hendrerit tellus hendrerit lacus faucibus quis malesuada lectus feugiat.</p>
+                </div>
+                <div class="padT10 js-sg-code-viewer">
+                    <p class="padB5">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;div class="media"&gt;
+    &lt;img src="http://placekitten.com/75/75" width="75" height="75" class="mediaImgL mediaImg" alt="Lorem" /&gt;
+    &lt;p class="mediaBd"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+            <div class="wp45 floatR">
+                <h3 class="h2 padT15">Ejemplo <span class="bold">imagen a la derecha con enlace</span></h3>
+                <div class="padT10 media">
+                    <a href="http://pinroom.com/fronttest#" class="mediaImgR" title="Lorem ipsum dolor">
+                        <img src="./Pinroom - Style Guide   UI Pattern Library_files/75" width="75" height="75" class="mediaImg" alt="Lorem ipsum dolor">
+                    </a>
+                    <p class="mediaBd">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit vestibulum molestie. Aenean cursus elementum felis vitae varius. Etiam vulputate erat sit amet nisi facilisis vel mollis turpis molestie. Nullam in interdum elit. Sed consectetur leo ut sapien scelerisque imperdiet tristique eros laoreet. Nulla facilisi. Vestibulum vitae odio lorem. Quisque non sem at velit blandit lobortis vitae eget augue. Morbi hendrerit tellus hendrerit lacus faucibus quis malesuada lectus feugiat.</p>
+                </div>
+                <div class="padT10 js-sg-code-viewer">
+                    <p class="padB5">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;div class="media"&gt;
+    &lt;a href="#" class="mediaImgR" title="Lorem"&gt;
+        &lt;img src="http://placekitten.com/75/75" width="75" height="75" class="mediaImg" alt="Lorem" /&gt;
+    &lt;/a&gt;
+    &lt;p class="mediaBd"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+                <h3 class="h2 padT15">Ejemplo <span class="bold">imagen a la derecha sin enlace</span></h3>
+                <div class="padT10 media">
+                    <img src="./Pinroom - Style Guide   UI Pattern Library_files/75" width="75" height="75" class="mediaImgR mediaImg" alt="Lorem ipsum dolor">
+                    <p class="mediaBd">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit vestibulum molestie. Aenean cursus elementum felis vitae varius. Etiam vulputate erat sit amet nisi facilisis vel mollis turpis molestie. Nullam in interdum elit. Sed consectetur leo ut sapien scelerisque imperdiet tristique eros laoreet. Nulla facilisi. Vestibulum vitae odio lorem. Quisque non sem at velit blandit lobortis vitae eget augue. Morbi hendrerit tellus hendrerit lacus faucibus quis malesuada lectus feugiat.</p>
+                </div>
+                <div class="padT10 js-sg-code-viewer">
+                    <p class="padB5">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;div class="media"&gt;
+    &lt;img src="http://placekitten.com/75/75" width="75" height="75" class="mediaImgR mediaImg" alt="Lorem" /&gt;
+    &lt;p class="mediaBd"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc blandit...&lt;/p&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+                <div class="sg-box">
+            <h2 id="styles-dialogs" class="h1">Dialogs</h2>
+
+            <p class="padT10">Los <span class="bold">Dialogs</span> se sustentan sobre un <a href="http://pinroom.com/fronttest#styles-grid-units" class="sg-link">grid de 12 columnas</a> con un <span class="bold">ancho de 660px.</span> Posibles configuraciones, en función de los <span class="bold">distintos tipos de encabezados:</span></p>
+
+            <ul class="padT10 bullets">
+                <li>Dialog Type 1: <span class="bold">Title + Close icon</span>.</li>
+                <li>Dialog Type 2: <span class="bold">Title + Close icon (with Subtitle)</span>.</li>
+                <li>Dialog Type 3: <span class="bold">Title + Close icon (with Label)</span>.</li>
+            </ul>
+
+            <div class="pad10">
+                <h3 class="h2 padB10 textC">Dialog Type 1: <span class="bold">Title + Close icon</span></h3>
+                                <div class="container_12 boxDialog skinBoxDialogModal">
+                                        <h2 class="titleDialog">
+                        Lorem ipsum dolor sit amet consecteur
+                        <a href="http://pinroom.com/fronttest#" class="js-dialog-close-action floatR" title="Cerrar ventana">
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar">                        </a>
+                    </h2>
+                                        <div class="grid_10 prefix_1 suffix_1">
+                        <div class="padT30 padB30">Lorem ipsum dolor sit amet</div>
+                    </div>
+                </div>
+                <div class="container_12 padT10 js-sg-code-viewer">
+                    <p class="padB5 textC">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;div class="container_12 boxDialog skinBoxDialogModal"&gt;
+    &lt;h2 class="titleDialog"&gt;
+        Lorem ipsum dolor sit amet consecteur
+        &lt;a href="#" class="js-dialog-close-action floatR" title="Cerrar ventana"&gt;
+            &lt;img src="img/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar" /&gt;
+        &lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;div class="grid_10 prefix_1 suffix_1"&gt;
+        &lt;div class="padT30 padB30"&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="pad10">
+                <h3 class="h2 padB10 textC">Dialog Type 2: <span class="bold">Title + Close icon (with Subtitle)</span></h3>
+                                <div class="container_12 boxDialog skinBoxDialogModal">
+                                        <h2 class="titleDialog">
+                        Lorem ipsum dolor sit amet consecteur
+                        <a href="http://pinroom.com/fronttest#" class="js-dialog-close-action floatR" title="Cerrar ventana">
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar">                        </a>
+                    </h2>
+                    <div class="subtitleDialogWrapper">
+                        <h3 class="h2 subtitleDialog textC">Lorem ipsum dolor sit amet</h3>
+                    </div>
+                                        <div class="grid_10 prefix_1 suffix_1">
+                        <div class="padT30 padB30">Lorem ipsum dolor sit amet</div>
+                    </div>
+                </div>
+                <div class="container_12 padT10 js-sg-code-viewer">
+                    <p class="padB5 textC">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;div class="container_12 boxDialog skinBoxDialogModal"&gt;
+    &lt;h2 class="titleDialog"&gt;
+        Lorem ipsum dolor sit amet consecteur
+        &lt;a href="#" class="js-dialog-close-action floatR" title="Cerrar ventana"&gt;
+            &lt;img src="img/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar" /&gt;
+        &lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;div class="subtitleDialogWrapper"&gt;
+        &lt;h3 class="h2 subtitleDialog textC"&gt;Lorem ipsum dolor sit amet&lt;/h3&gt;
+    &lt;/div&gt;
+    &lt;div class="grid_10 prefix_1 suffix_1"&gt;
+        &lt;div class="padT30 padB30"&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+            <div class="pad10">
+                <h3 class="h2 padB10 textC">Dialog Type 3: <span class="bold">Title + Close icon (with Label)</span></h3>
+                                <div class="container_12 boxDialog skinBoxDialogModal">
+                                        <h2 class="titleDialog">
+                        Lorem ipsum dolor sit amet consecteur
+                        <a href="http://pinroom.com/fronttest#" class="js-dialog-close-action floatR" title="Cerrar ventana">
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar">                        </a>
+                    </h2>
+                    <div class="subtitleDialogWrapper">
+                        <label class="h2 subtitleDialog" for="check_title">
+                            <input type="checkbox" id="check_title" name="check_title" class="marT3" checked="checked">
+                            Lorem ipsum dolor sit amet
+                        </label>
+                    </div>
+                                        <div class="grid_10 prefix_1 suffix_1">
+                        <div class="padT30 padB30">Lorem ipsum dolor sit amet</div>
+                    </div>
+                </div>
+                <div class="container_12 padT10 js-sg-code-viewer">
+                    <p class="padB5 textC">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;div class="container_12 boxDialog skinBoxDialogModal"&gt;
+    &lt;h2 class="titleDialog"&gt;
+        Lorem ipsum dolor sit amet consecteur
+        &lt;a href="#" class="js-dialog-close-action floatR" title="Cerrar ventana"&gt;
+            &lt;img src="img/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar" /&gt;
+        &lt;/a&gt;
+    &lt;/h2&gt;
+    &lt;div class="subtitleDialogWrapper"&gt;
+        &lt;label class="h2 subtitleDialog" for="check_title"&gt;
+            &lt;input type="checkbox" id="check_title" name="check_title" class="marT3" checked="checked" /&gt;
+            Lorem ipsum dolor sit amet
+        &lt;/label&gt;
+    &lt;/div&gt;
+    &lt;div class="grid_10 prefix_1 suffix_1"&gt;
+        &lt;div class="padT30 padB30"&gt;Lorem ipsum dolor sit amet&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+        </div>
+
+                <div class="sg-box">
+            <h2 id="styles-forms" class="h1">Forms</h2>
+            <p class="padT10">Los <span class="bold">formularios</span> normalmente aparecen dentro de <span class="bold">dialogs,</span> aunque si es necesario pueden ir fuera de estos. Posibles configuraciones, en función de los <span class="bold">distintos layouts de formulario:</span></p>
+            <ul class="padT10 bullets">
+                <li>Form Type 1: <span class="bold">Single column with Fixed width inputs</span> (contiguous notification messages)</li>
+                <li>Form Type 2: <span class="bold">Single column with Fixed width inputs &amp; Visible Labels</span></li>
+                <li>Form Type 3: <span class="bold">Multiple columns with 100% width inputs</span> (notification messages beneath)</li>
+            </ul>
+
+                        <div class="pad10">
+                <h3 class="h2 padB10 textC">Form Type 1: <span class="bold">Single column with Fixed width inputs</span> (contiguous notification messages)</h3>
+                <div class="container_12 boxDialog skinBoxDialogModal">
+                                        <h2 class="titleDialog">
+                        Lorem ipsum dolor sit amet consecteur
+                        <a href="http://pinroom.com/fronttest#" class="js-dialog-close-action floatR" title="Cerrar ventana">
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar">                        </a>
+                    </h2>
+                                        <div class="padT30 padB30">
+                        <div class="grid_10 prefix_1 suffix_1">
+                            <form action="http://pinroom.com/fronttest#" method="post">
+                                <fieldset>                        
+                                    <ol>
+                                        <li>
+                                            <label for="text_input_one" class="hidden">Text input</label>
+                                            <input type="text" id="text_input_one" name="text_input_one" class="w302" size="55" placeholder="Text input">
+                                            <span class="msg skinMsgError">Este es un mensaje de error</span>
+                                        </li>
+                                        <li>
+                                            <label for="text_input_two" class="hidden">Text input required</label>
+                                            <input type="text" id="text_input_two" name="text_input_two" class="w302" size="55" placeholder="Text input">
+                                            <span class="msg skinMsgConfirm">Este es un mensaje de confirmacion</span>
+                                        </li>
+                                    </ol>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+                <div class="container_12 padT10 js-sg-code-viewer">
+                    <p class="padB5 textC">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;div class="padT30 padB30"&gt;
+    &lt;div class="grid_10 prefix_1 suffix_1"&gt;
+        &lt;form action="#" method="post"&gt;
+            &lt;fieldset&gt;                        
+                &lt;ol&gt;
+                    &lt;li&gt;
+                        &lt;label for="text_input_one" class="hidden"&gt;Text input&lt;/label&gt;
+                        &lt;input type="text" id="text_input_one" name="text_input_one" class="w302" size="55" placeholder="Text input" /&gt;
+                        &lt;span class="msg skinMsgError"&gt;Este es un mensaje de error&lt;/span&gt;
+                    &lt;/li&gt;
+                    &lt;li&gt;
+                        &lt;label for="text_input_two" class="hidden"&gt;Text input required&lt;/label&gt;
+                        &lt;input type="text" id="text_input_two" name="text_input_two" class="w302" size="55" placeholder="Text input" /&gt;
+                        &lt;span class="msg skinMsgConfirm"&gt;Este es un mensaje de confirmacion&lt;/span&gt;
+                    &lt;/li&gt;
+                &lt;/ol&gt;
+            &lt;/fieldset&gt;
+        &lt;/form&gt;
+    &lt;/div&gt;
+    &lt;div class="clear"&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+                        <div class="pad10">
+                <h3 class="h2 padB10 textC">Form Type 2: <span class="bold">Single column with Fixed width inputs &amp; Visible Labels</span></h3>
+                <div class="container_12 boxDialog skinBoxDialogModal">
+                                        <h2 class="titleDialog">
+                        Lorem ipsum dolor sit amet consecteur
+                        <a href="http://pinroom.com/fronttest#" class="js-dialog-close-action floatR" title="Cerrar ventana">
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar">                        </a>
+                    </h2>
+                                        <form class="padT30 padB30" action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <ol class="clearfix">
+                                <li class="grid_10 prefix_1 suffix_1">
+                                    <label class="labelBlock skinLabelBlockW140" for="userEditForm_editFirstname">Nombre</label>
+                                    <input type="text" id="userEditForm_editFirstname" name="userEditForm_editFirstname" placeholder="Nombre" class="w302" size="55">
+                                </li>
+                                <li class="clear">
+                                    <div class="bdrTGrey1 marT10 marB20"></div>
+                                </li>
+                                <li class="grid_10 prefix_1 suffix_1">
+                                    <label class="labelBlock skinLabelBlockW140" for="userEditForm_editLastname">Apellidos</label>
+                                    <input type="text" id="userEditForm_editLastname" name="userEditForm_editLastname" placeholder="Apellidos" class="w302" size="55">
+                                </li>
+                                <li class="clear"></li>
+                                <li class="grid_7 prefix_4 suffix_1">
+                                    <div class="bdrTGrey1 marT20 marB10"></div>
+                                </li>
+                                <li class="grid_7 prefix_4 suffix_1">
+                                    <input type="submit" class="btn sizeBtnXL skinBtnBlue" value="guárdalo">
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="container_12 padT10 js-sg-code-viewer">
+                    <p class="padB5 textC">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;form class="padT30 padB30" action="#" method="post"&gt;
+    &lt;fieldset&gt;
+        &lt;ol class="clearfix"&gt;
+            &lt;li class="grid_10 prefix_1 suffix_1"&gt;
+                &lt;label class="labelBlock skinLabelBlockW140" for="userEditForm_editFirstname"&gt;Nombre&lt;/label&gt;
+                &lt;input type="text" id="userEditForm_editFirstname" name="userEditForm_editFirstname" placeholder="Nombre" class="w302" size="55" /&gt;
+            &lt;/li&gt;
+            &lt;li class="clear"&gt;
+                &lt;div class="bdrTGrey1 marT10 marB20"&gt;&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li class="grid_10 prefix_1 suffix_1"&gt;
+                &lt;label class="labelBlock skinLabelBlockW140" for="userEditForm_editLastname"&gt;Apellidos&lt;/label&gt;
+                &lt;input type="text" id="userEditForm_editLastname" name="userEditForm_editLastname" placeholder="Apellidos" class="w302" size="55" /&gt;
+            &lt;/li&gt;
+            &lt;li class="clear"&gt;&lt;/li&gt;
+            &lt;li class="grid_7 prefix_4 suffix_1"&gt;
+                &lt;div class="bdrTGrey1 marT20 marB10"&gt;&lt;/div&gt;
+            &lt;/li&gt;
+            &lt;li class="grid_7 prefix_4 suffix_1"&gt;
+                &lt;input type="submit" class="btn sizeBtnXL skinBtnBlue" value="guárdalo" /&gt;
+            &lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/fieldset&gt;
+&lt;/form&gt;</code></pre>
+                </div>
+            </div>
+
+                        <div class="pad10">
+                <h3 class="h2 padB10 textC">Form Type 3: <span class="bold">Multiple columns with 100% width inputs</span> (notification messages beneath)</h3>
+                <div class="container_12 boxDialog skinBoxDialogModal">
+                                        <h2 class="titleDialog">
+                        Lorem ipsum dolor sit amet consecteur
+                        <a href="http://pinroom.com/fronttest#" class="js-dialog-close-action floatR" title="Cerrar ventana">
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar">                        </a>
+                    </h2>
+                                        <div class="padT30 padB30">
+                        <form action="http://pinroom.com/fronttest#" method="post">
+                            <fieldset class="clearfix">
+                                <div class="grid_5 prefix_1">
+                                    <p>
+                                        <label for="text_input_full" class="hidden">Text input 100%</label>
+                                        <input type="text" id="text_input_full" name="text_input_full" class="wp100Full" size="55" placeholder="Text input 100%">
+                                        <span class="msg skinMsgError">Este es un mensaje de error</span>
+                                    </p>
+                                </div>
+                                <div class="grid_5 suffix_1">
+                                    <p>
+                                        <label for="text_input_full2" class="hidden">Text input 100%</label>
+                                        <input type="text" id="text_input_full2" name="text_input_full2" class="wp100Full" size="55" placeholder="Text input 100%">
+                                        <span class="msg skinMsgConfirm">Este es un mensaje de confirmacion</span>
+                                    </p>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+                <div class="container_12 padT10 js-sg-code-viewer">
+                    <p class="padB5 textC">
+                        <span class="js-sg-arrow">→</span>
+                        <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                    </p>
+                    <pre class="js-sg-code-block hidden"><code>&lt;div class="padT30 padB30"&gt;
+    &lt;form action="#" method="post"&gt;
+        &lt;fieldset class="clearfix"&gt;
+            &lt;div class="grid_5 prefix_1"&gt;
+                &lt;p&gt;
+                    &lt;label for="text_input_full" class="hidden"&gt;Text input 100%&lt;/label&gt;
+                    &lt;input type="text" id="text_input_full" name="text_input_full" class="wp100Full" size="55" placeholder="Text input 100%" /&gt;
+                    &lt;span class="msg skinMsgError"&gt;Este es un mensaje de error&lt;/span&gt;
+                &lt;/p&gt;
+            &lt;/div&gt;
+            &lt;div class="grid_5 suffix_1"&gt;
+                &lt;p&gt;
+                    &lt;label for="text_input_full2" class="hidden"&gt;Text input 100%&lt;/label&gt;
+                    &lt;input type="text" id="text_input_full2" name="text_input_full2" class="wp100Full" size="55" placeholder="Text input 100%" /&gt;
+                    &lt;span class="msg skinMsgConfirm"&gt;Este es un mensaje de confirmacion&lt;/span&gt;
+                &lt;/p&gt;
+            &lt;/div&gt;
+        &lt;/fieldset&gt;
+    &lt;/form&gt;
+&lt;/div&gt;</code></pre>
+                </div>
+            </div>
+
+                        <p class="padT10">Estos son la mayoría de <span class="bold">input types</span> que encontraremos en los <span class="bold">formularios:</span></p>
+            <div class="pad10">
+                <h3 class="h2 pad10 textC">Input Types</h3>
+                <div class="container_12 boxDialog skinBoxDialogModal">
+                                        <h2 class="titleDialog">
+                        Lorem ipsum dolor sit amet consecteur
+                        <a href="http://pinroom.com/fronttest#" class="js-dialog-close-action floatR" title="Cerrar ventana">
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="44" height="44" class="s closeWindowLarge block" alt="Cerrar">                        </a>
+                    </h2>
+                                        <div class="padT30 padB30">
+                        <div class="grid_10 prefix_1 suffix_1">
+                            <form action="http://pinroom.com/fronttest#" method="post">
+                                <fieldset>                        
+                                    <ol>
+                                        <li>
+                                            <label for="text_input" class="hidden">Text input</label>
+                                            <input type="text" id="text_input" name="text_input" class="w302" size="55" placeholder="Text input">
+                                            <span class="msg skinMsgInfo">Este es un mensaje informativo</span>
+                                        </li>
+                                        <li>
+                                            <label for="text_input_focused" class="hidden">Text input focused</label>
+                                            <input type="text" id="text_input_focused" name="text_input_focused" class="w302" size="55" placeholder="Text input focused" autofocus="autofocus">
+                                            <span class="msg skinMsgError">Este es un mensaje de error</span>
+                                        </li>
+                                        <li>
+                                            <label for="text_input_required" class="hidden">Text input required</label>
+                                            <input type="text" id="text_input_required" name="text_input_required" class="w302" size="55" placeholder="Text input required" required="required">
+                                            <span class="msg skinMsgConfirm">Este es un mensaje de confirmacion</span>
+                                        </li>
+                                        <li>
+                                            <label for="text_input_disabled" class="hidden">Text input disabled</label>
+                                            <input type="text" id="text_input_disabled" name="text_input_disabled" class="w302" size="55" placeholder="Text input disabled" disabled="disabled">
+                                        </li>
+                                        <li>
+                                            <label for="textarea" class="hidden">Textarea</label>
+                                            <textarea id="textarea" name="textarea" class="w302" cols="55" rows="5" placeholder="Textarea"></textarea>
+                                        </li>
+                                        <li>
+                                            <label for="textarea_focused" class="hidden">Textarea focused</label>
+                                            <textarea id="textarea_focused" name="textarea_focused" class="w302" cols="55" rows="5" placeholder="Textarea focused" autofocus="autofocus"></textarea>
+                                        </li>
+                                        <li>
+                                            <label for="textarea_required" class="hidden">Textarea required</label>
+                                            <textarea id="textarea_required" name="textarea_required" class="w302" cols="55" rows="5" placeholder="Textarea required" required="required"></textarea>
+                                        </li>
+                                        <li>
+                                            <label for="textarea_disabled" class="hidden">Textarea disabled</label>
+                                            <textarea id="textarea_disabled" name="textarea_disabled" class="w302" cols="55" rows="5" placeholder="Textarea disabled" disabled="disabled"></textarea>
+                                        </li>
+                                        <li>
+                                            <fieldset>
+                                                <legend class="padB10">Lorem ipsum dolor sit amet</legend>
+                                                <label for="check_lorem2" class="block bold padB10">
+                                                    <input type="checkbox" id="check_lorem2" name="loremipsum2" value="0">
+                                                    Lorem
+                                                </label>
+                                                <label for="check_ipsum2" class="block bold">
+                                                    <input type="checkbox" id="check_ipsum2" name="loremipsum2" value="1">
+                                                    Ipsum
+                                                </label>
+                                            </fieldset>
+                                        </li>
+                                        <li>
+                                            <fieldset>
+                                                <legend class="floatL marR15">Lorem ipsum dolor sit amet</legend>
+                                                <input type="checkbox" id="check_lorem" name="loremipsum" value="0">
+                                                <label for="check_lorem" class="bold marR10">Lorem</label>
+                                                <input type="checkbox" id="check_ipsum" name="loremipsum" value="1">
+                                                <label for="check_ipsum" class="bold">Ipsum</label>
+                                            </fieldset>
+                                        </li>
+                                        <li>
+                                            <label for="check">
+                                                <input type="checkbox" id="check" name="check" value="0">
+                                                Checkbox
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="check_checked">
+                                                <input type="checkbox" id="check_checked" name="check" value="1" checked="checked">
+                                                Checkbox checked
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <fieldset>
+                                                <legend class="padB10">Lorem ipsum dolor sit amet</legend>
+                                                <label for="rad_lorem2" class="block bold padB10">
+                                                    <input type="radio" id="rad_lorem2" name="lorem_ipsum2" value="0">
+                                                    Lorem
+                                                </label>
+                                                <label for="rad_ipsum2" class="block bold">
+                                                    <input type="radio" id="rad_ipsum2" name="lorem_ipsum2" value="1" checked="checked">
+                                                    Ipsum
+                                                </label>
+                                            </fieldset>
+                                        </li>
+                                        <li>
+                                            <fieldset>
+                                                <legend class="floatL marR15">Lorem ipsum dolor sit amet</legend>
+                                                <input type="radio" id="rad_lorem" name="lorem_ipsum" value="0">
+                                                <label for="rad_lorem" class="bold marR10">Lorem</label>
+                                                <input type="radio" id="rad_ipsum" name="lorem_ipsum" value="1" checked="checked">
+                                                <label for="rad_ipsum" class="bold">Ipsum</label>
+                                            </fieldset>
+                                        </li>
+                                        <li>
+                                            <label for="rad">
+                                                <input type="radio" id="rad" name="rad" value="0">
+                                                Radio
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="rad_checked">
+                                                <input type="radio" id="rad_checked" name="rad" value="1" checked="checked">
+                                                Radio checked
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label for="select" class="hidden">Select</label>
+                                            <select id="select" name="select">
+                                                <option value="0" selected="selected">Select…</option>
+                                                <option value="1">Another one</option>
+                                                <option value="2">Lorem ipsum dolor sit amet</option>
+                                            </select>
+                                        </li>
+                                        <li>
+                                            <input type="submit" class="btn sizeBtnL skinBtnBlue" value="Hello">
+                                        </li>
+                                    </ol>
+                                </fieldset>
+                            </form>
+                        </div>
+                        <div class="clear"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+                <div class="sg-box">
+            <h2 id="styles-buttons" class="h1">Buttons</h2>
+            <p class="padT10">Para crear <span class="bold">botones</span> lo haremos con cualquiera de los <em>tags</em> habituales para ello.</p>
+
+            <h3 class="h2 padT15 padB10">Button Types</h3>
+            <div class="container_16">
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Input type Submit</legend>
+                            <ol>
+                                <li>
+                                    <input type="submit" class="btn sizeBtnL skinBtnBlue" value="Hello">
+                                </li>
+                                <li>
+                                    <input type="submit" class="btn sizeBtnL skinBtnGrey" value="Hello">
+                                </li>
+                                <li>
+                                    <input type="submit" class="btn sizeBtnL skinBtnGreyDark" value="Hello">
+                                </li>
+                                                                <li>
+                                    <input type="submit" class="btn sizeBtnL skinBtnOn" value="Hello">
+                                </li>
+                                <li>
+                                    <input type="submit" class="btn sizeBtnL skinBtnDisabled" value="Hello" disabled="disabled">
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Input type Button</legend>
+                            <ol>
+                                <li>
+                                    <input type="button" class="btn sizeBtnL skinBtnBlue" value="Hello">
+                                </li>
+                                <li>
+                                    <input type="button" class="btn sizeBtnL skinBtnGrey" value="Hello">
+                                </li>
+                                <li>
+                                    <input type="button" class="btn sizeBtnL skinBtnGreyDark" value="Hello">
+                                </li>
+                                                                <li>
+                                    <input type="button" class="btn sizeBtnL skinBtnOn" value="Hello">
+                                </li>
+                                <li>
+                                    <input type="button" class="btn sizeBtnL skinBtnDisabled" value="Hello" disabled="disabled">
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Link a href</legend>
+                            <ol>
+                                <li>
+                                    <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnBlue" title="Submit form">Hello</a>
+                                </li>
+                                <li>
+                                    <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnGrey" title="Submit form">Hello</a>
+                                </li>
+                                <li>
+                                    <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnGreyDark" title="Submit form">Hello</a>
+                                </li>
+                                                                <li>
+                                    <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnOn" title="Submit form">Hello</a>
+                                </li>
+                                <li>
+                                    <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnDisabled" title="Submit form">Hello</a>
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Button type Submit</legend>
+                            <ol>
+                                <li>
+                                    <button type="submit" class="btn sizeBtnL skinBtnBlue">Hello</button>
+                                </li>
+                                <li>
+                                    <button type="submit" class="btn sizeBtnL skinBtnGrey">Hello</button>
+                                </li>
+                                <li>
+                                    <button type="submit" class="btn sizeBtnL skinBtnGreyDark">Hello</button>
+                                </li>
+                                                                <li>
+                                    <button type="submit" class="btn sizeBtnL skinBtnOn">Hello</button>
+                                </li>
+                                <li>
+                                    <button type="submit" class="btn sizeBtnL skinBtnDisabled" disabled="disabled">Hello</button>
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3 suffix_1">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Button type Button</legend>
+                            <ol>
+                                <li>
+                                    <button type="button" class="btn sizeBtnL skinBtnBlue">Hello</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn sizeBtnL skinBtnGrey">Hello</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn sizeBtnL skinBtnGreyDark">Hello</button>
+                                </li>
+                                                                <li>
+                                    <button type="button" class="btn sizeBtnL skinBtnOn">Hello</button>
+                                </li>
+                                <li>
+                                    <button type="button" class="btn sizeBtnL skinBtnDisabled" disabled="disabled">Hello</button>
+                                </li>
+                            </ol>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <p class="padT10">Hay que especificar siempre la class <span class="bold">btn</span>, seguida de la class de <span class="bold">tamaño</span> [sizeBtnXL, sizeBtnL, sizeBtnM, sizeBtnS] y <span class="bold">color</span> [skinBtnBlue, skinBtnGrey, skinBtnGreyDark, skinBtnOn, skinBtnDisabled] que queramos aplicar en cada caso.</p>
+            <div class="padT10 js-sg-code-viewer">
+                <p class="padB5">
+                    <span class="js-sg-arrow">→</span>
+                    <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                </p>
+                <ul class="js-sg-code-block hidden">
+                    <li class="padB10"><pre><code>&lt;input type="submit" class="btn sizeBtnL skinBtnBlue" value="Hello" /&gt;</code></pre></li>
+                    <li class="padB10"><pre><code>&lt;input type="button" class="btn sizeBtnL skinBtnBlue" value="Hello" /&gt;</code></pre></li>
+                    <li class="padB10"><pre><code>&lt;a href="#" class="btn sizeBtnL skinBtnBlue" title="Submit form"&gt;Hello&lt;/a&gt;</code></pre></li>
+                    <li class="padB10"><pre><code>&lt;button type="submit" class="btn sizeBtnL skinBtnBlue"&gt;Hello&lt;/button&gt;</code></pre></li>
+                    <li class="padB10"><pre><code>&lt;button type="button" class="btn sizeBtnL skinBtnBlue"&gt;Hello&lt;/button&gt;</code></pre></li>
+                </ul>
+            </div>
+
+            <h3 class="h2 padT15 padB10">Button Sizes (class name)</h3>
+            <div class="container_16">
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Extra Large <em>(sizeBtnXL)</em></legend>
+                            <p>
+                                <a href="http://pinroom.com/fronttest#" class="btn sizeBtnXL skinBtnBlue" title="Submit form">Hello</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Large <em>(sizeBtnL)</em></legend>
+                            <p>
+                                <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnBlue" title="Submit form">Hello</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Medium <em>(sizeBtnM)</em></legend>
+                            <p>
+                                <a href="http://pinroom.com/fronttest#" class="btn sizeBtnM skinBtnBlue" title="Submit form">Hello</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3 suffix_4">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10"><em>Small (sizeBtnS)</em></legend>
+                            <p>
+                                <a href="http://pinroom.com/fronttest#" class="btn sizeBtnS skinBtnBlue" title="Submit form">Hello</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="clear"></div>
+            </div>
+
+            <h3 class="h2 padT15 padB10">Button Colors <em>(class name)</em></h3>
+            <div class="container_16">
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Blue <em>(skinBtnBlue)</em></legend>
+                            <p>
+                                <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnBlue" title="Submit form">Hello</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Grey <em>(skinBtnGrey)</em></legend>
+                            <p>
+                                <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnGrey" title="Submit form">Hello</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Grey Dark <em>(skinBtnGreyDark)</em></legend>
+                            <p>
+                                <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnGreyDark" title="Submit form">Hello</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">On <em>(skinBtnOn)</em></legend>
+                            <p>
+                                <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnOn" title="Submit form">Hello</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="grid_3 suffix_1">
+                    <form action="http://pinroom.com/fronttest#" method="post">
+                        <fieldset>
+                            <legend class="padB10">Disabled <em>(skinBtnDisabled)</em></legend>
+                            <p>
+                                <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnDisabled" title="Submit form">Hello</a>
+                            </p>
+                        </fieldset>
+                    </form>
+                </div>                
+                <div class="clear"></div>
+            </div>
+        </div>
+
+                <div class="sg-box">
+            <h2 id="styles-sprites" class="h1">Sprites</h2>
+            <p class="padT10">Los <span class="bold">ficheros editables de los sprites (en formato PSD de Photoshop)</span> están en <span class="bold">Dropbox</span> (<a href="https://www.dropbox.com/sh/nnuh2sdu5gutzeq/tj8L3hDGdw" class="sg-link" title="Dropbox &gt; Pinroom (1) &gt; Sprites_PSD">Dropbox &gt; Pinroom (1) &gt; Sprites_PSD</a>), por si hay que hacer cambios o crear versiones nuevas de los mismos.</p>
+            <p class="padT10">Disponemos de <span class="bold">distintos tipos de sprites</span>, en función de su naturaleza:</p>
+            <ul class="bullets padT10 bold">
+                <li>General Sprite</li>
+                <li>Privacy Icons Sprite</li>
+                <li>Star Rating Sprite</li>
+                <li>Badges Sprite</li>
+            </ul>            
+            <h3 class="h2 padT15">General Sprite</h3>
+            <p class="padT10">Para el <span class="bold">General Sprite</span> usaremos el <em>tag</em> <span class="bold">img</span> con una imagen transparente <em>(inv.gif)</em>, junto con la class <span class="bold">"s"</span> seguida de la class correspondiente al sprite en concreto que queramos usar, p.e. <span class="bold">"typeArticle"</span>.</p>
+            <div class="padT10 js-sg-code-viewer">
+                <p class="padB5">
+                    <span class="js-sg-arrow">→</span>
+                    <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                </p>
+                <div class="js-sg-code-block hidden">
+                    <pre><code>&lt;img src="img/inv.gif" width="41" height="41" class="s typeArticle" alt="Artículo" /&gt;</code></pre>
+                    <p class="padT10">Este ejemplo daría como resultado el siguiente icono:</p>
+                    <p class="padT10">
+                        <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="41" height="41" class="s typeArticle" alt="Artículo">                    </p>
+                </div>
+            </div>
+            <p class="padT10">Esta es la <span class="bold">imagen</span> que usaremos para el <span class="bold">General Sprite</span> <em>(sprite_pinroom_xx.png)</em>, donde <span class="bold">"xx"</span> es la <span class="bold">última versión del fichero:</span> <a href="http://pinroom.com/img/sprite_pinroom_07.png" class="sg-link" target="_blank">sprite_pinroom_07.png</a></p>
+            <p class="padT10">Estas son las <span class="bold">classes</span> que usaremos para los <span class="bold">distintos iconos:</span></p>
+            <div class="container_16 padT10">
+                <div class="grid_4">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="136" height="32" class="s logoPinroom" alt=" ">                            <span class="sg-class-name">logoPinroom</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="32" height="28" class="s icoLoading" alt=" ">                            <span class="sg-class-name">icoLoading</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="20" height="22" class="s icoCubeDark" alt=" ">                            <span class="sg-class-name">icoCubeDark</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="14" height="15" class="s icoCubeDarkSmall" alt=" ">                            <span class="sg-class-name">icoCubeDarkSmall</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="14" height="15" class="s icoCubeLightSmall" alt=" ">                            <span class="sg-class-name">icoCubeLightSmall</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="10" height="13" class="s bulletCubeBlue" alt=" ">                            <span class="sg-class-name">bulletCubeBlue</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="7" height="8" class="s arrowWhite" alt=" ">                            <span class="sg-class-name">arrowWhite</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="9" height="6" class="s arrowBlueDown" alt=" ">                            <span class="sg-class-name">arrowBlueDown</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="12" height="12" class="s arrowBlackDown" alt=" ">                            <span class="sg-class-name">arrowBlackDown</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="5" height="4" class="s deleteTag" alt=" ">                            <span class="sg-class-name">deleteTag</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="10" height="10" class="s closeWindow" alt=" ">                            <span class="sg-class-name">closeWindow</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="37" height="50" class="s closeWindowLarge" alt=" ">                            <span class="sg-class-name">closeWindowLarge</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_4">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="8" height="8" class="s icoComment" alt=" ">                            <span class="sg-class-name">icoComment</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="8" height="8" class="s icoLike" alt=" ">                            <span class="sg-class-name">icoLike</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="8" height="8" class="s icoUnlike" alt=" ">                            <span class="sg-class-name">icoUnlike</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="7" height="8" class="s icoRepin" alt=" ">                            <span class="sg-class-name">icoRepin</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="30" height="28" class="s icoFollow" alt=" ">                            <span class="sg-class-name">icoFollow</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="30" height="25" class="s icoSubscribe" alt=" ">                            <span class="sg-class-name">icoSubscribe</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="30" height="22" class="s uploadImage" alt=" ">                            <span class="sg-class-name">uploadImage</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="25" height="24" class="s uploadVideo" alt=" ">                            <span class="sg-class-name">uploadVideo</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="32" height="16" class="s rearangeBoard" alt=" ">                            <span class="sg-class-name">rearangeBoard</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="12" height="12" class="s inviteEmail" alt=" ">                            <span class="sg-class-name">inviteEmail</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="12" height="12" class="s inviteGmail" alt=" ">                            <span class="sg-class-name">inviteGmail</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="12" height="10" class="s inviteYahoo" alt=" ">                            <span class="sg-class-name">inviteYahoo</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="12" height="12" class="s inviteFacebook" alt=" ">                            <span class="sg-class-name">inviteFacebook</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_4">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="20" height="20" class="s arrowSlideLeft" alt=" ">                            <span class="sg-class-name">arrowSlideLeft</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="20" height="20" class="s arrowSlideLeftOver" alt=" ">                            <span class="sg-class-name">arrowSlideLeftOver</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="20" height="20" class="s arrowSlideRight" alt=" ">                            <span class="sg-class-name">arrowSlideRight</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="20" height="20" class="s arrowSlideRightOver" alt=" ">                            <span class="sg-class-name">arrowSlideRightOver</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="15" height="18" class="s padlock" alt=" ">                            <span class="sg-class-name">padlock</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="27" height="27" class="s arrowDropdown" alt=" ">                            <span class="sg-class-name">arrowDropdown</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="13" height="11" class="s activityLike" alt=" ">                            <span class="sg-class-name">activityLike</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="14" height="13" class="s activityBoard" alt=" ">                            <span class="sg-class-name">activityBoard</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="17" height="15" class="s activityFollow" alt=" ">                            <span class="sg-class-name">activityFollow</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="13" height="15" class="s activityPin" alt=" ">                            <span class="sg-class-name">activityPin</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="14" height="15" class="s activityRepin" alt=" ">                            <span class="sg-class-name">activityRepin</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="14" height="15" class="s icoBtnTwitterS" alt=" ">                            <span class="sg-class-name">icoBtnTwitterS</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="35" height="37" class="s icoBtnTwitterM" alt=" ">                            <span class="sg-class-name">icoBtnTwitterM</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="13" height="15" class="s icoBtnFacebookS" alt=" ">                            <span class="sg-class-name">icoBtnFacebookS</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="33" height="37" class="s icoBtnFacebookM" alt=" ">                            <span class="sg-class-name">icoBtnFacebookM</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_4">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="50" height="50" class="s typeVideo" alt=" ">                            <span class="sg-class-name">typeVideo</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="41" height="41" class="s typeArticle" alt=" ">                            <span class="sg-class-name">typeArticle</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="29" class="s typeMediaPinIt" alt=" ">                            <span class="sg-class-name">typeMediaPinIt</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="24" height="27" class="s stepsCubePast" alt=" ">                            <span class="sg-class-name">stepsCubePast</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="24" height="27" class="s stepsCubePresent" alt=" ">                            <span class="sg-class-name">stepsCubePresent</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="20" height="23" class="s stepsCubeFuture" alt=" ">                            <span class="sg-class-name">stepsCubeFuture</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="69" height="103" class="s uploadPin" alt=" ">                            <span class="sg-class-name">uploadPin</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="69" height="103" class="s uploadPinOver" alt=" ">                            <span class="sg-class-name">uploadPinOver</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="86" height="65" class="s uploadBoard" alt=" ">                            <span class="sg-class-name">uploadBoard</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="86" height="65" class="s uploadBoardOver" alt=" ">                            <span class="sg-class-name">uploadBoardOver</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="h2 padT15">Privacy Icons Sprite</h3>
+            <p class="padT10">El <span class="bold">Privacy Icons Sprite</span> los usaremos en <span class="bold">botones</span> junto con un <em>tag</em> <span class="bold">span</span> con la class <span class="bold">"sPrivacy"</span> seguida de la class correspondiente al icono del candado que queramos usar (<span class="bold">"private"</span> o <span class="bold">"public"</span>).</p>
+            <div class="padT10 js-sg-code-viewer">
+                <p class="padB5">
+                    <span class="js-sg-arrow">→</span>
+                    <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                </p>
+                <div class="js-sg-code-block hidden">
+                    <pre><code>&lt;a href="#" class="btn sizeBtnL skinBtnGrey"&gt;
+    &lt;span class="sPrivacy private"&gt;privado&lt;/span&gt;
+&lt;/a&gt;</code></pre>
+                    <p class="padT10">Este ejemplo daría como resultado el siguiente botón:</p>
+                    <p class="padT10">
+                        <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnGrey">
+                            <span class="sPrivacy private">privado</span>
+                        </a>
+                    </p>
+                </div>
+            </div>
+            <p class="padT10">Esta es la <span class="bold">imagen</span> que usaremos para el <span class="bold">Privacy Icons Sprite:</span> <a href="http://pinroom.com/img/sprite_privacy_icons.png" class="sg-link" target="_blank">sprite_privacy_icons.png</a></p>
+            <p class="padT10">Estas son las <span class="bold">classes</span> que usaremos para los <span class="bold">distintos iconos:</span></p>
+            <div class="container_16 padT10">
+                <div class="grid_4">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <span class="block padB5 bold">skinBtnGrey</span>
+                            <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnGrey">
+                                <span class="sPrivacy private">privado</span>
+                            </a>
+                            <span class="sg-class-name">private</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_4">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <span class="block padB5 bold">skinBtnGreyDark</span>
+                            <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnGreyDark">
+                                <span class="sPrivacy private">privado</span>
+                            </a>
+                            <span class="sg-class-name">private</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_4">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <span class="block padB5 bold">skinBtnGrey</span>
+                            <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnGrey">
+                                <span class="sPrivacy public">público</span>
+                            </a>
+                            <span class="sg-class-name">public</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_4">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <span class="block padB5 bold">skinBtnGreyDark</span>
+                            <a href="http://pinroom.com/fronttest#" class="btn sizeBtnL skinBtnGreyDark">
+                                <span class="sPrivacy public">público</span>
+                            </a>
+                            <span class="sg-class-name">public</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <h3 class="h2 padT15">Star Rating Sprite</h3>
+            <p class="padT10">El <span class="bold">Star Rating Sprite</span> forma parte del plugin <a href="http://plugins.learningjquery.com/half-star-rating/" class="sg-link" target="_blank">jQuery Simple Half-Star Rating Plugin</a>. Usa un <em>tag</em> <span class="bold">div</span> con class <span class="bold">"star"</span> seguida de otra class <span class="bold">"star-left"</span> o <span class="bold">"star-right"</span>, seguida de la class correspondiente al <span class="bold">estado (on / off / hover).</span> El siguiente código es a modo de ejemplo, ya que la asignación de classes, <em>data attributes</em> y demás es gestionado automáticamente por el <em>plugin</em>.</p>
+            <div class="padT10 padB10 js-sg-code-viewer">
+                <p class="padB5">
+                    <span class="js-sg-arrow">→</span>
+                    <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                </p>
+                <pre class="js-sg-code-block hidden"><code>&lt;div class="rating"&gt;
+    &lt;div class="star star-left on"&gt;&lt;a href="#" title="1/5" style="width:100%;"&gt;1&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="star star-right on"&gt;&lt;a href="#" title="1/5" style="width:100%;"&gt;1&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="star star-left on"&gt;&lt;a href="#" title="2/5" style="width:100%;"&gt;2&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="star star-right on"&gt;&lt;a href="#" title="2/5" style="width:100%;"&gt;2&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="star star-left on"&gt;&lt;a href="#" title="3/5" style="width:100%;"&gt;3&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="star star-right"&gt;&lt;a href="#" title="3/5" style="width:100%;"&gt;3&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="star star-left"&gt;&lt;a href="#" title="4/5" style="width:100%;"&gt;4&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="star star-right"&gt;&lt;a href="#" title="4/5" style="width:100%;"&gt;4&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="star star-left"&gt;&lt;a href="#" title="5/5" style="width:100%;"&gt;5&lt;/a&gt;&lt;/div&gt;
+    &lt;div class="star star-right"&gt;&lt;a href="#" title="5/5" style="width:100%;"&gt;5&lt;/a&gt;&lt;/div&gt;
+&lt;/div&gt;</code></pre>
+            </div>
+            <div class="container_16">
+                <div class="grid_5">
+                    <div class="sg-box-grey">
+                        <div class="rating">
+                            <div class="star star-left">
+                                <a href="http://pinroom.com/fronttest#" title="1/5" style="width:100%;">1</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="1/5" style="width:100%;">1</a>
+                            </div>
+                            <div class="star star-left">
+                                <a href="http://pinroom.com/fronttest#" title="2/5" style="width:100%;">2</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="2/5" style="width:100%;">2</a>
+                            </div>
+                            <div class="star star-left">
+                                <a href="http://pinroom.com/fronttest#" title="3/5" style="width:100%;">3</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="3/5" style="width:100%;">3</a>
+                            </div>
+                            <div class="star star-left">
+                                <a href="http://pinroom.com/fronttest#" title="4/5" style="width:100%;">4</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="4/5" style="width:100%;">4</a>
+                            </div>
+                            <div class="star star-left">
+                                <a href="http://pinroom.com/fronttest#" title="5/5" style="width:100%;">5</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="5/5" style="width:100%;">5</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_5">
+                    <div class="sg-box-grey">
+                        <div class="rating">
+                            <div class="star star-left hover">
+                                <a href="http://pinroom.com/fronttest#" title="1/5" style="width:100%;">1</a>
+                            </div>
+                            <div class="star star-right hover">
+                                <a href="http://pinroom.com/fronttest#" title="1/5" style="width:100%;">1</a>
+                            </div>
+                            <div class="star star-left hover">
+                                <a href="http://pinroom.com/fronttest#" title="2/5" style="width:100%;">2</a>
+                            </div>
+                            <div class="star star-right hover">
+                                <a href="http://pinroom.com/fronttest#" title="2/5" style="width:100%;">2</a>
+                            </div>
+                            <div class="star star-left hover">
+                                <a href="http://pinroom.com/fronttest#" title="3/5" style="width:100%;">3</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="3/5" style="width:100%;">3</a>
+                            </div>
+                            <div class="star star-left">
+                                <a href="http://pinroom.com/fronttest#" title="4/5" style="width:100%;">4</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="4/5" style="width:100%;">4</a>
+                            </div>
+                            <div class="star star-left">
+                                <a href="http://pinroom.com/fronttest#" title="5/5" style="width:100%;">5</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="5/5" style="width:100%;">5</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="grid_5 suffix_1">
+                    <div class="sg-box-grey">
+                        <div class="rating">
+                            <div class="star star-left on">
+                                <a href="http://pinroom.com/fronttest#" title="1/5" style="width:100%;">1</a>
+                            </div>
+                            <div class="star star-right on">
+                                <a href="http://pinroom.com/fronttest#" title="1/5" style="width:100%;">1</a>
+                            </div>
+                            <div class="star star-left on">
+                                <a href="http://pinroom.com/fronttest#" title="2/5" style="width:100%;">2</a>
+                            </div>
+                            <div class="star star-right on">
+                                <a href="http://pinroom.com/fronttest#" title="2/5" style="width:100%;">2</a>
+                            </div>
+                            <div class="star star-left on">
+                                <a href="http://pinroom.com/fronttest#" title="3/5" style="width:100%;">3</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="3/5" style="width:100%;">3</a>
+                            </div>
+                            <div class="star star-left">
+                                <a href="http://pinroom.com/fronttest#" title="4/5" style="width:100%;">4</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="4/5" style="width:100%;">4</a>
+                            </div>
+                            <div class="star star-left">
+                                <a href="http://pinroom.com/fronttest#" title="5/5" style="width:100%;">5</a>
+                            </div>
+                            <div class="star star-right">
+                                <a href="http://pinroom.com/fronttest#" title="5/5" style="width:100%;">5</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h3 class="h2 padT15">Badges Sprite</h3>
+            <p class="padT10">Para el <span class="bold">Badges Sprite</span> usaremos el <em>tag</em> <span class="bold">img</span> con una imagen transparente <em>(inv.gif)</em>, junto con la class <span class="bold">"sBadgesS"</span> o <span class="bold">"sBadgesM"</span> seguida de la class correspondiente al sprite en concreto que queramos usar, p.e. <span class="bold">"bdgS_5"</span>.</p>
+            <div class="padT10 js-sg-code-viewer">
+                <p class="padB5">
+                    <span class="js-sg-arrow">→</span>
+                    <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                </p>
+                <div class="js-sg-code-block hidden">
+                    <pre><code>&lt;img src="img/inv.gif" width="63" height="63" class="sBadgesS bdgS_5" alt="Artista" /&gt;</code></pre>
+                    <p class="padT10">Este ejemplo daría como resultado el siguiente icono:</p>
+                    <p class="padT10">
+                        <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_5" alt="Artista">                    </p>
+                </div>
+            </div>
+            <p class="padT10">Estas son las <span class="bold">imágenes</span> que usaremos para el <span class="bold">Badges Sprite:</span> <a href="http://pinroom.com/img/sprite_badges_small_02.png" class="sg-link" target="_blank">sprite_badges_small_02.png</a> (tamaño pequeño), <a href="http://pinroom.com/img/sprite_badges_medium_02.png" class="sg-link" target="_blank">sprite_badges_medium_02.png</a> (tamaño medio).</p>
+            <p class="padT10">Estas son las <span class="bold">classes</span> que usaremos para los <span class="bold">iconos tamaño pequeño (63x63px):</span></p>
+            <div class="container_16 padT10">
+                <div class="grid_5">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_0" alt=" ">                            <span class="sg-class-name">bdgS_0</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_1" alt=" ">                            <span class="sg-class-name">bdgS_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_2" alt=" ">                            <span class="sg-class-name">bdgS_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_3" alt=" ">                            <span class="sg-class-name">bdgS_3</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_4" alt=" ">                            <span class="sg-class-name">bdgS_4</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_5" alt=" ">                            <span class="sg-class-name">bdgS_5</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_6" alt=" ">                            <span class="sg-class-name">bdgS_6</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_7" alt=" ">                            <span class="sg-class-name">bdgS_7</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_8" alt=" ">                            <span class="sg-class-name">bdgS_8</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_5">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_9" alt=" ">                            <span class="sg-class-name">bdgS_9</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_10" alt=" ">                            <span class="sg-class-name">bdgS_10</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_11_1" alt=" ">                            <span class="sg-class-name">bdgS_11_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_12_2" alt=" ">                            <span class="sg-class-name">bdgS_12_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_13_3" alt=" ">                            <span class="sg-class-name">bdgS_13_3</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_14" alt=" ">                            <span class="sg-class-name">bdgS_14</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_15" alt=" ">                            <span class="sg-class-name">bdgS_15</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_16" alt=" ">                            <span class="sg-class-name">bdgS_16</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_17" alt=" ">                            <span class="sg-class-name">bdgS_17</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_5 suffix_1">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_18_1" alt=" ">                            <span class="sg-class-name">bdgS_18_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_18_2" alt=" ">                            <span class="sg-class-name">bdgS_18_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_18_3" alt=" ">                            <span class="sg-class-name">bdgS_18_3</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_19_1" alt=" ">                            <span class="sg-class-name">bdgS_19_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_19_2" alt=" ">                            <span class="sg-class-name">bdgS_19_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_19_3" alt=" ">                            <span class="sg-class-name">bdgS_19_3</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_20_1" alt=" ">                            <span class="sg-class-name">bdgS_20_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_20_2" alt=" ">                            <span class="sg-class-name">bdgS_20_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="63" height="63" class="sBadgesS bdgS_20_3" alt=" ">                            <span class="sg-class-name">bdgS_20_3</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="padT10">Estas son las <span class="bold">classes</span> que usaremos para los <span class="bold">iconos tamaño medio (115x115px):</span></p>
+            <div class="container_16 padT10">
+                <div class="grid_5">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_0" alt=" ">                            <span class="sg-class-name">bdgM_0</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_1" alt=" ">                            <span class="sg-class-name">bdgM_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_2" alt=" ">                            <span class="sg-class-name">bdgM_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_3" alt=" ">                            <span class="sg-class-name">bdgM_3</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_4" alt=" ">                            <span class="sg-class-name">bdgM_4</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_5" alt=" ">                            <span class="sg-class-name">bdgM_5</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_6" alt=" ">                            <span class="sg-class-name">bdgM_6</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_7" alt=" ">                            <span class="sg-class-name">bdgM_7</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_8" alt=" ">                            <span class="sg-class-name">bdgM_8</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_5">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_9" alt=" ">                            <span class="sg-class-name">bdgM_9</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_10" alt=" ">                            <span class="sg-class-name">bdgM_10</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_11_1" alt=" ">                            <span class="sg-class-name">bdgM_11_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_12_2" alt=" ">                            <span class="sg-class-name">bdgM_12_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_13_3" alt=" ">                            <span class="sg-class-name">bdgM_13_3</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_14" alt=" ">                            <span class="sg-class-name">bdgM_14</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_15" alt=" ">                            <span class="sg-class-name">bdgM_15</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_16" alt=" ">                            <span class="sg-class-name">bdgM_16</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_17" alt=" ">                            <span class="sg-class-name">bdgM_17</span>
+                        </li>
+                    </ul>
+                </div>
+                <div class="grid_5 suffix_1">
+                    <ul class="sg-box-grey">
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_18_1" alt=" ">                            <span class="sg-class-name">bdgM_18_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_18_2" alt=" ">                            <span class="sg-class-name">bdgM_18_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_18_3" alt=" ">                            <span class="sg-class-name">bdgM_18_3</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_19_1" alt=" ">                            <span class="sg-class-name">bdgM_19_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_19_2" alt=" ">                            <span class="sg-class-name">bdgM_19_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_19_3" alt=" ">                            <span class="sg-class-name">bdgM_19_3</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_20_1" alt=" ">                            <span class="sg-class-name">bdgM_20_1</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_20_2" alt=" ">                            <span class="sg-class-name">bdgM_20_2</span>
+                        </li>
+                        <li>
+                            <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="115" height="115" class="sBadgesM bdgM_20_3" alt=" ">                            <span class="sg-class-name">bdgM_20_3</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <p class="padT10">Para el <span class="bold">tamaño grande (169x169px) no usaremos sprites</span> ya que los iconos son demasiado grandes (y pesados) para usarlos como tal. Los insertaremos de la forma tradicional, mediante <em>tag</em> <span class="bold">img</span>.</p>
+            <div class="padT10 js-sg-code-viewer">
+                <p class="padB5">
+                    <span class="js-sg-arrow">→</span>
+                    <a href="http://pinroom.com/fronttest#" class="js-sg-trigger sg-link">Mostrar código</a>
+                </p>
+                <div class="js-sg-code-block hidden">
+                    <pre><code>&lt;img src="img/badges/bdgL_5.png" width="169" height="169" alt="Artista" /&gt;</code></pre>
+                    <p class="padT10">Este ejemplo daría como resultado el siguiente icono:</p>
+                    <p class="padT10">
+                        <img src="./Pinroom - Style Guide   UI Pattern Library_files/bdgL_5.png" width="169" height="169" alt="Artista">                    </p>
+                </div>
+            </div>            
+        </div>
+
+    </div>
+    
+    <div id="footer">
+    <div class="hr pxLight wp95">        <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="50" height="23" class="s icoCubeDark" alt="Pinroom logo">
+    </div>
+    <ul class="navListDotsSmall">
+                <li><a href="http://pinroom.com/about/" class="normal" title="Acerca de">Acerca de</a></li>
+        <li><a href="http://pinroom.com/about/legal" class="normal" title="Condiciones legales">Condiciones legales</a></li>
+        <li><a href="mailto:contact@pinroom.com" class="normal" title="Contáctanos">Contáctanos</a></li>
+    </ul>
+</div>
+
+                <script type="text/javascript" src="./Pinroom - Style Guide   UI Pattern Library_files/b37f3e9.js"></script>
+
+    <script type="text/javascript">
+        prPinroom.URL_TO_LOGIN = "http://pinroom.com/login"; // User is not loggedInAvatar
+        prPinroom.OWNER = '-1';
+        prPinroom.IDENTIFIED = '-1';
+    </script>
+<div id="dialog-back-layer" class="hidden">
+    <div id="dialog-loader" class="dialog-container-center-absolute">
+                <img src="./Pinroom - Style Guide   UI Pattern Library_files/inv.gif" width="32" height="28" class="s icoLoading animRotate360" alt="Loading...">    </div>
+    <div id="dialog-container" class="hidden dialog-container-center-absolute">
+        <div id="dialog-box" class="container_12 boxDialog skinBoxDialogModal">
+                                    <div id="dialog-content"></div>
+        </div>
+    </div>
+</div>
+    
+
+<a href="http://pinroom.com/fronttest#" class="btnToTop skinBtnToTopGrey hidden" style="display: none;">Ir hacia<br>arriba</a></body></html>
